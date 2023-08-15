@@ -1,6 +1,9 @@
 import logo from "./logo.svg";
 import "./App.css";
 import Card from "./components/class card/card";
+import Footer from "./components/footer/footer";
+import Search from "./components/search/search";
+import NavigationBar from "./components/navBar/navigationBar";
 
 function App() {
   return (
@@ -20,7 +23,10 @@ function App() {
     //     </a>
     <div className="App">
       <header className="App-header">
-        <Card />
+        {/* <Card />
+        <Footer /> */}
+        <NavigationBar />
+        {/* <Search /> */}
       </header>
     </div>
   );

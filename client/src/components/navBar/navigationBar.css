@@ -7,12 +7,21 @@
   left: 0;
   display: flex;
   align-items: center;
-  background: #000000;
-  opacity: 0.4;
-  border-radius: 20px;
   color: #E3E3E3;
   font-family: 'Urbanist';
   font-weight: 400;
+}
+
+.navigation-bar::before {
+  content: ''; /* Pseudo-element content */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4); 
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;/* Background overlay with opacity */
 }
 
 .logo {
@@ -21,8 +30,8 @@
   line-height: 38px;
   text-align: left;
   padding-left: 20px;
+  position: relative;
 }
-
 .menu-icon,
 .notification-icon,
 .profile-icon,
@@ -33,8 +42,11 @@
   align-items: center;
   justify-content: center;
   margin: 0 10px;
+  position: relative;
 }
-
+.menu-icon {
+  margin-left: 20px;
+}
 .icon {
   font-size: 24px;
 }
@@ -49,16 +61,5 @@
   right: 0;
 }
 
-.profile-icon-inner {
-  position: relative;
-}
 
-.profile-icon-bg {
-  width: 24px;
-  height: 24px;
-  background-color: #CB559E;
-  border-radius: 50%;
-  position: absolute;
-  top: -2px;
-  left: -2px;
-}
+

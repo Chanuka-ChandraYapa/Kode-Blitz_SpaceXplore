@@ -1,0 +1,123 @@
+.main {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    align-items: center;
+    flex-direction: column;
+    row-gap: 20px;
+}
+
+h1 {
+    margin: 10px;
+    font-size: 40px;
+    color: rgb(1, 1, 59);
+}
+
+.search {
+    width: 30%;
+}
+
+ul li {
+    font-size: 20px;
+} 
+
+/* Search Your Dream */
+
+/* position: absolute;
+width: 414px;
+height: 45px;
+left: calc(50% - 414px/2 - 8px);
+top: 212px; */
+
+/* Heading 1 mobile */
+.searchtext{
+font-family: 'Orbitron';
+font-style: normal;
+font-weight: 900;
+font-size: 28px;
+line-height: 45px;
+text-align: center;
+
+/* Text Primary */
+color: #E3E3E3;
+}
+
+/* SearchBox.css */
+.search-container {
+    display: inline-block;
+    position: relative;
+  }
+  
+  .search-input {
+    width: 300px;
+    padding: 15px 10px 15px 60px;
+    border: none;
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.5); /* Half transparent white background */
+    outline: none;
+    font-size: 20px;
+  }
+  
+  .search-input::placeholder {
+    color: rgba(255, 255, 255, 0.7); /* Semi-transparent black placeholder text */
+  }
+  
+  /* Style for the input when focused */
+  .search-input:focus {
+    background-color: rgba(255, 255, 255, 0.8); /* Slightly more opaque background when focused */
+  }
+  .search-icon {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    font-size: 24px;
+    color: #CB559E;
+  }
+
+  .filter-icon {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: #CB559E;
+  }
+
+  .filter-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 5%;
+    width: 70%;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-top: none;
+    border-radius: 5%;
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+    opacity: 0;
+    transform: translateY(20px); /* Slide up slightly before appearing */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  .filter-dropdown.active {
+    opacity: 1; /* Show the dropdown when active */
+    transform: translateY(0); /* Reset the transform */
+  }
+  
+  .filter-dropdown ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .filter-dropdown li {
+    padding: 10px;
+    cursor: pointer;
+    color: black;
+  }
+  
+  .filter-dropdown li:hover {
+    background-color: #f5f5f5;
+    border-radius: 10%;
+  }
+  
