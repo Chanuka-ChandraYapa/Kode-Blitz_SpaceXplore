@@ -1,0 +1,164 @@
+/* Card.css */
+.card {
+    position: absolute;
+    width: 350px;
+    height: 280px;
+  }
+  
+  .rectangle {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 40px;
+  }
+  
+  .register-button {
+    position: absolute;
+    width: 98px;
+    height: 34px;
+    right: 24px;
+    bottom: 25px;
+    background: #CB559E;
+    border-radius: 20px;
+    font-family: 'Urbanist';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 27px;
+    text-align: center;
+    color: #E3E3E3;
+  }
+  
+  .book-button {
+    position: absolute;
+    width: 67px;
+    height: 32px;
+    right: 10px;
+    bottom: 25px;
+    font-family: 'Urbanist';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 27px;
+    text-align: center;
+    color: #E3E3E3;
+  }
+  
+  .line {
+    position: absolute;
+    width: 100%;
+    height: 0px;
+    left: 0;
+    bottom: 75px;
+    border: 2px solid #B7B9BB;
+  }
+  
+  .date {
+    position: absolute;
+    width: 112px;
+    height: 27px;
+    right: -30px;
+    transform: translateX(-50%);
+    bottom: 135px;
+    font-family: 'Urbanist';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 27px;
+    text-align: center;
+    color: #E3E3E3;
+  }
+  
+  .mars-heading {
+    position: absolute;
+    width: 116px;
+    height: 30px;
+    right: -30px;
+    transform: translateX(-50%);
+    top:90px;
+    bottom: 90px;
+    font-family: 'Urbanist';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #FFFFFF;
+  }
+  
+  .economy-heading {
+    position: absolute;
+    width: 255px;
+    height: 59px;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 25px;
+    font-family: 'Urbanist';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #CB559E;
+  }
+  
+  .earth-heading {
+    position: absolute;
+    width: 116px;
+    height: 30px;
+    left: 20px;
+    top: 90px;
+    font-family: 'Urbanist';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #FFFFFF;
+  }
+  
+  .ctc {
+    position: absolute;
+    width: 112px;
+    height: 27px;
+    left: 20px;
+    bottom: 135px;
+    font-family: 'Urbanist';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 27px;
+    text-align: center;
+    color: #FFFFFF;
+  }
+  
+  .line-12 {
+    position: absolute;
+    width: 88px;
+    height: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 175px;
+    border: 2px solid #CB559E;
+  }
+  
+  .ac-heading {
+    position: absolute;
+    width: 159px;
+    height: 37px;
+    left: 20px;
+    bottom: 25px;
+    font-family: 'Urbanist';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #CB559E;
+  }
+  
