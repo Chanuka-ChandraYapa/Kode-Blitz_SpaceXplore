@@ -1,0 +1,64 @@
+/* Navigation Bar */
+.navigation-bar {
+  position: absolute;
+  width: 100%;
+  height: 70px;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  background: #000000;
+  opacity: 0.4;
+  border-radius: 20px;
+  color: #E3E3E3;
+  font-family: 'Urbanist';
+  font-weight: 400;
+}
+
+.logo {
+  width: 216px;
+  font-size: 32px;
+  line-height: 38px;
+  text-align: left;
+  padding-left: 20px;
+}
+
+.menu-icon,
+.notification-icon,
+.profile-icon,
+.sign-out-icon {
+  width: 24px;
+  height: 23px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 10px;
+}
+
+.icon {
+  font-size: 24px;
+}
+
+.notification-indicator {
+  width: 10px;
+  height: 10px;
+  background-color: #CB559E;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.profile-icon-inner {
+  position: relative;
+}
+
+.profile-icon-bg {
+  width: 24px;
+  height: 24px;
+  background-color: #CB559E;
+  border-radius: 50%;
+  position: absolute;
+  top: -2px;
+  left: -2px;
+}
