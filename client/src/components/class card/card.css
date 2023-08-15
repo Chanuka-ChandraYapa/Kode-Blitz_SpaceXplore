@@ -1,6 +1,6 @@
 /* Card.css */
 .card {
-    position: absolute;
+    position: relative;
     width: 350px;
     height: 280px;
   }
