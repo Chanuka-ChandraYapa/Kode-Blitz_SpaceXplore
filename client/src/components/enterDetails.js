@@ -7,6 +7,8 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 
+import NumberSpinner from "./numberSpinner/numSpinner";
+
 const EnterDetails = () => {
   const [passengerCount, setPassengerCount] = useState(1);
   const [adultCount, setAdultCount] = useState(1);
@@ -26,83 +28,47 @@ const EnterDetails = () => {
 
   return (
     <div className="enter-details">
-      <div className="section-heading">Business</div>
-      <div className="detail-item">
-        <span className="detail-label">No of Passengers:</span>
+      {/* <div>
+        <mobiscroll.Number
+          ref="number"
+          theme="ios"
+          themeVariant="light"
+          layout="fixed"
+          step={1}
+          min={10}
+          max={150}
+          width={150}
+          placeholder="Please Select..."
+        />
+      </div> */}
 
+      <div className="section-heading">Business</div>
+
+      <span className="detail-label">No of Passengers:</span>
+      <div className="detail-item">
         <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
-          <InputLabel id="passengers-label" sx={{ color: "#CB559E" }}>
-            Passengers
-          </InputLabel>
-          <Select
-            labelId="passengers-label"
-            id="passengers-select"
+          <NumberSpinner
             value={passengerCount}
             onChange={handlePassengerChange}
-            label="Passengers"
-            sx={{ color: "#CB559E" }} // Color for the selected value text
-          >
-            {Array.from({ length: 10 }, (_, index) => index + 1).map(
-              (count) => (
-                <MenuItem key={count} value={count}>
-                  {count}
-                </MenuItem>
-              )
-            )}
-          </Select>
+          />
         </FormControl>
+      </div>
 
-        <div className="detail-item">
-          <span className="detail-label">No of Adults:</span>
+      <span className="detail-label">No of Adults:</span>
+      <div className="detail-item">
+        <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
+          <NumberSpinner value={adultCount} onChange={handleAdultChange} />
+        </FormControl>
+      </div>
 
-          <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
-            <InputLabel id="adult-label" sx={{ color: "#CB559E" }}>
-              Adults
-            </InputLabel>
-            <Select
-              labelId="adult-label"
-              id="adult-select"
-              value={adultCount}
-              onChange={handleAdultChange}
-              label="Adults"
-              sx={{ color: "#CB559E" }} // Color for the selected value text
-            >
-              {Array.from({ length: 10 }, (_, index) => index + 1).map(
-                (count) => (
-                  <MenuItem key={count} value={count}>
-                    {count}
-                  </MenuItem>
-                )
-              )}
-            </Select>
-          </FormControl>
-        </div>
-
-        <div className="detail-item">
-          <span className="detail-label">No of Children:</span>
-
-          <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
-            <InputLabel id="Children-label" sx={{ color: "#CB559E" }}>
-              Children
-            </InputLabel>
-            <Select
-              labelId="children-label"
-              id="children-select"
-              value={childrenCount}
-              onChange={handleChildrenChange}
-              label="Children"
-              sx={{ color: "#CB559E" }} // Color for the selected value text
-            >
-              {Array.from({ length: 10 }, (_, index) => index + 1).map(
-                (count) => (
-                  <MenuItem key={count} value={count}>
-                    {count}
-                  </MenuItem>
-                )
-              )}
-            </Select>
-          </FormControl>
-        </div>
+      <span className="detail-label">No of Children:</span>
+      <div className="detail-item">
+        <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
+          <NumberSpinner
+            value={childrenCount}
+            onChange={handleChildrenChange}
+          />
+        </FormControl>
       </div>
       {/* ... (similar blocks for No of Adults and No of Children) */}
     </div>
