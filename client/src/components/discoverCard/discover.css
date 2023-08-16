@@ -1,0 +1,42 @@
+.dis {
+    top:40%;
+    left: 50%;
+  }
+
+.img-container-dis {
+    position: absolute;
+    width: 40%;
+    height: 40vh; /* 40% of viewport height */
+    background-image: url('team.jpeg'); /* Replace with your image path */
+    background-size: cover;
+    opacity: 1; /* Initial opacity */
+    border-radius: 10%;
+  }
+  
+  /* FadingImage.css */
+.fading-image-dis {
+    position: absolute;
+    width: 40%;
+    height: 40vh; /* 40% of viewport height */ /* Replace with your image path */
+    background-size: cover;
+    border-radius: 10%;
+    opacity: 1; /* Initial opacity */
+    background: linear-gradient(
+      to bottom,
+      rgba(0,0,0, 0) 0%,
+      #CB559E 100%
+    ); /* Adjust the gradient colors as needed */
+    z-index: 1; /* Transition effect for opacity */
+  }
+.text {
+    font-family: 'Orbitron';
+font-style: normal;
+font-weight: 900;
+font-size: 20px;
+line-height: 550px;
+text-align: center;
+
+/* Text Primary */
+color: #E3E3E3;
+}
+
