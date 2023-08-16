@@ -10,7 +10,6 @@ import PassengerDetailsForm from "../passengerDetails/PassengerDetailsForm";
 import NumberSpinner from "../numberSpinner/numSpinner";
 import PinkButton from "../button/button";
 
-import SlidingPassengerForms from "./slidingpassengerform";
 
 const EnterDetails = () => {
   const [passengerCount, setPassengerCount] = useState(1);
