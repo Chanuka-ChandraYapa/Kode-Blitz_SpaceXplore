@@ -10,10 +10,12 @@ import PassengerDetailsForm from "../passengerDetails/PassengerDetailsForm";
 import NumberSpinner from "../numberSpinner/numSpinner";
 import PinkButton from "../button/button";
 
+import SlidingPassengerForms from "./slidingpassengerform";
+
 const EnterDetails = () => {
   const [passengerCount, setPassengerCount] = useState(1);
   const [adultCount, setAdultCount] = useState(1);
-  const [childrenCount, setChildrenCount] = useState(1);
+  const [childrenCount, setChildrenCount] = useState(0);
 
   const handlePassengerChange = (event) => {
     setPassengerCount(parseInt(event.target.value));
@@ -30,6 +32,7 @@ const EnterDetails = () => {
     console.log.print("HI");
   };
 
+
   return (
     <div className="enter-details">
       {/* <div>
@@ -45,10 +48,8 @@ const EnterDetails = () => {
           placeholder="Please Select..."
         />
       </div> */}
-
       <div className="section-heading">Business</div>
-
-      <span className="detail-label">No of Passengers:</span>
+      {/* <span className="detail-label">No of Passengers:</span>
       <div className="detail-item">
         <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
           <NumberSpinner
@@ -57,15 +58,13 @@ const EnterDetails = () => {
           />
         </FormControl>
         <div>{passengerCount}</div>
-      </div>
-
+      </div> */}
       <span className="detail-label">No of Adults:</span>
       <div className="detail-item">
         <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
           <NumberSpinner value={adultCount} onChange={handleAdultChange} />
         </FormControl>
       </div>
-
       <span className="detail-label">No of Children:</span>
       <div className="detail-item">
         <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
@@ -76,12 +75,30 @@ const EnterDetails = () => {
         </FormControl>
       </div>
       {/* ... (similar blocks for No of Adults and No of Children) */}
-      {Array.from({ length: passengerCount }, (_, index) => (
+      {/* {Array.from({ length: passengerCount }, (_, index) => (
         <div>
           <div className="detail-label">Passenger {index + 1}</div>
           <PassengerDetailsForm key={index} />
         </div>
-      ))}
+      ))} */}
+      <div className="passenger-details-container">
+        {Array.from({ length: adultCount }, (_, index) => (
+          <div>
+            <div className="detail-label">(Adult) Passenger {index + 1}</div>
+            <PassengerDetailsForm key={index} />
+          </div>
+        ))}
+
+        {Array.from({ length: childrenCount }, (_, index) => (
+          <div>
+            <div className="detail-label">
+              (Podi) Passenger {index + adultCount + 1}
+            </div>
+            <PassengerDetailsForm key={index} />
+          </div>
+        ))}
+      </div>
+      {/* <SlidingPassengerForms adultCount={adultCount} childrenCount ={ childrenCount} /> */}
 
       <PinkButton onClick={handleSubmit} text={"Select Your Seats"} />
     </div>
