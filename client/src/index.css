@@ -1,7 +1,7 @@
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', 'Orbitron'
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', 'Orbitron', 'Urbanist',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -23,6 +23,17 @@ body {
   src: local('Orbitron'), url(../public/fonts/Orbitron/static/Orbitron-Regular.ttf) format('truetype');
 }
 
+@font-face {
+  font-family: 'Urbanist';
+  src: local('Urbanist'), url(../public/fonts/Urbanist/Urbanist-VariableFont_wght.ttf) format('truetype');
+
+}
+@font-face {
+  font-family: 'Urbanist';
+   font-weight: 500;
+  src: local('Urbanist'), url(../public/fonts/Urbanist/static/Urbanist-Regular.ttf) format('truetype');
+
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

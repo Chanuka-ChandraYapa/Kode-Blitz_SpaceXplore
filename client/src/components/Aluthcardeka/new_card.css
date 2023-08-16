@@ -1,0 +1,137 @@
+/* .box {
+  border: 0px none;
+  overflow-x: hidden;
+}
+
+.box .discover-card {
+  height: 322px;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 251px;
+}
+
+.box .overlap-group {
+  height: 322px;
+  position: relative;
+  width: 249px;
+}
+
+.box .rectangle {
+  background-color: #CB559E;
+  border-radius: 40px;
+  height: 319px;
+  left: 0;
+  position: absolute;
+  top: 1px;
+  width: 249px;
+}
+
+.box .mask-group {
+  height: 322px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 249px;
+}
+
+.box .text-wrapper {
+  color: var(--text-primary);
+  font-family: "Urbanist";
+  font-size: 20px;
+  font-style: var(--heading-3-mobile-font-style);
+  font-weight: 500;
+  left: 23px;
+  letter-spacing: var(--heading-3-mobile-letter-spacing);
+  line-height: var(--heading-3-mobile-line-height);
+  position: absolute;
+  text-align: center;
+  top: 222px;
+  width: 204px;
+} */
+
+.box {
+  border: 0px none;
+  overflow-x: hidden;
+  
+}
+
+/* .box .discover-card {
+  width: 100%;
+  max-width: 251px;
+  height: auto;
+  position: relative;
+} */
+
+.box .overlap-group {
+
+  width: 100%;
+  max-width: 249px;
+  height: auto;
+  position: relative;
+}
+
+.box .rectangle {
+  /* background-color: #CB559E;
+  border-radius: 40px;
+  width: 100%;
+  max-width: 249px;
+  height: auto;
+  position: relative; */
+  /* mask-image: linear-gradient(to left, transparent 50%, rgb(60, 12, 142)); */
+
+  background-color: #cb559e;
+
+  height: 319px;
+  left: 0;
+  position: absolute;
+  top: 1px;
+  width: 249px;
+}
+
+.box .mask-group {
+  mask-image: linear-gradient(to top, transparent 20%, #0b017d);
+
+  border-radius: 40px;
+  width: 100%;
+  max-width: 249px;
+  height: auto;
+  position: relative;
+}
+
+.box .text-wrapper {
+  /* color: var(--text-primary);
+  font-family: "Urbanist";
+  font-size: 20px;
+  font-style: var(--heading-3-mobile-font-style);
+  font-weight: 500;
+  letter-spacing: var(--heading-3-mobile-letter-spacing);
+  line-height: var(--heading-3-mobile-line-height);
+  text-align: center;
+  width: 100%;
+  max-width: 204px;
+  position: relative;
+  margin-top: 10px;
+  left: 50%; 
+  transform: translateX(-50%); */
+
+  color: var(--text-primary);
+  font-family: "Urbanist";
+  font-size: 20px;
+  font-style: var(--heading-3-mobile-font-style);
+  font-weight: 500;
+  left: 23px;
+  letter-spacing: var(--heading-3-mobile-letter-spacing);
+  line-height: var(--heading-3-mobile-line-height);
+  position: absolute;
+  text-align: center;
+  top: 222px;
+  width: 204px;
+}
+
+@media (max-width: 768px) {
+  .box .text-wrapper {
+    font-size: 18px; /* Adjust font size */
+    line-height: 24px; /* Adjust line height */
+  }
+}
