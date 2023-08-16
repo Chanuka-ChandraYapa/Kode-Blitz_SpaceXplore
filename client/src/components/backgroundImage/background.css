@@ -1,0 +1,9 @@
+.background {
+  background-image: url("https://images6.alphacoders.com/132/1322318.jpeg");
+  background-size: cover;
+  background-position: center;
+  opacity: 0.8;
+  position: relative;
+  width: 100%; /* Adjust width as needed */
+  height: 100vh; /* Adjust height as needed */
+}

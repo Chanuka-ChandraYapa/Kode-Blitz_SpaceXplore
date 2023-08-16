@@ -1,0 +1,102 @@
+.box {
+  border: 0px none;
+  overflow-x: hidden;
+}
+
+.box .card {
+  height: 357px;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 336px;
+}
+
+.box .overlap-group {
+  height: 357px;
+  position: relative;
+  width: 328px;
+}
+
+.box .rectangle {
+  background-color: #00000080;
+  height: 357px;
+  left: 4px;
+  position: absolute;
+  top: 0;
+  width: 320px;
+}
+
+.box .text-wrapper {
+  color: #ffffff;
+  font-family: var(--paragraph-2-mobile-font-family);
+  font-size: var(--paragraph-2-mobile-font-size);
+  font-style: var(--paragraph-2-mobile-font-style);
+  font-weight: var(--paragraph-2-mobile-font-weight);
+  height: 17px;
+  left: 124px;
+  letter-spacing: var(--paragraph-2-mobile-letter-spacing);
+  line-height: var(--paragraph-2-mobile-line-height);
+  position: absolute;
+  text-align: center;
+  top: 220px;
+  white-space: nowrap;
+  width: 79px;
+}
+
+.box .virendra-chronicles {
+  color: #ffffff;
+  font-family: var(--paragraph-3-mobile-font-family);
+  font-size: var(--paragraph-3-mobile-font-size);
+  font-style: var(--paragraph-3-mobile-font-style);
+  font-weight: var(--paragraph-3-mobile-font-weight);
+  height: 66px;
+  left: 0;
+  letter-spacing: var(--paragraph-3-mobile-letter-spacing);
+  line-height: var(--paragraph-3-mobile-line-height);
+  position: absolute;
+  text-align: center;
+  top: 229px;
+  width: 328px;
+}
+
+.box .div {
+  color: #ffffff;
+  font-family: var(--paragraph-1-mobile-font-family);
+  font-size: var(--paragraph-1-mobile-font-size);
+  font-style: var(--paragraph-1-mobile-font-style);
+  font-weight: var(--paragraph-1-mobile-font-weight);
+  height: 66px;
+  left: 27px;
+  letter-spacing: var(--paragraph-1-mobile-letter-spacing);
+  line-height: var(--paragraph-1-mobile-line-height);
+  position: absolute;
+  text-align: center;
+  top: 284px;
+  width: 291px;
+}
+
+.box .mask-group {
+  height: 220px;
+  left: 4px;
+  position: absolute;
+  top: 0;
+  width: 320px;
+}
+
+.box .text-wrapper-2 {
+  color: #ffffff;
+  font-family: var(--heading-2-mobile-font-family);
+  font-size: var(--heading-2-mobile-font-size);
+  font-style: var(--heading-2-mobile-font-style);
+  font-weight: var(--heading-2-mobile-font-weight);
+  height: 35px;
+  left: 89px;
+  letter-spacing: var(--heading-2-mobile-letter-spacing);
+  line-height: var(--heading-2-mobile-line-height);
+  position: absolute;
+  text-align: center;
+  text-shadow: 0px 0px 14px #cb559e;
+  top: 179px;
+  white-space: nowrap;
+  width: 146px;
+}

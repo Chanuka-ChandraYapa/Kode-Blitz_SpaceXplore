@@ -1,0 +1,214 @@
+.box {
+  border: 0px none;
+  overflow-x: hidden;
+}
+
+.box .price-summery {
+  height: 245px;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 585px;
+}
+
+.box .overlap-group {
+  height: 245px;
+  position: relative;
+  width: 565px;
+}
+
+.box .rectangle {
+  background-color: #0000004c;
+  border-radius: 20px;
+  height: 245px;
+  left: 51px;
+  position: absolute;
+  top: 0;
+  width: 404px;
+}
+
+.box .business {
+  color: var(--primary-active);
+  font-family: var(--heading-4-upper-mobile-font-family);
+  font-size: var(--heading-4-upper-mobile-font-size);
+  font-style: var(--heading-4-upper-mobile-font-style);
+  font-weight: var(--heading-4-upper-mobile-font-weight);
+  left: 0;
+  letter-spacing: var(--heading-4-upper-mobile-letter-spacing);
+  line-height: var(--heading-4-upper-mobile-line-height);
+  position: absolute;
+  text-align: center;
+  top: 26px;
+  width: 255px;
+}
+
+.box .passengers-x {
+  color: var(--text-primary);
+  font-family: var(--heading-4-mobile-font-family);
+  font-size: var(--heading-4-mobile-font-size);
+  font-style: var(--heading-4-mobile-font-style);
+  font-weight: var(--heading-4-mobile-font-weight);
+  left: 128px;
+  letter-spacing: var(--heading-4-mobile-letter-spacing);
+  line-height: var(--heading-4-mobile-line-height);
+  position: absolute;
+  top: 56px;
+  width: 253px;
+}
+
+.box .vector {
+  height: 50px;
+  left: 143px;
+  position: absolute;
+  top: 77px;
+  width: 26px;
+}
+
+.box .adults-x {
+  color: var(--text-primary);
+  font-family: var(--paragraph-1-mobile-font-family);
+  font-size: var(--paragraph-1-mobile-font-size);
+  font-style: var(--paragraph-1-mobile-font-style);
+  font-weight: var(--paragraph-1-mobile-font-weight);
+  left: 186px;
+  letter-spacing: var(--paragraph-1-mobile-letter-spacing);
+  line-height: var(--paragraph-1-mobile-line-height);
+  position: absolute;
+  top: 85px;
+  width: 195px;
+}
+
+.box .line {
+  height: 1px;
+  left: 293px;
+  object-fit: cover;
+  position: absolute;
+  top: 97px;
+  width: 55px;
+}
+
+.box .children-x {
+  color: var(--text-primary);
+  font-family: var(--paragraph-1-font-family);
+  font-size: var(--paragraph-1-font-size);
+  font-style: var(--paragraph-1-font-style);
+  font-weight: var(--paragraph-1-font-weight);
+  left: 186px;
+  letter-spacing: var(--paragraph-1-letter-spacing);
+  line-height: var(--paragraph-1-line-height);
+  position: absolute;
+  top: 111px;
+  width: 195px;
+}
+
+.box .img {
+  height: 1px;
+  left: 293px;
+  object-fit: cover;
+  position: absolute;
+  top: 126px;
+  width: 55px;
+}
+
+.box .text-wrapper {
+  color: var(--text-primary);
+  font-family: var(--paragraph-1-font-family);
+  font-size: var(--paragraph-1-font-size);
+  font-style: var(--paragraph-1-font-style);
+  font-weight: var(--paragraph-1-font-weight);
+  left: 363px;
+  letter-spacing: var(--paragraph-1-letter-spacing);
+  line-height: var(--paragraph-1-line-height);
+  position: absolute;
+  top: 112px;
+  width: 98px;
+}
+
+.box .div {
+  color: var(--text-primary);
+  font-family: var(--heading-4-mobile-font-family);
+  font-size: var(--heading-4-mobile-font-size);
+  font-style: var(--heading-4-mobile-font-style);
+  font-weight: var(--heading-4-mobile-font-weight);
+  left: 128px;
+  letter-spacing: var(--heading-4-mobile-letter-spacing);
+  line-height: var(--heading-4-mobile-line-height);
+  position: absolute;
+  top: 149px;
+  width: 253px;
+}
+
+.box .element {
+  color: var(--text-primary);
+  font-family: var(--paragraph-1-mobile-font-family);
+  font-size: var(--paragraph-1-mobile-font-size);
+  font-style: var(--paragraph-1-mobile-font-style);
+  font-weight: var(--paragraph-1-mobile-font-weight);
+  left: 370px;
+  letter-spacing: var(--paragraph-1-mobile-letter-spacing);
+  line-height: var(--paragraph-1-mobile-line-height);
+  position: absolute;
+  top: 149px;
+  width: 98px;
+}
+
+.box .line-2 {
+  height: 1px;
+  left: 293px;
+  object-fit: cover;
+  position: absolute;
+  top: 162px;
+  width: 55px;
+}
+
+.box .text-wrapper-2 {
+  color: var(--text-primary);
+  font-family: var(--heading-4-mobile-font-family);
+  font-size: var(--heading-4-mobile-font-size);
+  font-style: var(--heading-4-mobile-font-style);
+  font-weight: var(--heading-4-mobile-font-weight);
+  left: 128px;
+  letter-spacing: var(--heading-4-mobile-letter-spacing);
+  line-height: var(--heading-4-mobile-line-height);
+  position: absolute;
+  top: 177px;
+  width: 253px;
+}
+
+.box .line-3 {
+  height: 1px;
+  left: 293px;
+  object-fit: cover;
+  position: absolute;
+  top: 190px;
+  width: 55px;
+}
+
+.box .text-wrapper-3 {
+  color: var(--text-primary);
+  font-family: var(--paragraph-1-mobile-font-family);
+  font-size: var(--paragraph-1-mobile-font-size);
+  font-style: var(--paragraph-1-mobile-font-style);
+  font-weight: var(--paragraph-1-mobile-font-weight);
+  left: 305px;
+  letter-spacing: var(--paragraph-1-mobile-letter-spacing);
+  line-height: var(--paragraph-1-mobile-line-height);
+  position: absolute;
+  text-align: center;
+  top: 177px;
+  width: 195px;
+}
+
+.box .element-x {
+  color: var(--text-primary);
+  font-family: var(--paragraph-1-mobile-font-family);
+  font-size: var(--paragraph-1-mobile-font-size);
+  font-style: var(--paragraph-1-mobile-font-style);
+  font-weight: var(--paragraph-1-mobile-font-weight);
+  left: 370px;
+  letter-spacing: var(--paragraph-1-mobile-letter-spacing);
+  line-height: var(--paragraph-1-mobile-line-height);
+  position: absolute;
+  top: 86px;
+  width: 195px;
+}
