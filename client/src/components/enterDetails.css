@@ -1,0 +1,60 @@
+/* Enter ur details */
+.enter-details {
+  position: relative;
+  width: 80%;
+  max-width: 457px;
+  margin: 0 auto;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 60px;
+  color: #E3E3E3;
+  font-family: 'Urbanist', sans-serif;
+}
+
+.section-heading {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #CB559E;
+  margin-bottom: 20px;
+}
+
+.detail-item {
+  margin-bottom: 20px;
+}
+
+.detail-label {
+  font-size: 16px;
+  color: #E3E3E3;
+  margin-right: 10px;
+}
+
+.passenger-dropdown {
+  width: 100px;
+  padding: 6px;
+  font-size: 16px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  color: #333; /* Text color for the dropdown button */
+}
+
+.passenger-dropdown option {
+  color: #333; /* Text color for the dropdown options */
+}
+
+@media (max-width: 768px) {
+  /* ... (existing media query styles) */
+
+  .passenger-dropdown {
+    width: 80px;
+    padding: 4px;
+    font-size: 14px;
+  }
+
+  .passenger-dropdown option {
+    font-size: 14px;
+  }
+}
