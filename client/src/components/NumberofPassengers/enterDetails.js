@@ -6,8 +6,9 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
-
-import NumberSpinner from "./numberSpinner/numSpinner";
+import PassengerDetailsForm from "../passengerDetails/PassengerDetailsForm";
+import NumberSpinner from "../numberSpinner/numSpinner";
+import PinkButton from "../button/button";
 
 const EnterDetails = () => {
   const [passengerCount, setPassengerCount] = useState(1);
@@ -52,6 +53,7 @@ const EnterDetails = () => {
             onChange={handlePassengerChange}
           />
         </FormControl>
+        <div>{passengerCount}</div>
       </div>
 
       <span className="detail-label">No of Adults:</span>
@@ -71,6 +73,14 @@ const EnterDetails = () => {
         </FormControl>
       </div>
       {/* ... (similar blocks for No of Adults and No of Children) */}
+      {Array.from({ length: passengerCount }, (_, index) => (
+        <div>
+          <div className="detail-label">Passenger {index + 1}</div>
+          <PassengerDetailsForm key={index} />
+        </div>
+      ))}
+
+      <PinkButton text={"Select Your Seats"} />
     </div>
   );
 };
