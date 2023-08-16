@@ -26,6 +26,9 @@ const EnterDetails = () => {
   const handleChildrenChange = (event) => {
     setChildrenCount(parseInt(event.target.value));
   };
+  const handleSubmit = (event) => {
+    console.log.print("HI");
+  };
 
   return (
     <div className="enter-details">
@@ -80,7 +83,7 @@ const EnterDetails = () => {
         </div>
       ))}
 
-      <PinkButton text={"Select Your Seats"} />
+      <PinkButton onClick={handleSubmit} text={"Select Your Seats"} />
     </div>
   );
 };

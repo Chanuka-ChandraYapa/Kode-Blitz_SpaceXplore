@@ -1,4 +1,16 @@
- 
+.enter-payment-details {
+    position: relative;
+    width: 90%;
+    max-width: 457px;
+    margin: 0 auto;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 60px;
+    color: #E3E3E3;
+    font-family: 'Urbanist', sans-serif;
+    
+  }
+  
 .passenger-details-form {
     max-width: 400px;
     margin: 0 auto;
