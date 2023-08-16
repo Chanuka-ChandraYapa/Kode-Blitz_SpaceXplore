@@ -1,0 +1,52 @@
+/* .enter-details {
+    position: relative;
+    width: 80%;
+    max-width: 457px;
+    margin: 0 auto;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 60px;
+    color: #E3E3E3;
+    font-family: 'Urbanist', sans-serif;
+  } */
+  .booking-page {
+    margin-top: 10%;
+    margin-bottom: 10%;
+  }
+  .void {
+    margin-top: 95%;
+  }
+  .booking-heading {
+    top:50%;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 24px;
+    text-align: left;
+    text-transform: uppercase;
+    color: #E3E3E3;
+  }
+
+  .booking-sub-heading {
+    top:50%;
+    font-family: 'Urbanist', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 18px;
+    text-align:left;
+    text-transform: uppercase;
+    color: #E3E3E3;
+    margin-top: 5%;
+    margin-bottom: 5%;
+  }
+
+  .booking-sub-title {
+    top:50%;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 24px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #E3E3E3;
+  }
