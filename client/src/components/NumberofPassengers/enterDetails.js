@@ -1,26 +1,19 @@
 import React, { useState } from "react";
 import "./enterDetails.css"; // Import your CSS file
-import axios from "axios";
+import axios from "axios"; // Import axios library
 
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import PassengerDetailsForm from "../passengerDetails/PassengerDetailsForm";
 import NumberSpinner from "../numberSpinner/numSpinner";
+import PassengerDetailsForm from "../passengerDetails/PassengerDetailsForm";
 import PinkButton from "../button/button";
+import FormControl from "@mui/material/FormControl";
 
 const EnterDetails = () => {
   const [passengerCount, setPassengerCount] = useState(1);
-  const [adultCount, setAdultCount] = useState(1);
-  const [childrenCount, setChildrenCount] = useState(0);
-  const [passengerDetailsArray, setPassengerDetailsArray] = useState([]);
   const [tempPassengerDetailsArray, setTempPassengerDetailsArray] = useState(
     []
-  ); // New state for temporary array
-
-  const handlePassengerChange = (event) => {
-    setPassengerCount(parseInt(event.target.value));
-  };
+  );
+  const [adultCount, setAdultCount] = useState(1);
+  const [childrenCount, setChildrenCount] = useState(0);
 
   const handleAdultChange = (event) => {
     setAdultCount(parseInt(event.target.value));
@@ -28,6 +21,10 @@ const EnterDetails = () => {
 
   const handleChildrenChange = (event) => {
     setChildrenCount(parseInt(event.target.value));
+  };
+
+  const handlePassengerChange = (event) => {
+    setPassengerCount(parseInt(event.target.value));
   };
 
   const handlePassengerSubmit = async () => {
@@ -51,36 +48,33 @@ const EnterDetails = () => {
       return newArray;
     });
   };
-  const handleSubmit = (event) => {
-    console.log.print("HI");
-  };
 
   return (
     <div className="enter-details">
       {/* <div>
-        <mobiscroll.Number
-          ref="number"
-          theme="ios"
-          themeVariant="light"
-          layout="fixed"
-          step={1}
-          min={10}
-          max={150}
-          width={150}
-          placeholder="Please Select..."
-        />
-      </div> */}
+      <mobiscroll.Number
+        ref="number"
+        theme="ios"
+        themeVariant="light"
+        layout="fixed"
+        step={1}
+        min={10}
+        max={150}
+        width={150}
+        placeholder="Please Select..."
+      />
+    </div> */}
       <div className="section-heading">Business</div>
       {/* <span className="detail-label">No of Passengers:</span>
-      <div className="detail-item">
-        <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
-          <NumberSpinner
-            value={passengerCount}
-            onChange={handlePassengerChange}
-          />
-        </FormControl>
-        <div>{passengerCount}</div>
-      </div> */}
+    <div className="detail-item">
+      <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
+        <NumberSpinner
+          value={passengerCount}
+          onChange={handlePassengerChange}
+        />
+      </FormControl>
+      <div>{passengerCount}</div>
+    </div> */}
       <span className="detail-label">No of Adults:</span>
       <div className="detail-item">
         <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
@@ -96,36 +90,40 @@ const EnterDetails = () => {
           />
         </FormControl>
       </div>
-      {/* ... (rest of the code) */}
-      {Array.from({ length: passengerCount }, (_, index) => (
-        <div key={index}>
-          <div className="detail-label">Passenger {index + 1}</div>
-          <PassengerDetailsForm
-            onPassengerDetailsChange={(details) =>
-              handlePassengerDetailsChange(index, details)
-            }
-          />
-        </div>
-      ))}{" "}
-      *
+      {/* ... (similar blocks for No of Adults and No of Children) */}
+      {/* {Array.from({ length: passengerCount }, (_, index) => (
+      <div>
+        <div className="detail-label">Passenger {index + 1}</div>
+        <PassengerDetailsForm key={index} />
+      </div>
+    ))} */}
       <div className="passenger-details-container">
         {Array.from({ length: adultCount }, (_, index) => (
-          <div>
+          <div key={index}>
             <div className="detail-label">Passenger {index + 1} (Adult)</div>
-            <PassengerDetailsForm key={index} />
+            <PassengerDetailsForm
+              onPassengerDetailsChange={(details) =>
+                handlePassengerDetailsChange(index, details)
+              }
+            />
           </div>
         ))}
 
         {Array.from({ length: childrenCount }, (_, index) => (
-          <div>
+          <div key={index + adultCount}>
             <div className="detail-label">
               Passenger {index + adultCount + 1} (Children)
             </div>
-            <PassengerDetailsForm key={index} />
+            <PassengerDetailsForm
+              onPassengerDetailsChange={(details) =>
+                handlePassengerDetailsChange(index + adultCount, details)
+              }
+            />
           </div>
         ))}
       </div>
       {/* <SlidingPassengerForms adultCount={adultCount} childrenCount ={ childrenCount} /> */}
+
       <PinkButton onClick={handlePassengerSubmit} text={"Select Your Seats"} />
     </div>
   );
