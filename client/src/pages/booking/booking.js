@@ -5,7 +5,9 @@ import Card from "../../components/class card/card";
 import EnterDetails from "../../components/NumberofPassengers/enterDetails";
 import Footer from "../../components/footer/footer";
 import PaymentInfo from "../../components/paymentInfo/payInfo";
-
+import PinkButton from "../../components/button/button";
+import SeatView from "../../components/seatView/seat";
+import PriceSummary from "../../components/paymentSummary/test";
 import MyBackgroundImage from "../../pages/booking/spaceship-names2.jpg";
 const Booking = () => {
   return (
@@ -22,10 +24,28 @@ const Booking = () => {
       <div className="booking-page">
         <EnterDetails />
       </div>
+      <div className="booking-sub-title"> Select Your Seat</div>
+      <div className="booking-page">
+        <SeatView />
+      </div>
       <div className="booking-sub-title">Payment Info</div>
       <div className="booking-page">
         <PaymentInfo />
       </div>
+      <div className="booking-sub-title">Payment summary</div>
+      <div className="booking-page">
+        <PriceSummary
+          passengers={3}
+          category={"Business"}
+          adults={2}
+          children={1}
+          pricePerAdult={100}
+          pricePerChild={50}
+          discount={20}
+        />
+      </div>
+
+      <PinkButton text={"Book"} />
     </div>
   );
 };

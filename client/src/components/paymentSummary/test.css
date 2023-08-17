@@ -1,0 +1,36 @@
+.price-summary {
+    position: relative;
+    width: 90%;
+    max-width: 457px;
+    margin: 0 auto;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 60px;
+    color: #E3E3E3;
+    font-family: 'Urbanist', sans-serif;
+  }
+  .category {
+    font-size: 24px;
+    color: #CB559E;
+    text-align: left;
+    margin-bottom: 4px;
+    padding: 5%;
+
+  }
+  .row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    padding: 5%;
+  }
+  
+  .total-row {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 16px;
+    border-top: 1px solid #CB559E;
+    padding-top: 8px;
+    font-weight: bold;
+    padding: 5%;
+  }
+  

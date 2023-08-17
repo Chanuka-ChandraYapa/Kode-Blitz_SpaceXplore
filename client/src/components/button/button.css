@@ -1,10 +1,10 @@
 button[type="submit"] {
     background-color: #CB559E;
-    font-family: 'Urbanist';
+    font-family: 'Orbitron';
     color: #E3E3E3;
     padding: 12px 20px;
     border: none;
     border-radius: 20px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 24px;
   }

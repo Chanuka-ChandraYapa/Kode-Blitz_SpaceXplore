@@ -1,0 +1,80 @@
+.enter-seat-details {
+    position: relative;
+    width: 90%;
+    max-width: 457px;
+    margin: 0 auto;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 60px;
+    color: #E3E3E3;
+    font-family: 'Urbanist', sans-serif;
+}
+.seat-view {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .grid {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .row {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .seat {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2px;
+    font-weight:normal;
+    cursor: pointer;
+    border: 1px solid transparent;
+  }
+  
+  .reserved {
+    background-color: #B7B9BB;
+  }
+  
+  .available {
+    background-color: transparent; /* Transparent background */
+    color: #E3E3E3; /* Black seat number color */
+    border-color: #E3E3E3;
+ /* Added border color for available seats */
+  }
+  
+  .selected {
+    background-color: #CB559E;
+  }
+  
+  .selected-seats {
+    margin-top: 20px;
+  }
+  
+  .selected-seats-list {
+    padding-left: 10%;
+    padding-right: 10%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  
+  .selected-seat {
+    background-color: #CB559E;
+    padding: 4px 8px;
+    border-radius: 4px;
+  }
+
+  
+  
+  
+  
+  
+  
