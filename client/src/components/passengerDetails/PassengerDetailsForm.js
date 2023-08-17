@@ -1,31 +1,41 @@
 import React, { useState } from "react";
 import "./PassengerDetailsForm.css"; // Import your CSS file
 
-const PassengerDetailsForm = () => {
+const PassengerDetailsForm = ({ onPassengerDetailsChange }) => {
   const [fullName, setFullName] = useState("");
   const [dateOfBirth, setDateOfBirth] = useState("");
   const [gender, setGender] = useState("");
 
   const handleFullNameChange = (event) => {
     setFullName(event.target.value);
+    onPassengerDetailsChange({
+      fullName: event.target.value,
+      dateOfBirth,
+      gender,
+    });
   };
 
   const handleDateOfBirthChange = (event) => {
     setDateOfBirth(event.target.value);
+    onPassengerDetailsChange({
+      fullName,
+      dateOfBirth: event.target.value,
+      gender,
+    });
   };
 
   const handleGenderChange = (event) => {
     setGender(event.target.value);
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    // You can perform any desired actions with the collected data here
+    onPassengerDetailsChange({
+      fullName,
+      dateOfBirth,
+      gender: event.target.value,
+    });
   };
 
   return (
     <div className="passenger-details-form">
-      <form onSubmit={handleSubmit}>
+      <form>
         <div className="form-group">
           <label htmlFor="fullName">Full Name:</label>
           <input

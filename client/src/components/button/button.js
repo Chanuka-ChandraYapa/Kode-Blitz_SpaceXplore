@@ -1,8 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import "./button.css";
 
-const PinkButton = (text) => {
-  return <button type="submit">submit</button>;
+const PinkButton = ({ text, onClick }) => {
+  return (
+    <button type="submit" onClick={onClick}>
+      {text}
+    </button>
+  );
 };
 
 export default PinkButton;

@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import "./enterDetails.css"; // Import your CSS file
+import axios from "axios";
 
-// import * as React from "react";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
-import Select from "@mui/material/Select";
 import PassengerDetailsForm from "../passengerDetails/PassengerDetailsForm";
 import NumberSpinner from "../numberSpinner/numSpinner";
 import PinkButton from "../button/button";
@@ -14,6 +13,10 @@ const EnterDetails = () => {
   const [passengerCount, setPassengerCount] = useState(1);
   const [adultCount, setAdultCount] = useState(1);
   const [childrenCount, setChildrenCount] = useState(1);
+  const [passengerDetailsArray, setPassengerDetailsArray] = useState([]);
+  const [tempPassengerDetailsArray, setTempPassengerDetailsArray] = useState(
+    []
+  ); // New state for temporary array
 
   const handlePassengerChange = (event) => {
     setPassengerCount(parseInt(event.target.value));
@@ -27,22 +30,30 @@ const EnterDetails = () => {
     setChildrenCount(parseInt(event.target.value));
   };
 
+  const handlePassengerSubmit = async () => {
+    console.log(tempPassengerDetailsArray);
+
+    try {
+      // Send the passenger details to the backend
+      await axios.post("http://localhost:5000/", tempPassengerDetailsArray);
+
+      // Reset the temporary passenger details array
+      setTempPassengerDetailsArray([]);
+    } catch (error) {
+      console.error("Error sending data to backend:", error);
+    }
+  };
+
+  const handlePassengerDetailsChange = (index, details) => {
+    setTempPassengerDetailsArray((prevArray) => {
+      const newArray = [...prevArray];
+      newArray[index] = details; // Update the correct index in the array
+      return newArray;
+    });
+  };
+
   return (
     <div className="enter-details">
-      {/* <div>
-        <mobiscroll.Number
-          ref="number"
-          theme="ios"
-          themeVariant="light"
-          layout="fixed"
-          step={1}
-          min={10}
-          max={150}
-          width={150}
-          placeholder="Please Select..."
-        />
-      </div> */}
-
       <div className="section-heading">Business</div>
 
       <span className="detail-label">No of Passengers:</span>
@@ -72,15 +83,19 @@ const EnterDetails = () => {
           />
         </FormControl>
       </div>
-      {/* ... (similar blocks for No of Adults and No of Children) */}
+      {/* ... (rest of the code) */}
       {Array.from({ length: passengerCount }, (_, index) => (
-        <div>
+        <div key={index}>
           <div className="detail-label">Passenger {index + 1}</div>
-          <PassengerDetailsForm key={index} />
+          <PassengerDetailsForm
+            onPassengerDetailsChange={(details) =>
+              handlePassengerDetailsChange(index, details)
+            }
+          />
         </div>
       ))}
 
-      <PinkButton text={"Select Your Seats"} />
+      <PinkButton text={"Select Your Seats"} onClick={handlePassengerSubmit} />
     </div>
   );
 };
