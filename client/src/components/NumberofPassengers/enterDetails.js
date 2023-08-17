@@ -10,7 +10,6 @@ import PassengerDetailsForm from "../passengerDetails/PassengerDetailsForm";
 import NumberSpinner from "../numberSpinner/numSpinner";
 import PinkButton from "../button/button";
 
-
 const EnterDetails = () => {
   const [passengerCount, setPassengerCount] = useState(1);
   const [adultCount, setAdultCount] = useState(1);
@@ -30,7 +29,6 @@ const EnterDetails = () => {
   const handleSubmit = (event) => {
     console.log.print("HI");
   };
-
 
   return (
     <div className="enter-details">
@@ -83,7 +81,7 @@ const EnterDetails = () => {
       <div className="passenger-details-container">
         {Array.from({ length: adultCount }, (_, index) => (
           <div>
-            <div className="detail-label">(Adult) Passenger {index + 1}</div>
+            <div className="detail-label">Passenger {index + 1} (Adult)</div>
             <PassengerDetailsForm key={index} />
           </div>
         ))}
@@ -91,7 +89,7 @@ const EnterDetails = () => {
         {Array.from({ length: childrenCount }, (_, index) => (
           <div>
             <div className="detail-label">
-              (Podi) Passenger {index + adultCount + 1}
+              Passenger {index + adultCount + 1} (Children)
             </div>
             <PassengerDetailsForm key={index} />
           </div>

@@ -18,7 +18,28 @@ const Booking = () => {
       <div className="booking-sub-heading">1600 CTC Today</div>
       <div className="booking-sub-title">Select Your Class</div>
       <div className="booking-page">
-        <Card />
+        <div className="class-Scrolling">
+          <div className="class-container">
+            <div class="card">
+              <Card />
+            </div>
+            <div class="card">
+              <Card />
+            </div>
+            <div class="card">
+              <Card />
+            </div>
+            <div class="card">
+              <Card />
+            </div>
+            <div class="card">
+              <Card />
+            </div>
+            <div class="card">
+              <Card />
+            </div>
+          </div>
+        </div>
       </div>
       <div className="booking-sub-title">Enter your Details</div>
       <div className="booking-page">
