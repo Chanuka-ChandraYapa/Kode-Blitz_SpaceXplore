@@ -1,8 +1,17 @@
 /* Enter ur details */
+
+.passenger-details-container {
+  max-height: 400px; /* Set the desired maximum height */
+  overflow-y: auto; /* Enable vertical scrolling when content overflows */
+  scroll-snap-type: y mandatory; /* Enable scroll snapping */
+}
+
+
+
 .enter-details {
+  
   position: relative;
-  width: 80%;
-  max-width: 457px;
+  width: 90%;
   margin: 0 auto;
   padding: 20px;
   background: rgba(0, 0, 0, 0.3);

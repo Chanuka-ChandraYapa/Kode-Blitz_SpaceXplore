@@ -1,3 +1,4 @@
+ 
 .passenger-details-form {
     max-width: 400px;
     margin: 0 auto;
@@ -7,11 +8,13 @@
   }
   
   .form-group {
+    font-weight: 500px;
     margin-bottom: 16px;
+    text-align: left;
   }
   
   label {
-    font-weight: bold;
+    font-weight: 500px;
     display: block;
     margin-bottom: 4px;
   }
@@ -19,6 +22,7 @@
   input[type="text"],
   input[type="date"],
   select {
+    font-weight: 500px;
     width: 100%;
     padding: 8px;
     border: none; /* Remove the border */

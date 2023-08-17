@@ -1,12 +1,15 @@
 // Card.js
 import React from "react";
 import "./card.css"; // Import the corresponding CSS file
+import PinkButton from "../button/button";
 
 const Card = () => {
   return (
     <div className="card">
       <div className="rectangle"></div>
-      <div className="register-button">Book</div>
+      <div className="register-button">
+        <PinkButton text={"select"} size={18} />
+      </div>
       <div className="line"></div>
       <div className="date">13-09-07-30</div>
       <div className="mars-heading">MARS</div>

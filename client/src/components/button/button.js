@@ -1,9 +1,9 @@
 import React from "react";
 import "./button.css";
 
-const PinkButton = ({ text, onClick }) => {
+const PinkButton = ({ text, onClick , size}) => {
   return (
-    <button type="submit" onClick={onClick}>
+    <button type="submit" style={{ fontSize: size }} onClick={onClick}>
       {text}
     </button>
   );
