@@ -34,22 +34,22 @@ const Booking = () => {
         <div className="class-Scrolling">
           <div className="class-container">
             <div class="card">
-              <Card />
+              <Card date={"2198-01-18"} />
+            </div>
+            <div class="card">
+              <Card date={"2198-01-18"} />
             </div>
             <div class="card">
               <Card />
             </div>
             <div class="card">
-              <Card />
+              <Card date={"2198-01-18"} />
             </div>
             <div class="card">
-              <Card />
+              <Card date={"2198-01-18"} />
             </div>
             <div class="card">
-              <Card />
-            </div>
-            <div class="card">
-              <Card />
+              <Card date={"2198-01-18"} />
             </div>
           </div>
         </div>

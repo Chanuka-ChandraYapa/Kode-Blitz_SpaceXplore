@@ -26,7 +26,6 @@ router.get("/spaceship", async (req, res) => {
 
     if (result.length > 0) {
       const { startingDate, spaceshipName } = result[0];
-      console.log({ startingDate, spaceshipName });
       res.json({ startingDate, spaceshipName });
     } else {
       res.status(404).json({ message: "Flight not found." });
