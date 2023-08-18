@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import "./seat.css"; // Import the corresponding CSS file
 
-const SeatView = () => {
-  const rows = 8;
+const SeatView = ({ seat_capacity }) => {
+  const rows = Math.ceil(seat_capacity / 6);
   const columns = 6;
   const [selectedSeats, setSelectedSeats] = useState([]);
 

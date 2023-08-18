@@ -12,6 +12,18 @@ import PriceSummary from "../../components/paymentSummary/test";
 import MyBackgroundImage from "../../pages/booking/spaceship-names2.jpg";
 const Booking = () => {
   const [spaceshipData, setSpaceshipData] = useState({ name: "", time: "" });
+  const [selectedSeats, setSelectedSeats] = useState([]); // Maintain selected seats
+
+  const handleBookNow = async () => {
+    try {
+      const response = await axios.post("http://localhost:5000/reserve-seats", {
+        seats: selectedSeats,
+      });
+      console.log(response.data.message); // Success message from the server
+    } catch (error) {
+      console.error("Error reserving seats:", error);
+    }
+  };
 
   useEffect(() => {
     // Fetch spaceship data from backend
@@ -20,6 +32,7 @@ const Booking = () => {
       setSpaceshipData({
         name: firstSpaceship.spaceshipName,
         date: firstSpaceship.startingDate,
+        capacity: firstSpaceship.seating_capacity,
       });
     });
   }, []);
@@ -60,7 +73,7 @@ const Booking = () => {
       </div>
       <div className="booking-sub-title"> Select Your Seat</div>
       <div className="booking-page">
-        <SeatView />
+        <SeatView seat_capacity={48} />
       </div>
       <div className="booking-sub-title">Payment Info</div>
       <div className="booking-page">
@@ -79,7 +92,7 @@ const Booking = () => {
         />
       </div>
 
-      <PinkButton text={"Book"} />
+      <PinkButton text={"Book"} onClick={handleBookNow} />
     </div>
   );
 };
