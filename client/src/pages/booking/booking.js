@@ -10,15 +10,24 @@ import PinkButton from "../../components/button/button";
 import SeatView from "../../components/seatView/seat";
 import PriceSummary from "../../components/paymentSummary/test";
 import MyBackgroundImage from "../../pages/booking/spaceship-names2.jpg";
+
 const Booking = () => {
-  const [spaceshipData, setSpaceshipData] = useState({ name: "", time: "" });
+  const [spaceshipData, setSpaceshipData] = useState({
+    name: "",
+    time: "",
+  });
   const [selectedSeats, setSelectedSeats] = useState([]); // Maintain selected seats
 
   const handleBookNow = async () => {
     try {
+      // Convert selectedSeats into an array of seat_ids
+      const seatIds = selectedSeats.map((seat) => seat.row * 6 + seat.col);
+      console.log(selectedSeats);
+      console.log(seatIds);
       const response = await axios.post("http://localhost:5000/reserve-seats", {
-        seats: selectedSeats,
+        seats: seatIds,
       });
+
       console.log(response.data.message); // Success message from the server
     } catch (error) {
       console.error("Error reserving seats:", error);
@@ -36,6 +45,7 @@ const Booking = () => {
       });
     });
   }, []);
+
   return (
     <div>
       <BackImage MyBackgroundImage={MyBackgroundImage} />
@@ -73,7 +83,11 @@ const Booking = () => {
       </div>
       <div className="booking-sub-title"> Select Your Seat</div>
       <div className="booking-page">
-        <SeatView seat_capacity={48} />
+        <SeatView
+          seat_capacity={48}
+          selectedSeats={selectedSeats}
+          setSelectedSeats={setSelectedSeats}
+        />
       </div>
       <div className="booking-sub-title">Payment Info</div>
       <div className="booking-page">
