@@ -29,6 +29,7 @@ const SeatView = ({ seat_capacity, selectedSeats, setSelectedSeats }) => {
       }
     }
   };
+
   return (
     <div className="enter-seat-details">
       <div className="seat-view">

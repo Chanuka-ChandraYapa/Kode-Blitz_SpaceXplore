@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "password",
+    "password": "nadun2001",
     "database": "spaceXplore_Booking",
     "host": "localhost",
     "dialect": "mysql"

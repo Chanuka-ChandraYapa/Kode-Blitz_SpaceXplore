@@ -21,10 +21,14 @@ const Booking = () => {
 
   const handleBookNow = async () => {
     try {
+      // Convert selectedSeats into an array of seat_ids
+      const seatIds = selectedSeats.map((seat) => seat.row * 6 + seat.col);
       console.log(selectedSeats);
+      console.log(seatIds);
       const response = await axios.post("http://localhost:5000/reserve-seats", {
-        seats: selectedSeats,
+        seats: seatIds,
       });
+
       console.log(response.data.message); // Success message from the server
     } catch (error) {
       console.error("Error reserving seats:", error);
@@ -42,6 +46,7 @@ const Booking = () => {
       });
     });
   }, []);
+
   return (
     <div>
       <BackImage MyBackgroundImage={MyBackgroundImage} />

@@ -30,7 +30,6 @@
   .class-container {
     display: flex;
     justify-content: center;
-    margin-left: 95%;
     flex-direction: row;
     /* Add any other styles you want for the container */
   }
