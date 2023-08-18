@@ -1,0 +1,102 @@
+.box {
+  border: 0px none;
+  height: 446px;
+  width: 600;
+  /* width: 384px; */
+  /* position: sticky;
+  overflow-x: hidden;
+
+  top: 0;
+  z-index: 100; */
+  /* background-color: rgba(255, 255, 255, 0.153); */
+}
+
+.box .condtion-card {
+  height: 446px;
+  width: 600;
+  /* left: 0;
+  position: fixed;
+  top: 0; */
+}
+
+.box .overlap-group {
+  background-color: #0000004c;
+  border-radius: 40px;
+  height: 446px;
+  position: relative;
+  width: 1000;
+}
+
+.box .text-wrapper {
+  color: #ffffff;
+  left: 105px;
+  position: absolute;
+  top: 241px;
+  width: 277px;
+}
+
+.box .div {
+  color: #ffffff;
+  left: 105px;
+  position: absolute;
+  top: 153px;
+  width: 193px;
+}
+
+.box .simple-icons-oxygen {
+  height: 48px;
+  left: 22px;
+  position: absolute;
+  top: 56px;
+  width: 48px;
+}
+
+.box .tabler-trees {
+  height: 55px;
+  left: 18px;
+  position: absolute;
+  top: 219px;
+  width: 52px;
+}
+
+.box .ic-baseline-travel {
+  height: 55px;
+  left: 17px;
+  position: absolute;
+  top: 134px;
+  width: 52px;
+}
+
+.box .text-wrapper-2 {
+  color: #ffffff;
+  left: 105px;
+  position: absolute;
+  top: 71px;
+  width: 193px;
+}
+
+.box .overlap {
+  height: 101px;
+  left: 92px;
+  position: absolute;
+  top: 331px;
+  width: 206px;
+}
+
+.box .register-b {
+  background-color: var(--primary-active);
+  border-radius: 20px;
+  height: 83px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 206px;
+}
+
+.box .text-wrapper-3 {
+  left: 11px;
+  position: absolute;
+  text-align: center;
+  top: 14px;
+  width: 179px;
+}

@@ -6,6 +6,8 @@
   bottom: 0;
   width: 100%;
   height: 100vh;
+  background-color: rgb(180, 26, 170);
+  mask-image: linear-gradient(to bottom, transparent 1%, #0b017dfa);
 }
 
 /* Add any additional styles you need */
