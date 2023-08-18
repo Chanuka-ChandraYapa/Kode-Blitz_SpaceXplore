@@ -5,12 +5,15 @@ module.exports = (sequelize, DataTypes) => {
       SpaceShip_ID: {
         type: DataTypes.STRING, // Assuming SpaceShip_ID is alphanumeric
         allowNull: false,
+        primaryKey: true,
       },
       Model_Name: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      Seating_Capacity: {
         type: DataTypes.INTEGER,
         allowNull: false,
-        primaryKey: true,
-        autoIncrement: true,
       },
     },
     {

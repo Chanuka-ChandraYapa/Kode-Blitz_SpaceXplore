@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import "./booking.css"; // Import the corresponding CSS file
 import BackImage from "../../components/backdrop/backimage";
 import Card from "../../components/class card/card";
@@ -10,33 +11,58 @@ import SeatView from "../../components/seatView/seat";
 import PriceSummary from "../../components/paymentSummary/test";
 import MyBackgroundImage from "../../pages/booking/spaceship-names2.jpg";
 const Booking = () => {
+  const [spaceshipData, setSpaceshipData] = useState({ name: "", time: "" });
+  const [selectedSeats, setSelectedSeats] = useState([]); // Maintain selected seats
+
+  const handleBookNow = async () => {
+    try {
+      const response = await axios.post("http://localhost:5000/reserve-seats", {
+        seats: selectedSeats,
+      });
+      console.log(response.data.message); // Success message from the server
+    } catch (error) {
+      console.error("Error reserving seats:", error);
+    }
+  };
+
+  useEffect(() => {
+    // Fetch spaceship data from backend
+    axios.get("http://localhost:5000/spaceship").then((response) => {
+      const firstSpaceship = response.data;
+      setSpaceshipData({
+        name: firstSpaceship.spaceshipName,
+        date: firstSpaceship.startingDate,
+        capacity: firstSpaceship.seating_capacity,
+      });
+    });
+  }, []);
   return (
     <div>
       <BackImage MyBackgroundImage={MyBackgroundImage} />
       <div className="void"></div>
-      <div className="booking-heading">Galactic Dagger</div>
-      <div className="booking-sub-heading">1600 CTC Today</div>
+      <div className="booking-heading">{spaceshipData.name}</div>
+      <div className="booking-sub-heading">{spaceshipData.date}</div>
       <div className="booking-sub-title">Select Your Class</div>
       <div className="booking-page">
         <div className="class-Scrolling">
           <div className="class-container">
             <div class="card">
-              <Card date={"2023-12-21"} />
+              <Card date={"2198-01-18"} />
+            </div>
+            <div class="card">
+              <Card date={"2198-01-18"} />
             </div>
             <div class="card">
               <Card />
             </div>
             <div class="card">
-              <Card />
+              <Card date={"2198-01-18"} />
             </div>
             <div class="card">
-              <Card date={"2023-12-21-hiii"} planet={"Neptune"} />
+              <Card date={"2198-01-18"} />
             </div>
             <div class="card">
-              <Card />
-            </div>
-            <div class="card">
-              <Card />
+              <Card date={"2198-01-18"} />
             </div>
           </div>
         </div>
@@ -47,7 +73,7 @@ const Booking = () => {
       </div>
       <div className="booking-sub-title"> Select Your Seat</div>
       <div className="booking-page">
-        <SeatView />
+        <SeatView seat_capacity={48} />
       </div>
       <div className="booking-sub-title">Payment Info</div>
       <div className="booking-page">
@@ -66,7 +92,7 @@ const Booking = () => {
         />
       </div>
 
-      <PinkButton text={"Book"} />
+      <PinkButton text={"Book"} onClick={handleBookNow} />
     </div>
   );
 };

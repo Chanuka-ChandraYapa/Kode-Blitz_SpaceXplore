@@ -1,19 +1,17 @@
 import React, { useState } from "react";
-import "./enterDetails.css"; // Import your CSS file
-import axios from "axios"; // Import axios library
-
-import NumberSpinner from "../numberSpinner/numSpinner";
+import axios from "axios";
+import "./enterDetails.css";
 import PassengerDetailsForm from "../passengerDetails/PassengerDetailsForm";
 import PinkButton from "../button/button";
 import FormControl from "@mui/material/FormControl";
+import NumberSpinner from "../numberSpinner/numSpinner";
 
 const EnterDetails = () => {
-  const [passengerCount, setPassengerCount] = useState(0);
+  const [adultCount, setAdultCount] = useState(1);
+  const [childrenCount, setChildrenCount] = useState(0);
   const [tempPassengerDetailsArray, setTempPassengerDetailsArray] = useState(
     []
   );
-  const [adultCount, setAdultCount] = useState(1);
-  const [childrenCount, setChildrenCount] = useState(0);
 
   const handleAdultChange = (event) => {
     setAdultCount(parseInt(event.target.value));
@@ -24,35 +22,31 @@ const EnterDetails = () => {
     setChildrenCount(parseInt(event.target.value));
   };
 
-  const handlePassengerChange = (event) => {
-    setPassengerCount(parseInt(event.target.value));
+  const handlePassengerDetailsChange = (index, details) => {
+    setTempPassengerDetailsArray((prevArray) => {
+      const newArray = [...prevArray];
+      newArray[index] = details;
+      return newArray;
+    });
   };
 
   const handlePassengerSubmit = async () => {
     console.log(tempPassengerDetailsArray);
 
     try {
-      // Send the passenger details to the backend
-      await axios.post("http://localhost:5000/", tempPassengerDetailsArray);
+      await axios.post(
+        "http://localhost:5000/passenger-details",
+        tempPassengerDetailsArray
+      );
 
-      // Reset the temporary passenger details array
       setTempPassengerDetailsArray([]);
     } catch (error) {
       console.error("Error sending data to backend:", error);
     }
   };
 
-  const handlePassengerDetailsChange = (index, details) => {
-    setTempPassengerDetailsArray((prevArray) => {
-      const newArray = [...prevArray];
-      newArray[index] = details; // Update the correct index in the array
-      return newArray;
-    });
-  };
-
   return (
     <div className="enter-details">
-      <div className="section-heading">Business</div>
       <span className="detail-label">No of Adults:</span>
       <div className="detail-item">
         <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
@@ -76,6 +70,7 @@ const EnterDetails = () => {
               onPassengerDetailsChange={(details) =>
                 handlePassengerDetailsChange(index, details)
               }
+              isAdult={true}
             />
           </div>
         ))}
@@ -89,6 +84,7 @@ const EnterDetails = () => {
               onPassengerDetailsChange={(details) =>
                 handlePassengerDetailsChange(index + adultCount, details)
               }
+              isAdult={false}
             />
           </div>
         ))}

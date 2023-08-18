@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import "./PassengerDetailsForm.css"; // Import your CSS file
+import "./PassengerDetailsForm.css";
 
-const PassengerDetailsForm = ({ onPassengerDetailsChange }) => {
+const PassengerDetailsForm = ({ onPassengerDetailsChange, isAdult }) => {
   const [fullName, setFullName] = useState("");
   const [dateOfBirth, setDateOfBirth] = useState("");
   const [gender, setGender] = useState("");
@@ -12,6 +12,7 @@ const PassengerDetailsForm = ({ onPassengerDetailsChange }) => {
       fullName: event.target.value,
       dateOfBirth,
       gender,
+      isAdult,
     });
   };
 
@@ -21,6 +22,7 @@ const PassengerDetailsForm = ({ onPassengerDetailsChange }) => {
       fullName,
       dateOfBirth: event.target.value,
       gender,
+      isAdult,
     });
   };
 
@@ -30,6 +32,7 @@ const PassengerDetailsForm = ({ onPassengerDetailsChange }) => {
       fullName,
       dateOfBirth,
       gender: event.target.value,
+      isAdult,
     });
   };
 

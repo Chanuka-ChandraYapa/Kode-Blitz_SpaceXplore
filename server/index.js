@@ -7,15 +7,11 @@ app.use(cors());
 
 const db = require("./models");
 
-const userRoute = require("./routes/user");
-const commentRoute = require("./routes/comments");
-const postRoute = require("./routes/Post");
 const passengerRoute = require("./routes/Passenger");
+const spaceshipRoute = require("./routes/Spaceship");
 
-app.use("/user", userRoute);
-app.use("/comments", commentRoute);
-//app.use("/posts", postRoute);
 app.use("/", passengerRoute);
+app.use("/", spaceshipRoute);
 
 db.sequelize.sync().then(() => {
   app.listen(5000, () => {

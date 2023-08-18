@@ -2,12 +2,12 @@ const express = require("express");
 const router = express.Router();
 const { Passenger } = require("../models");
 
-router.get("/", async (req, res) => {
+router.get("/passenger-details", async (req, res) => {
   const listofPassenger = await Passenger.findAll();
   res.json(listofPassenger);
 });
 
-router.post("/", async (req, res) => {
+router.post("/passenger-details", async (req, res) => {
   const passengerArray = req.body;
 
   try {
@@ -22,6 +22,7 @@ router.post("/", async (req, res) => {
           fullName: passengerData.fullName,
           dateOfBirth: dateOfBirth,
           gender: passengerData.gender,
+          isAdult: passengerData.isAdult,
         });
       })
     );
