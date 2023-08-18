@@ -9,6 +9,7 @@ import NumberSpinner from "../numberSpinner/numSpinner";
 const EnterDetails = () => {
   const [adultCount, setAdultCount] = useState(1);
   const [childrenCount, setChildrenCount] = useState(0);
+  const [passengerCount, setPassengerCount] = useState(0);
   const [tempPassengerDetailsArray, setTempPassengerDetailsArray] = useState(
     []
   );
