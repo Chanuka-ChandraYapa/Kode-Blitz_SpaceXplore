@@ -10,6 +10,7 @@
   color: #E3E3E3;
   font-family: 'Urbanist';
   font-weight: 400;
+  z-index: 2;
 }
 
 .navigation-bar::before {

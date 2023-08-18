@@ -10,6 +10,7 @@ import PinkButton from "../../components/button/button";
 import SeatView from "../../components/seatView/seat";
 import PriceSummary from "../../components/paymentSummary/test";
 import MyBackgroundImage from "../../pages/booking/spaceship-names2.jpg";
+import Sidebar from "../../components/sideBar/sidebar";
 
 const Booking = () => {
   const [spaceshipData, setSpaceshipData] = useState({
@@ -44,6 +45,7 @@ const Booking = () => {
   return (
     <div>
       <BackImage MyBackgroundImage={MyBackgroundImage} />
+      <Sidebar />
       <div className="void"></div>
       <div className="booking-heading">{spaceshipData.name}</div>
       <div className="booking-sub-heading">{spaceshipData.date}</div>

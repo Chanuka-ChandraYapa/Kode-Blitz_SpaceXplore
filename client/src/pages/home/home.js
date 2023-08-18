@@ -11,7 +11,6 @@ import PriceSummary from "../../components/paymentSummary/test";
 import MyBackgroundImage from "../../pages/home/marcelo-quinan-R3pUGn5YiTg-unsplash.jpg";
 import Search from "../../components/search/search";
 import DiscoverCard from "../../components/discoverCard/discover";
-import NewCard from "../../components/Aluthcardeka/new_card";
 const Home = () => {
   return (
     <div>

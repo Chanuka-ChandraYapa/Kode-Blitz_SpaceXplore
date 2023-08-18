@@ -1,23 +1,19 @@
-/* .enter-details {
+.planet-container {
     position: relative;
-    width: 80%;
-    max-width: 457px;
+    width: 90%;
     margin: 0 auto;
     padding: 20px;
-    background: rgba(0, 0, 0, 0.3);
-    border-radius: 60px;
     color: #E3E3E3;
     font-family: 'Urbanist', sans-serif;
-  } */
-  .booking-page {
+  }
+  .planet-page {
     margin-top: 10%;
     margin-bottom: 10%;
   }
   .void {
     margin-top: 90%;
   }
-  .booking-heading {
-    top:50%;
+  .planet-heading {
     font-family: 'Orbitron', sans-serif;
     font-weight: 700;
     font-size: 30px;
@@ -27,43 +23,56 @@
     color: #E3E3E3;
   }
 
-  .class-container {
+  .planet-dis-container {
     display: flex;
     justify-content: center;
     flex-direction: row;
+    margin-left: 100%;
+    /* Add any other styles you want for the container */
+  }
+  .planet-review-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    margin-left: 130%;
     /* Add any other styles you want for the container */
   }
   
-  .class-Scrolling {
+  .planet-dis-Scrolling {
     max-width: 90vw;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     /* Add any other styles you want for the scrolling container */
   }
-  
-  .card {
-    width: 650px;
-    height: 280px;
+  .planet-review-card {
+    width: 300px;
+    height: 70vw;
     min-width: 50px; /* Set a minimum width for each card */ /* Set the desired height for the cards */ /* Example background color */
-    margin-right: 8px; /* Add margin between cards */
+    margin-right: 20px; /* Add margin between cards */
     flex-shrink: 0; /* Prevent cards from shrinking */
     /* Add any other styles you want for the cards */
   }
-  .booking-sub-heading {
-    top:50%;
+  .planet-dis-card {
+    width: 230px;
+    height: 90vw;
+    min-width: 50px; /* Set a minimum width for each card */ /* Set the desired height for the cards */ /* Example background color */
+    margin-right: 1px; /* Add margin between cards */
+    flex-shrink: 0; /* Prevent cards from shrinking */
+    /* Add any other styles you want for the cards */
+  }
+  .planet-sub-heading {
     font-family: 'Urbanist', sans-serif;
     font-weight: 500;
     font-size: 18px;
     line-height: 18px;
     text-align:left;
-    text-transform: uppercase;
     color: #E3E3E3;
     margin-top: 5%;
     margin-bottom: 5%;
   }
 
-  .booking-sub-title {
-    top:50%;
+  .planet-sub-title {
+    margin-top: 5%;
     font-family: 'Orbitron', sans-serif;
     font-weight: 700;
     font-size: 24px;

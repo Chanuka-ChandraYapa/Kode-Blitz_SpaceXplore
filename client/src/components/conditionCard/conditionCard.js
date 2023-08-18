@@ -1,5 +1,6 @@
 import React from "react";
-import "./conditionCard.css"
+import "./conditionCard.css";
+import PinkButton from "../button/button";
 
 const ConditionCard = () => {
   return (
@@ -26,7 +27,7 @@ const ConditionCard = () => {
           <div className="text-wrapper-2">Clean Oxygen</div>
           <div className="overlap">
             <div className="register-b" />
-            <div className="text-wrapper-3">See Our Complete Guide</div>
+            <PinkButton text={"See Our Complete Guide"} size={18} />
           </div>
         </div>
       </div>
