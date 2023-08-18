@@ -15,6 +15,7 @@ const EnterDetails = () => {
 
   const handleAdultChange = (event) => {
     setAdultCount(parseInt(event.target.value));
+    setPassengerCount(passengerCount + event.target.value);
   };
 
   const handleChildrenChange = (event) => {
@@ -61,7 +62,6 @@ const EnterDetails = () => {
           />
         </FormControl>
       </div>
-
       <div className="passenger-details-container">
         {Array.from({ length: adultCount }, (_, index) => (
           <div key={index}>

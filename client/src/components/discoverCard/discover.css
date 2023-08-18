@@ -1,6 +1,7 @@
 .dis {
-    top:40%;
-    left: 50%;
+  position: relative;
+  width: 500px;
+  height: 280px;
   }
 
 .img-container-dis {
@@ -33,7 +34,25 @@
 font-style: normal;
 font-weight: 900;
 font-size: 20px;
-line-height: 550px;
+margin-top: 60vw;
+text-align: center;
+}
+.sub-text {
+  font-family: 'Urbanist';
+font-style: normal;
+font-weight: 900;
+font-size: 15px;
+text-align: center;
+
+/* Text Primary */
+color: #E3E3E3;
+}
+
+.sub-sub-text {
+  font-family: 'Urbanist';
+font-style: normal;
+font-weight: 900;
+font-size: 12px;
 text-align: center;
 
 /* Text Primary */
