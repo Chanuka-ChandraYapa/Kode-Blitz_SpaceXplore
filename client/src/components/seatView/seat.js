@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import "./seat.css"; // Import the corresponding CSS file
 
-const SeatView = ({ seat_capacity, selectedSeats, setSelectedSeats }) => {
+const SeatView = ({ seat_capacity }) => {
   const rows = Math.ceil(seat_capacity / 6);
   const columns = 6;
+  const [selectedSeats, setSelectedSeats] = useState([]);
 
   const seatStatus = (row, col) => {
     if (row === 2 && col === 3) return "reserved";
@@ -20,15 +21,15 @@ const SeatView = ({ seat_capacity, selectedSeats, setSelectedSeats }) => {
     );
     if (!isReserved) {
       if (seatIndex !== -1) {
-        const updatedSeats = selectedSeats.filter(
-          (seat) => !(seat.row === row && seat.col === col)
-        );
+        const updatedSeats = [...selectedSeats];
+        updatedSeats.splice(seatIndex, 1);
         setSelectedSeats(updatedSeats);
       } else {
         setSelectedSeats([...selectedSeats, { row, col }]);
       }
     }
   };
+
   return (
     <div className="enter-seat-details">
       <div className="seat-view">
