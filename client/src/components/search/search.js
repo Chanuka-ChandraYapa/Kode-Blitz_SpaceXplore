@@ -20,8 +20,7 @@ function Search() {
   };
 
   return (
-    <div className="main">
-      <h1 className="searchtext">Search your Dream</h1>
+    <div className="search-main">
       <div className="search-container">
         <FontAwesomeIcon className="search-icon" icon={faMagnifyingGlass} />
         <FontAwesomeIcon
@@ -51,5 +50,21 @@ function Search() {
     </div>
   );
 }
+// import React from "react";
+// import "./test1.css"; // Make sure to have the corresponding CSS file
+
+// const SearchButton = () => {
+//   return (
+//     <div className="search-button-container">
+//       <div className="search-icon">
+//         <i className="fas fa-search"></i>
+//       </div>
+//       <input type="text" className="search-input" placeholder="Search..." />
+//       <div className="filter-icon">
+//         <i className="fas fa-filter"></i>
+//       </div>
+//     </div>
+//   );
+// };
 
 export default Search;

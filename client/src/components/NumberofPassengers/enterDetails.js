@@ -8,7 +8,7 @@ import PinkButton from "../button/button";
 import FormControl from "@mui/material/FormControl";
 
 const EnterDetails = () => {
-  const [passengerCount, setPassengerCount] = useState(1);
+  const [passengerCount, setPassengerCount] = useState(0);
   const [tempPassengerDetailsArray, setTempPassengerDetailsArray] = useState(
     []
   );
@@ -17,6 +17,7 @@ const EnterDetails = () => {
 
   const handleAdultChange = (event) => {
     setAdultCount(parseInt(event.target.value));
+    setPassengerCount(passengerCount + event.target.value);
   };
 
   const handleChildrenChange = (event) => {
@@ -51,30 +52,7 @@ const EnterDetails = () => {
 
   return (
     <div className="enter-details">
-      {/* <div>
-      <mobiscroll.Number
-        ref="number"
-        theme="ios"
-        themeVariant="light"
-        layout="fixed"
-        step={1}
-        min={10}
-        max={150}
-        width={150}
-        placeholder="Please Select..."
-      />
-    </div> */}
       <div className="section-heading">Business</div>
-      {/* <span className="detail-label">No of Passengers:</span>
-    <div className="detail-item">
-      <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
-        <NumberSpinner
-          value={passengerCount}
-          onChange={handlePassengerChange}
-        />
-      </FormControl>
-      <div>{passengerCount}</div>
-    </div> */}
       <span className="detail-label">No of Adults:</span>
       <div className="detail-item">
         <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
@@ -90,13 +68,6 @@ const EnterDetails = () => {
           />
         </FormControl>
       </div>
-      {/* ... (similar blocks for No of Adults and No of Children) */}
-      {/* {Array.from({ length: passengerCount }, (_, index) => (
-      <div>
-        <div className="detail-label">Passenger {index + 1}</div>
-        <PassengerDetailsForm key={index} />
-      </div>
-    ))} */}
       <div className="passenger-details-container">
         {Array.from({ length: adultCount }, (_, index) => (
           <div key={index}>
@@ -122,7 +93,6 @@ const EnterDetails = () => {
           </div>
         ))}
       </div>
-      {/* <SlidingPassengerForms adultCount={adultCount} childrenCount ={ childrenCount} /> */}
 
       <PinkButton onClick={handlePassengerSubmit} text={"Select Your Seats"} />
     </div>

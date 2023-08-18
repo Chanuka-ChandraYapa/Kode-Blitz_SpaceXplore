@@ -42,7 +42,7 @@ const NumberSpinner = ({ value, onChange }) => {
       >
         &#8722;
       </button>
-      <span>{number}</span>
+      <span>{value}</span>
       <button
         onTouchStart={() => {
           startIncrementInterval();

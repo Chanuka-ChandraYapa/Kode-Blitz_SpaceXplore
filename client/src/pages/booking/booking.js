@@ -21,7 +21,7 @@ const Booking = () => {
         <div className="class-Scrolling">
           <div className="class-container">
             <div class="card">
-              <Card />
+              <Card date={"2023-12-21"} />
             </div>
             <div class="card">
               <Card />
@@ -30,7 +30,7 @@ const Booking = () => {
               <Card />
             </div>
             <div class="card">
-              <Card />
+              <Card date={"2023-12-21-hiii"} planet={"Neptune"} />
             </div>
             <div class="card">
               <Card />
