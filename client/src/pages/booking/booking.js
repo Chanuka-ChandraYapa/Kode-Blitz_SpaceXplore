@@ -11,7 +11,7 @@ import SeatView from "../../components/seatView/seat";
 import PriceSummary from "../../components/paymentSummary/test";
 import MyBackgroundImage from "../../pages/booking/spaceship-names2.jpg";
 import Sidebar from "../../components/sideBar/sidebar";
-const API_BASE_URL = "http://localhost:5000";
+const API_BASE_URL = "http://192.168.43.150:5000";
 
 const Booking = () => {
   const [spaceshipData, setSpaceshipData] = useState({

@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import "./planet.css"; // Import the corresponding CSS file
 import BackImage from "../../components/backdrop/backimage";
 import PinkButton from "../../components/button/button";
@@ -7,21 +8,27 @@ import ConditionCard from "../../components/conditionCard/conditionCard";
 import DiscoverCard from "../../components/discoverCard/discover";
 import ReviewCard from "../../components/ReviewCard/review";
 // import profileImage from "../../pages/planet/dfe0f555e474618662061ef417bb441a.jpg";
+const API_BASE_URL = "http://192.168.43.150:5000";
 
 const Planet = () => {
+  const [planetData, setplanetData] = useState({}); // Initialize as an object
+  useEffect(() => {
+    // Fetch planet data from backend
+    axios.get(`${API_BASE_URL}/planets`).then(({ data }) => {
+      // Adjust the keys here to match the actual response data
+      setplanetData({
+        name: data.Name,
+        description: data.Description,
+        // Add more fields as needed
+      });
+    });
+  }, []);
   return (
     <div className="planet-container">
       <BackImage MyBackgroundImage={MyBackgroundImage} />
       <div className="void"></div>
-      <div className="planet-heading">MARS</div>
-      <div className="planet-sub-heading">
-        Mars is a symbol of humanity's unbreakable spirit. Mars has evolved from
-        a far-off fantasy into a thriving home, where daring explorers are now
-        living after taking on the challenge of adjusting to its rust-colored
-        landscapes. This red frontier offers a look into a future when
-        innovation and human resilience join to create another world our own,
-        complete with huge domed cities and cutting-edge terraforming.
-      </div>
+      <div className="planet-heading">{planetData.name}</div>
+      <div className="planet-sub-heading">{planetData.description}</div>
       <PinkButton text={"Read More"} size={18} />
       <div className="planet-sub-title">Tourist Atraction</div>
       <div className="planet-page">
