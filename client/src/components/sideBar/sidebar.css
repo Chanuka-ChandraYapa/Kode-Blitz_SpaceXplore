@@ -25,20 +25,20 @@
   }
   
   
-  nav {
+  .sidebar-nav {
     margin-top: 0px;
   }
   
-  nav ul {
+  .sidebar-nav ul {
     list-style-type: none;
     padding: 0;
   }
   
-  nav ul li {
+  .sidebar-nav ul li {
     padding: 10px;
   }
   
-  nav ul li a {
+  .sidebar-nav ul li a {
     color: #CB559E;
     text-decoration: none;
     font-size: 18px;
