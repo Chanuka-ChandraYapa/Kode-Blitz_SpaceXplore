@@ -11,6 +11,7 @@ import SeatView from "../../components/seatView/seat";
 import PriceSummary from "../../components/paymentSummary/test";
 import MyBackgroundImage from "../../pages/booking/spaceship-names2.jpg";
 import Sidebar from "../../components/sideBar/sidebar";
+const API_BASE_URL = "http://localhost:5000";
 
 const Booking = () => {
   const [spaceshipData, setSpaceshipData] = useState({
@@ -36,7 +37,7 @@ const Booking = () => {
         Class_id: selectedtravelClass.class_id, // Change this to your desired Class_id
       }));
       console.log(seatInfoArray);
-      const response = await axios.post("http://localhost:5000/reserve-seats", {
+      const response = await axios.post(`${API_BASE_URL}/reserve-seats`, {
         seatInfoArray,
       });
 
@@ -50,7 +51,7 @@ const Booking = () => {
   useEffect(() => {
     // Fetch travel classes data from backend
     axios
-      .get("http://localhost:5000/travel-classes") // Adjust the API endpoint based on your setup
+      .get(`${API_BASE_URL}/travel-classes`) // Adjust the API endpoint based on your setup
       .then(({ data }) => {
         setTravelClasses(data);
       })
@@ -62,7 +63,7 @@ const Booking = () => {
 
   useEffect(() => {
     // Fetch spaceship data from backend
-    axios.get("http://localhost:5000/spaceship").then(({ data }) => {
+    axios.get(`${API_BASE_URL}/spaceship`).then(({ data }) => {
       setSpaceshipData({
         name: data.spaceshipName,
         spaceshipName: data.spaceshipID,
