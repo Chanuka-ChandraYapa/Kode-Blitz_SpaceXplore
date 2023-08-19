@@ -15,7 +15,6 @@
   position: relative;
   border: none;
   width: 90%;
-  height: 15vw;
   border: none;
   border-radius: 20px;
   background-color: rgba(0, 0, 0, 0.5);
@@ -28,6 +27,7 @@
   flex: 1; /* Take remaining space */
   margin: 0 10px; /* Add left margin */
   width: 70%;
+  height: 60px;
   border: none;
   border-radius: 20px;
   background-color: rgba(0, 0, 0, 0);

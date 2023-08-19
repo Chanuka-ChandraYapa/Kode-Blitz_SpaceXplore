@@ -36,12 +36,12 @@ const SignUpForm = () => {
       !formData.password ||
       !formData.confirmPassword
     ) {
-      setError("All fields are required.");
+      setError("*All fields are required.");
       return;
     }
 
     if (formData.password !== formData.confirmPassword) {
-      setError("Passwords do not match.");
+      setError("*Passwords do not match.");
       return;
     }
 
@@ -61,8 +61,8 @@ const SignUpForm = () => {
 
   return (
     <div>
-      <h2>Sign Up</h2>
       <form className="signup-form" onSubmit={handleSubmit}>
+        <h2>Sign Up</h2>
         <input
           className="signup-input"
           type="text"
