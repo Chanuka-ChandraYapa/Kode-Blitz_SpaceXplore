@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { useParams } from "react-router-dom";
 import "./planet.css"; // Import the corresponding CSS file
 import BackImage from "../../components/backdrop/backimage";
 import PinkButton from "../../components/button/button";
@@ -8,21 +9,23 @@ import ConditionCard from "../../components/conditionCard/conditionCard";
 import DiscoverCard from "../../components/discoverCard/discover";
 import ReviewCard from "../../components/ReviewCard/review";
 // import profileImage from "../../pages/planet/dfe0f555e474618662061ef417bb441a.jpg";
-const API_BASE_URL = "http://192.168.43.150:5000";
+const API_BASE_URL = "http://localhost:5000";
 
 const Planet = () => {
+  const { planetName } = useParams(); // Get the planetName parameter from the URL
+
   const [planetData, setplanetData] = useState({}); // Initialize as an object
+
   useEffect(() => {
-    // Fetch planet data from backend
-    axios.get(`${API_BASE_URL}/planets`).then(({ data }) => {
-      // Adjust the keys here to match the actual response data
+    // Fetch planet data based on the planetName
+    axios.get(`${API_BASE_URL}/planet/${planetName}`).then(({ data }) => {
       setplanetData({
         name: data.Name,
         description: data.Description,
         // Add more fields as needed
       });
     });
-  }, []);
+  }, [planetName]);
   return (
     <div className="planet-container">
       <BackImage MyBackgroundImage={MyBackgroundImage} />

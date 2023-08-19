@@ -2,35 +2,36 @@ import logo from "./logo.svg";
 import "./App.css";
 import Card from "./components/class card/card";
 // import ProfilePageMobile from "./pages/profile";
-import NewCard from "./components/Aluthcardeka/new_card";
+import NavigationBar from "./components/navBar/navigationBar";
 
-import Footer from "./components/footer/footer";
-
-import BackgroundComponent from "./components/backgroundImage/background";
-import Calendar from "./components/calendar/calendar";
-
-import CardSlider from "./cardSlider";
-
-import ImageSlider from "./components/slidingCard/Slideshow";
-import BGComponent from "./components/backgroundImage/bg";
-
-
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Switch,
+} from "react-router-dom";
+import Home from "./pages/home/home";
 import ProfilePageMobile from "./pages/profile/profile";
 import Planet from "./pages/planet/planet";
 import Booking from "./pages/booking/booking";
+import SignUp from "./pages/signUp/signUp";
 
 function App() {
   return (
     <Router>
       <div>
-        <Routes>
-          {/* <Route path="/" element={<Home />} /> */}
-          <Route path="/profile" element={<ProfilePageMobile />} />
-          <Route path="/planet" element={<Planet />} />
-          <Route path="/booking" element={<Booking />} />
-        </Routes>
+        <div className="App">
+          <div className="App-header">
+            <NavigationBar />
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/profile" element={<ProfilePageMobile />} />
+              <Route path="/planet/:planetName" element={<Planet />} />
+              <Route path="/booking" element={<Booking />} />
+              <Route path="/signup" element={<SignUp />} />
+            </Routes>
+          </div>
+        </div>
       </div>
     </Router>
   );
@@ -38,12 +39,14 @@ function App() {
 
 export default App;
 
-{/* <div>
+{
+  /* <div>
   <NewCard
     imageUrl="https://wallpaperaccess.com/full/3136563.jpg"
     title="Hey There"
   />
-</div> */}
+</div> */
+}
 
 // import logo from "./logo.svg";
 // import "./App.css";
