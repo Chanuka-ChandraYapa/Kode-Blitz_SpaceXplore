@@ -6,7 +6,7 @@ import PinkButton from "../button/button";
 import FormControl from "@mui/material/FormControl";
 import NumberSpinner from "../numberSpinner/numSpinner";
 
-const EnterDetails = () => {
+const EnterDetails = ({ passengerCount, setPassengerCount }) => {
   const [adultCount, setAdultCount] = useState(1);
   const [childrenCount, setChildrenCount] = useState(0);
   const [passengerCount, setPassengerCount] = useState(0);
@@ -16,6 +16,10 @@ const EnterDetails = () => {
 
   const handleAdultChange = (event) => {
     setAdultCount(parseInt(event.target.value));
+<<<<<<< Updated upstream
+=======
+    
+>>>>>>> Stashed changes
   };
 
   const handleChildrenChange = (event) => {
@@ -32,6 +36,7 @@ const EnterDetails = () => {
 
   const handlePassengerSubmit = async () => {
     console.log(tempPassengerDetailsArray);
+    setPassengerCount(childrenCount + adultCount);
 
     try {
       await axios.post(

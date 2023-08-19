@@ -1,7 +1,12 @@
 import React, { useState } from "react";
-import "./seat.css"; // Import the corresponding CSS file
+import "./seat.css";
 
-const SeatView = ({ seat_capacity, selectedSeats, setSelectedSeats }) => {
+const SeatView = ({
+  seat_capacity,
+  selectedSeats,
+  setSelectedSeats,
+  passengerCount,
+}) => {
   const rows = Math.ceil(seat_capacity / 6);
   const columns = 6;
 
@@ -18,14 +23,17 @@ const SeatView = ({ seat_capacity, selectedSeats, setSelectedSeats }) => {
     const seatIndex = selectedSeats.findIndex(
       (seat) => seat.row === row && seat.col === col
     );
+
     if (!isReserved) {
       if (seatIndex !== -1) {
         const updatedSeats = selectedSeats.filter(
           (seat) => !(seat.row === row && seat.col === col)
         );
         setSelectedSeats(updatedSeats);
-      } else {
+      } else if (selectedSeats.length < passengerCount) {
         setSelectedSeats([...selectedSeats, { row, col }]);
+      } else {
+        alert("You have selected all the seats");
       }
     }
   };

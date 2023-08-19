@@ -18,6 +18,7 @@ const Booking = () => {
     time: "",
   });
   const [selectedSeats, setSelectedSeats] = useState([]); // Maintain selected seats
+  const [passengerCount, setPassengerCount] = useState(0);
 
   const handleBookNow = async () => {
     try {
@@ -81,7 +82,7 @@ const Booking = () => {
       </div>
       <div className="booking-sub-title">Enter your Details</div>
       <div className="booking-page">
-        <EnterDetails />
+        <EnterDetails passengerCount={ passengerCount} setPassengerCount={setPassengerCount} />
       </div>
       <div className="booking-sub-title"> Select Your Seat</div>
       <div className="booking-page">
@@ -89,6 +90,7 @@ const Booking = () => {
           seat_capacity={48}
           selectedSeats={selectedSeats}
           setSelectedSeats={setSelectedSeats}
+          passengerCount={passengerCount}
         />
       </div>
       <div className="booking-sub-title">Payment Info</div>
