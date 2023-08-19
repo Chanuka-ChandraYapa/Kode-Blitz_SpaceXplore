@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import TextField from "@mui/material/TextField";
 import List from "../list/list";
 import "./search.css";
@@ -7,16 +7,29 @@ import { faMagnifyingGlass, faFilter } from "@fortawesome/free-solid-svg-icons";
 
 function Search() {
   const [inputText, setInputText] = useState("");
-  let inputHandler = (e) => {
-    var lowerCase = e.target.value.toLowerCase();
+  const [selectedFilter, setSelectedFilter] = useState("Option 1"); // Initial selected filter
+  const [showFilterList, setShowFilterList] = useState(false);
+  const inputHandler = (e) => {
+    const lowerCase = e.target.value.toLowerCase();
     setInputText(lowerCase);
   };
-
-  const [showFilterList, setShowFilterList] = useState(false);
 
   const toggleFilterList = () => {
     setShowFilterList(!showFilterList);
   };
+
+  const handleFilterChange = (option) => {
+    setSelectedFilter(option);
+    setShowFilterList(false); // Close the filter dropdown
+  };
+
+  const filterOptions = ["Destination", "Price", "Departure"]; // Add more options if needed
+
+  useEffect(() => {
+    // Here you can load the JSON file based on the selected filter
+    // For simplicity, I'm just logging the selected filter
+    console.log("Selected filter:", selectedFilter);
+  }, [selectedFilter]);
 
   return (
     <div className="search-main">
@@ -25,7 +38,7 @@ function Search() {
         <input
           type="text"
           className="search-input"
-          placeholder="Search"
+          placeholder={`Search for ${selectedFilter}`}
           onChange={inputHandler}
         />
         <FontAwesomeIcon
@@ -36,9 +49,11 @@ function Search() {
         {showFilterList && (
           <div className={`filter-dropdown ${showFilterList ? "active" : ""}`}>
             <ul>
-              <li>Option 1</li>
-              <li>Option 2</li>
-              <li>Option 3</li>
+              {filterOptions.map((option, index) => (
+                <li key={index} onClick={() => handleFilterChange(option)}>
+                  {option}
+                </li>
+              ))}
             </ul>
           </div>
         )}
