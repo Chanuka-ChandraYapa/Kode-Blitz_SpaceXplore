@@ -22,6 +22,7 @@ const Planet = () => {
       setplanetData({
         name: data.Name,
         description: data.Description,
+        image: data.Image_Link,
         // Add more fields as needed
       });
     });

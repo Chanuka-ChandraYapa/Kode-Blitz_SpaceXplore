@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./seat.css";
+import axios from "axios"; // Import Axios for making API requests
+const API_BASE_URL = "http://localhost:5000";
 
 const SeatView = ({
   seat_capacity,
@@ -9,12 +11,33 @@ const SeatView = ({
 }) => {
   const rows = Math.ceil(seat_capacity / 6);
   const columns = 6;
+  const [bookedSeats, setBookedSeats] = useState([]); // State to store booked seats
 
+  // Fetch booked seats data from the backend
+  useEffect(() => {
+    axios
+      .get(`${API_BASE_URL}/seats`)
+      .then(({ data }) => {
+        const bookedSeatData = data.map((seat) => ({
+          row: Math.floor(seat.Seat_Id / 6),
+          col: seat.Seat_Id % 6,
+        }));
+        setBookedSeats(bookedSeatData);
+      })
+      .catch((error) => {
+        console.error("Error fetching booked seats:", error);
+        // Handle the error here, e.g., display an error message.
+      });
+  }, []);
+
+  // Function to check seat status (available, selected, or reserved)
   const seatStatus = (row, col) => {
-    if (row === 2 && col === 3) return "reserved";
-    if (row === 5 && col === 2) return "reserved";
-    if (selectedSeats.some((seat) => seat.row === row && seat.col === col))
+    if (bookedSeats.some((seat) => seat.row === row && seat.col === col)) {
+      return "reserved";
+    }
+    if (selectedSeats.some((seat) => seat.row === row && seat.col === col)) {
       return "selected";
+    }
     return "available";
   };
 
