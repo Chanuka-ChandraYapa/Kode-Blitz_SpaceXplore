@@ -79,7 +79,7 @@ const Booking = () => {
   return (
     <div>
       <BackImage MyBackgroundImage={MyBackgroundImage} />
-      <Sidebar />
+      {/* <Sidebar /> */}
       <div className="void"></div>
       <div className="booking-heading">{spaceshipData.name}</div>
       <div className="booking-sub-heading">{spaceshipData.date}</div>

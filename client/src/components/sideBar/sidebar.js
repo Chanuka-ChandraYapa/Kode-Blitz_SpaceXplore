@@ -38,7 +38,7 @@ const Sidebar = () => {
         icon={faBars}
       />
       <div className={`sidebar ${sidebarOpen ? "open" : ""}`} ref={sidebarRef}>
-        <nav>
+        <nav className="sidebar-nav">
           <ul>
             <li>
               <a href="/">Home</a>
