@@ -6,7 +6,7 @@ const PriceSummary = ({
   adults,
   children,
   pricePerAdult,
-  category,
+  category = "",
   pricePerChild,
   discount,
 }) => {

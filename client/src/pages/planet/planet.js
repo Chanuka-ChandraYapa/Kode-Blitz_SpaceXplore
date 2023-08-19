@@ -25,6 +25,7 @@ const Planet = () => {
         image: data.Image_Link,
         // Add more fields as needed
       });
+      console.log(data);
     });
   }, [planetName]);
   return (

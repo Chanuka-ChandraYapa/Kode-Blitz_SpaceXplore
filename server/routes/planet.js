@@ -13,6 +13,7 @@ router.get("/planet/:planetName", async (req, res) => {
 
     if (planet) {
       // If the planet is found, send its details in the response
+      console.log(planet);
       res.json({
         Name: planet.Name,
         Description: planet.Description,

@@ -126,8 +126,8 @@ const Booking = () => {
       <div className="booking-sub-title">Payment summary</div>
       <div className="booking-page">
         <PriceSummary
-          passengers={3}
-          category={"Business"}
+          passengers={passengerCount}
+          category={selectedtravelClass.class}
           adults={2}
           children={1}
           pricePerAdult={100}
