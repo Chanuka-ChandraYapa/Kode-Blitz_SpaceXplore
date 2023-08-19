@@ -9,16 +9,16 @@
 
   }
   
-  h2 {
+  /* h2 {
     text-align: center;
-  }
+  } */
   
-  form {
+  .signup-form {
     display: flex;
     flex-direction: column;
   }
   
-  input {
+  .signup-input {
     width: 90%;
     margin: 10px 0;
     padding: 10px;
@@ -30,7 +30,7 @@
   color: white;
   }
   
-  button {
+.signup-button {
     background-color: #007bff;
     color: #fff;
     border: none;
@@ -39,11 +39,11 @@
     cursor: pointer;
   }
   
-  button:hover {
+.signup-button:hover {
     background-color: #0056b3;
   }
   
-  .error {
+  .signup-error {
     font-family: 'Urbanist';
     color: red;
     margin-top: 5px;

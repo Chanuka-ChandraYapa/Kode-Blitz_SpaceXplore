@@ -56,8 +56,9 @@ const SignUpForm = () => {
   return (
     <div>
       <h2>Sign Up</h2>
-      <form onSubmit={handleSubmit}>
+      <form className="signup-form" onSubmit={handleSubmit}>
         <input
+          className="signup-input"
           type="text"
           name="fullName"
           placeholder="Full Name"
@@ -65,6 +66,7 @@ const SignUpForm = () => {
           onChange={handleChange}
         />
         <input
+          className="signup-input"
           type="email"
           name="email"
           placeholder="Email"
@@ -72,6 +74,7 @@ const SignUpForm = () => {
           onChange={handleChange}
         />
         <input
+          className="signup-input"
           type="password"
           name="password"
           placeholder="Password"
@@ -79,13 +82,14 @@ const SignUpForm = () => {
           onChange={handleChange}
         />
         <input
+          className="signup-input"
           type="password"
           name="confirmPassword"
           placeholder="Confirm Password"
           value={formData.confirmPassword}
           onChange={handleChange}
         />
-        {error && <p className="error">{error}</p>}
+        {error && <p className="signup-error">{error}</p>}
         <PinkButton type="submit" text={"Sign Up"} />
       </form>
     </div>

@@ -42,6 +42,7 @@ const PassengerDetailsForm = ({ onPassengerDetailsChange, isAdult }) => {
         <div className="form-group">
           <label htmlFor="fullName">Full Name:</label>
           <input
+            className="details-input"
             type="text"
             id="fullName"
             value={fullName}
@@ -50,8 +51,11 @@ const PassengerDetailsForm = ({ onPassengerDetailsChange, isAdult }) => {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="dateOfBirth">Date of Birth:</label>
+          <label className="deatils-label" htmlFor="dateOfBirth">
+            Date of Birth:
+          </label>
           <input
+            className="details-input"
             type="date"
             id="dateOfBirth"
             value={dateOfBirth}
@@ -60,8 +64,11 @@ const PassengerDetailsForm = ({ onPassengerDetailsChange, isAdult }) => {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="gender">Gender:</label>
+          <label className="deatils-label" htmlFor="gender">
+            Gender:
+          </label>
           <select
+            className="details-select"
             id="gender"
             value={gender}
             onChange={handleGenderChange}

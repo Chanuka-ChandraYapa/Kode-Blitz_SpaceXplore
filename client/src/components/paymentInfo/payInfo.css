@@ -24,15 +24,14 @@
     text-align: left;
   }
   
-  label {
+.pay-label {
     font-weight: 500px;
     display: block;
     margin-bottom: 4px;
   }
   
-  input[type="text"],
-  input[type="date"],
-  select {
+  .pay-input[type="text"],
+  .pay-input[type="date"] {
     font-weight: 500px;
     width: 100%;
     padding: 8px;

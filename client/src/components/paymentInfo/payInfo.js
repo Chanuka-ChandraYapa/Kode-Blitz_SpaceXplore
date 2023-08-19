@@ -28,8 +28,11 @@ const PaymentInfo = () => {
       <div className="passenger-details-form">
         <form onSubmit={handleSubmit}>
           <div className="form-group">
-            <label htmlFor="fullName">Card No:</label>
+            <label className="pay-label" htmlFor="fullName">
+              Card No:
+            </label>
             <input
+              className="pay-input"
               type="text"
               id="fullName"
               value={fullName}
@@ -38,8 +41,11 @@ const PaymentInfo = () => {
             />
           </div>
           <div className="form-group">
-            <label htmlFor="dateOfBirth">Exp Date:</label>
+            <label className="pay-label" htmlFor="dateOfBirth">
+              Exp Date:
+            </label>
             <input
+              className="pay-input"
               type="date"
               id="dateOfBirth"
               value={expDate}
@@ -48,8 +54,11 @@ const PaymentInfo = () => {
             />
           </div>
           <div className="form-group">
-            <label htmlFor="fullName">CCV/CVV:</label>
+            <label className="pay-label" htmlFor="fullName">
+              CCV/CVV:
+            </label>
             <input
+              className="pay-input"
               type="text"
               id="fullName"
               value={CVV}
