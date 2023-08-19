@@ -53,10 +53,13 @@ const Sidebar = () => {
               <a href="/profile">Profile</a>
             </li>
             <li>
-              <a href="#">Team</a>
+              <a href="/team">Team</a>
             </li>
             <li>
-              <a href="#">About</a>
+              <a href="/about">About</a>
+            </li>
+            <li>
+              <a href="/landing">Introduction</a>
             </li>
           </ul>
         </nav>

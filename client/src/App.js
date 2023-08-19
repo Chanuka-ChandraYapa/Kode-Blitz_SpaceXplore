@@ -15,8 +15,9 @@ import ProfilePageMobile from "./pages/profile/profile";
 import Planet from "./pages/planet/planet";
 import Booking from "./pages/booking/booking";
 import SignUp from "./pages/signUp/signUp";
+import SigninForm from "./pages/signIn/signIn";
 import Landing from "./pages/landing/landing";
-
+import Yet from "./pages/ToBeImplemented/yet";
 function App() {
   return (
     <Router>
@@ -31,6 +32,11 @@ function App() {
               <Route path="/booking" element={<Booking />} />
               <Route path="/signup" element={<SignUp />} />
               <Route path="/landing" element={<Landing />} />
+              <Route path="/flights" element={<Yet />} />
+              <Route path="/team" element={<Yet />} />
+              <Route path="/about" element={<Yet />} />
+              <Route path="/signUp" element={<SignUp />} />
+              <Route path="/signIn" element={<SigninForm />} />
             </Routes>
           </div>
         </div>

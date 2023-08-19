@@ -25,28 +25,28 @@ const Landing = () => {
         Embark on the Journey of a Lifetime... Secure Your Seat Beyond the Stars
         with Our Inter Space Shuttle Experience!
       </div>
-      <div className="landing-button">
+      <a className="landing-button" href="/signUp">
         <PinkButton text={"Get Started"} size={20} />
-      </div>
+      </a>
 
       <img src={PlanetImage} alt="planet" width="100%" />
       <div className="landing-sub-title">
         Fueling Curiosity, One Ticket to the Cosmos at a Time... Explore the
         Universe with Us!
       </div>
-      <div className="landing-button">
+      <a className="landing-button" href="/about">
         <PinkButton text={"Learn More"} size={20} />
-      </div>
+      </a>
       <div className="landing-sub-heading">Discover More</div>
       <div className="booking-page">
         <div className="landScrolling">
           <div className="landcontainer">
-            <div class="landcard">
+            <a class="landcard" href="/flights">
               <DiscoverCard
                 planetName={"Flights"}
                 MyBackgroundImage={flightImage}
               />
-            </div>
+            </a>
             <div class="landcard">
               <DiscoverCard planetName={"Team"} MyBackgroundImage={TeamImage} />
             </div>

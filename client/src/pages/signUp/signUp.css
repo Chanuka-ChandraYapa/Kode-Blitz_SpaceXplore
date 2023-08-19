@@ -25,10 +25,10 @@
     padding: 10px;
     border: 1px solid #ccc;
     border: none;
-  border-radius: 20px;
-  background-color: rgba(0, 0, 0, 0.5);
-  font-size: 20px;
-  color: white;
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    font-size: 18px;
+    color: white;
   }
   
   
@@ -44,10 +44,19 @@
   position: relative;
 }
 
+
 .password-toggle {
   position: absolute;
   top: 50%;
-  right: 5%; /* Adjust the distance as needed */
+  right: 10%; /* Adjust the distance as needed */
   transform: translateY(-50%);
   cursor: pointer;
+}
+.sign-in {
+    font-family: 'Urbanist';
+}
+.sign-in a {
+    color: #CB559E;
+    text-decoration: none;
+    font-size: 18px;
 }

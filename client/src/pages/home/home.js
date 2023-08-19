@@ -39,9 +39,11 @@ const Home = () => {
         <div className="disScrolling">
           <div className="discontainer">
             {travelPlanets.map((planetName) => (
-              <div className="discard" key={planetName}>
-                <DiscoverCard planetName={planetName} />
-              </div>
+              <Link to={`/planet/${planetName}`}>
+                <div className="discard" key={planetName}>
+                  <DiscoverCard planetName={planetName} />
+                </div>
+              </Link>
             ))}
           </div>
         </div>
