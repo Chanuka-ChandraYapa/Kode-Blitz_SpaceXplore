@@ -9,17 +9,13 @@ import NumberSpinner from "../numberSpinner/numSpinner";
 const EnterDetails = ({ passengerCount, setPassengerCount }) => {
   const [adultCount, setAdultCount] = useState(1);
   const [childrenCount, setChildrenCount] = useState(0);
-  const [passengerCount, setPassengerCount] = useState(0);
   const [tempPassengerDetailsArray, setTempPassengerDetailsArray] = useState(
     []
   );
 
   const handleAdultChange = (event) => {
     setAdultCount(parseInt(event.target.value));
-<<<<<<< Updated upstream
-=======
     
->>>>>>> Stashed changes
   };
 
   const handleChildrenChange = (event) => {
@@ -67,7 +63,6 @@ const EnterDetails = ({ passengerCount, setPassengerCount }) => {
           />
         </FormControl>
       </div>
-
       <div className="passenger-details-container">
         {Array.from({ length: adultCount }, (_, index) => (
           <div key={index}>
