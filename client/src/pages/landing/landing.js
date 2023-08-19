@@ -10,6 +10,9 @@ import SeatView from "../../components/seatView/seat";
 import PriceSummary from "../../components/paymentSummary/test";
 import MyBackgroundImage from "../../pages/landing/daniel-olah-HNkgPFBShSw-unsplash1.jpg";
 import PlanetImage from "./planet-astronomy.jpg";
+import flightImage from "../../pages/landing/flight.jpeg";
+import TeamImage from "../../pages/landing/team.jpeg";
+import ServiceImage from "../../pages/landing/services.jpeg";
 import Search from "../../components/search/search";
 import DiscoverCard from "../../components/discoverCard/discover";
 const Landing = () => {
@@ -36,16 +39,22 @@ const Landing = () => {
       </div>
       <div className="landing-sub-heading">Discover More</div>
       <div className="booking-page">
-        <div className="disScrolling">
-          <div className="discontainer">
-            <div class="discard">
-              <DiscoverCard text={"Flights"} />
+        <div className="landScrolling">
+          <div className="landcontainer">
+            <div class="landcard">
+              <DiscoverCard
+                planetName={"Flights"}
+                MyBackgroundImage={flightImage}
+              />
             </div>
-            <div class="discard">
-              <DiscoverCard text={"Team"} />
+            <div class="landcard">
+              <DiscoverCard planetName={"Team"} MyBackgroundImage={TeamImage} />
             </div>
-            <div class="discard">
-              <DiscoverCard text={"Services"} />
+            <div class="landcard">
+              <DiscoverCard
+                planetName={"Services"}
+                MyBackgroundImage={ServiceImage}
+              />
             </div>
           </div>
         </div>

@@ -15,6 +15,7 @@ import ProfilePageMobile from "./pages/profile/profile";
 import Planet from "./pages/planet/planet";
 import Booking from "./pages/booking/booking";
 import SignUp from "./pages/signUp/signUp";
+import Landing from "./pages/landing/landing";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
               <Route path="/planet/:planetName" element={<Planet />} />
               <Route path="/booking" element={<Booking />} />
               <Route path="/signup" element={<SignUp />} />
+              <Route path="/landing" element={<Landing />} />
             </Routes>
           </div>
         </div>

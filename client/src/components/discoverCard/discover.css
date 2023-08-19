@@ -30,6 +30,7 @@
     z-index: 1; /* Transition effect for opacity */
   }
 .text {
+  color: #E3E3E3;
     font-family: 'Orbitron';
 font-style: normal;
 font-weight: 900;
