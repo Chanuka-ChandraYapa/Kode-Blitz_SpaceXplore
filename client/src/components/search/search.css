@@ -31,7 +31,7 @@
   border: none;
   border-radius: 20px;
   background-color: rgba(0, 0, 0, 0);
-  font-size: 24px;
+  font-size: 20px;
   color: white;
   position: relative;
 }
@@ -39,6 +39,7 @@
 .search-input::placeholder {
 
   font-family: "Urbanist", sans-serif;
+  font-size: 15px;
 }
 
 .search-input:focus {

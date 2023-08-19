@@ -7,7 +7,7 @@ import { faMagnifyingGlass, faFilter } from "@fortawesome/free-solid-svg-icons";
 
 function Search() {
   const [inputText, setInputText] = useState("");
-  const [selectedFilter, setSelectedFilter] = useState("Option 1"); // Initial selected filter
+  const [selectedFilter, setSelectedFilter] = useState("Destination"); // Initial selected filter
   const [showFilterList, setShowFilterList] = useState(false);
   const inputHandler = (e) => {
     const lowerCase = e.target.value.toLowerCase();
