@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "./signIn.css";
 import PinkButton from "../../components/button/button";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 
 const SigninForm = () => {
   const [formData, setFormData] = useState({
@@ -9,6 +11,12 @@ const SigninForm = () => {
     password: "",
     confirmPassword: "",
   });
+
+    const [showPassword, setShowPassword] = useState(false);
+    const togglePasswordVisibility = () => {
+      setShowPassword(!showPassword);
+    };
+
 
   const [error, setError] = useState("");
 
@@ -55,14 +63,19 @@ const SigninForm = () => {
           value={formData.Username}
           onChange={handleChange}
         />
-        <input
-          className="signin-input"
-          type="password"
-          name="password"
-          placeholder="Password"
-          value={formData.password}
-          onChange={handleChange}
-        />
+        <div className="password-input-container">
+          <input
+            className="signup-input password-input"
+            type={showPassword ? "text" : "password"}
+            name="password"
+            placeholder="Password"
+            value={formData.password}
+            onChange={handleChange}
+          />
+          <span className="password-toggle" onClick={togglePasswordVisibility}>
+            <FontAwesomeIcon icon={showPassword ? faEye : faEyeSlash} />
+          </span>
+        </div>
         {error && <p className="signin-error">{error}</p>}
         <PinkButton type="submit" text={"Sign In"} size={18} />
       </form>

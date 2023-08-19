@@ -47,7 +47,7 @@
 .password-toggle {
   position: absolute;
   top: 50%;
-  right: 10px; /* Adjust the distance as needed */
+  right: 5%; /* Adjust the distance as needed */
   transform: translateY(-50%);
   cursor: pointer;
 }
