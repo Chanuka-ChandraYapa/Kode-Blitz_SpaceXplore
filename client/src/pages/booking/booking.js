@@ -15,35 +15,62 @@ import Sidebar from "../../components/sideBar/sidebar";
 const Booking = () => {
   const [spaceshipData, setSpaceshipData] = useState({
     name: "",
-    time: "",
+    spaceshipName: "",
+    date: "",
+    capacity: 0,
+    departurePlanet: "",
+    destinationPlanet: "",
+    price: 0,
   });
   const [selectedSeats, setSelectedSeats] = useState([]); // Maintain selected seats
   const [passengerCount, setPassengerCount] = useState(0);
+  const [travelClasses, setTravelClasses] = useState([]);
+  const [selectedtravelClass, setselectedtravelClass] = useState([]);
 
   const handleBookNow = async () => {
     try {
-      // Convert selectedSeats into an array of seat_ids
-      const seatIds = selectedSeats.map((seat) => seat.row * 6 + seat.col);
-      console.log(selectedSeats);
-      console.log(seatIds);
+      // Convert selectedSeats into an array of objects with the required format
+      const seatInfoArray = selectedSeats.map((seat) => ({
+        seatid: seat.row * 6 + seat.col,
+        Spaceship_ID: spaceshipData.spaceshipName, // Assuming spaceshipData has the model id
+        Class_id: selectedtravelClass.class_id, // Change this to your desired Class_id
+      }));
+      console.log(seatInfoArray);
       const response = await axios.post("http://localhost:5000/reserve-seats", {
-        seats: seatIds,
+        seatInfoArray,
       });
 
       console.log(response.data.message); // Success message from the server
     } catch (error) {
       console.error("Error reserving seats:", error);
+      // You might want to display an error message to the user here.
     }
   };
 
   useEffect(() => {
+    // Fetch travel classes data from backend
+    axios
+      .get("http://localhost:5000/travel-classes") // Adjust the API endpoint based on your setup
+      .then(({ data }) => {
+        setTravelClasses(data);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+        // Handle the error here, e.g., display an error message.
+      });
+  }, []);
+
+  useEffect(() => {
     // Fetch spaceship data from backend
-    axios.get("http://localhost:5000/spaceship").then((response) => {
-      const firstSpaceship = response.data;
+    axios.get("http://localhost:5000/spaceship").then(({ data }) => {
       setSpaceshipData({
-        name: firstSpaceship.spaceshipName,
-        date: firstSpaceship.startingDate,
-        capacity: firstSpaceship.seating_capacity,
+        name: data.spaceshipName,
+        spaceshipName: data.spaceshipID,
+        date: data.startingDate,
+        capacity: data.seating_capacity,
+        departurePlanet: data.departurePlanet,
+        destinationPlanet: data.destinationPlanet,
+        price: data.price,
       });
     });
   }, []);
@@ -59,30 +86,28 @@ const Booking = () => {
       <div className="booking-page">
         <div className="class-Scrolling">
           <div className="class-container">
-            <div class="card">
-              <Card date={"2198-01-18"} />
-            </div>
-            <div class="card">
-              <Card date={"2198-01-18"} />
-            </div>
-            <div class="card">
-              <Card />
-            </div>
-            <div class="card">
-              <Card date={"2198-01-18"} />
-            </div>
-            <div class="card">
-              <Card date={"2198-01-18"} />
-            </div>
-            <div class="card">
-              <Card date={"2198-01-18"} />
-            </div>
+            {travelClasses.map((travelClass) => (
+              <div className="card" key={travelClass.Class_ID}>
+                <Card
+                  date={"2198-01-18"} // Replace with the actual date property
+                  Class={travelClass.Name}
+                  Class_ID={travelClass.Class_ID}
+                  Departure={spaceshipData.departurePlanet} // Replace with the actual departure property
+                  Destination={spaceshipData.destinationPlanet} // Replace with the actual destination property
+                  Price={spaceshipData.price}
+                  setselectedtravelClass={setselectedtravelClass}
+                />
+              </div>
+            ))}
           </div>
         </div>
       </div>
       <div className="booking-sub-title">Enter your Details</div>
       <div className="booking-page">
-        <EnterDetails passengerCount={ passengerCount} setPassengerCount={setPassengerCount} />
+        <EnterDetails
+          passengerCount={passengerCount}
+          setPassengerCount={setPassengerCount}
+        />
       </div>
       <div className="booking-sub-title"> Select Your Seat</div>
       <div className="booking-page">
