@@ -31,12 +31,15 @@ router.get("/planets", async (req, res) => {
   try {
     // Query the database to get all planet names
     const planets = await Planet.findAll({
-      attributes: ["Name"], // Select only the Name attribute
+      attributes: ["Name", "Image_Link"], // Select only the Name and Image_Link attributes
     });
 
     if (planets) {
       // Extract planet names and send them in the response
-      const planetNames = planets.map((planet) => planet.Name);
+      const planetNames = planets.map((planet) => ({
+        Name: planet.Name,
+        Image_Link: planet.Image_Link,
+      }));
       res.json(planetNames);
     } else {
       // If no planets are found, return an empty array

@@ -11,6 +11,10 @@ module.exports = (Sequelize, DataTypes) => {
         type: DataTypes.TEXT("long"),
         allowNull: true,
       },
+      Image_Link: {
+        type: DataTypes.TEXT,
+        allowNull: true,
+      },
     },
     {
       timestamps: false,

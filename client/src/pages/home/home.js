@@ -21,10 +21,7 @@ const Home = () => {
   useEffect(() => {
     // Fetch planet data from backend
     axios.get(`${API_BASE_URL}/planets`).then(({ data }) => {
-      // Extract planet names from the data
-      //const names = data.map((planet) => planet);
       settravelPlanets(data);
-      console.log(travelPlanets);
     });
   }, []);
 
@@ -38,9 +35,12 @@ const Home = () => {
       <div className="booking-page">
         <div className="disScrolling">
           <div className="discontainer">
-            {travelPlanets.map((planetName) => (
-              <div className="discard" key={planetName}>
-                <DiscoverCard planetName={planetName} />
+            {travelPlanets.map((planet) => (
+              <div className="discard" key={planet.Name}>
+                <DiscoverCard
+                  planetName={planet.Name}
+                  MyBackgroundImage={planet.Image_Link}
+                />
               </div>
             ))}
           </div>
