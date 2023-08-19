@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "./signUp.css";
 import PinkButton from "../../components/button/button";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 
 const SignUpForm = () => {
   const [formData, setFormData] = useState({
@@ -9,6 +11,10 @@ const SignUpForm = () => {
     password: "",
     confirmPassword: "",
   });
+  const [showPassword, setShowPassword] = useState(false);
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
 
   const [error, setError] = useState("");
 
@@ -65,6 +71,7 @@ const SignUpForm = () => {
           value={formData.fullName}
           onChange={handleChange}
         />
+
         <input
           className="signup-input"
           type="email"
@@ -73,14 +80,19 @@ const SignUpForm = () => {
           value={formData.email}
           onChange={handleChange}
         />
-        <input
-          className="signup-input"
-          type="password"
-          name="password"
-          placeholder="Password"
-          value={formData.password}
-          onChange={handleChange}
-        />
+        <div className="password-input-container">
+          <input
+            className="signup-input password-input"
+            type={showPassword ? "text" : "password"}
+            name="password"
+            placeholder="Password"
+            value={formData.password}
+            onChange={handleChange}
+          />
+          <span className="password-toggle" onClick={togglePasswordVisibility}>
+            <FontAwesomeIcon icon={showPassword ? faEye: faEyeSlash } />
+          </span>
+        </div>
         <input
           className="signup-input"
           type="password"
