@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import "./signUp.css";
+import "./signIn.css";
 import PinkButton from "../../components/button/button";
 
-const SignUpForm = () => {
+const SigninForm = () => {
   const [formData, setFormData] = useState({
-    fullName: "",
+    Username: "",
     email: "",
     password: "",
     confirmPassword: "",
@@ -25,17 +25,12 @@ const SignUpForm = () => {
 
     // Basic form validation
     if (
-      !formData.fullName ||
+      !formData.Username ||
       !formData.email ||
       !formData.password ||
       !formData.confirmPassword
     ) {
       setError("*All fields are required.");
-      return;
-    }
-
-    if (formData.password !== formData.confirmPassword) {
-      setError("*Passwords do not match.");
       return;
     }
 
@@ -45,7 +40,7 @@ const SignUpForm = () => {
 
     // Reset form data and error message
     setFormData({
-      fullName: "",
+      Username: "",
       email: "",
       password: "",
       confirmPassword: "",
@@ -55,45 +50,29 @@ const SignUpForm = () => {
 
   return (
     <div>
-      <form className="signup-form" onSubmit={handleSubmit}>
-        <h2>Sign Up</h2>
+      <form className="signin-form" onSubmit={handleSubmit}>
+        <h2>Sign In</h2>
         <input
-          className="signup-input"
+          className="signin-input"
           type="text"
-          name="fullName"
-          placeholder="Full Name"
-          value={formData.fullName}
+          name="Username"
+          placeholder="UserName"
+          value={formData.Username}
           onChange={handleChange}
         />
         <input
-          className="signup-input"
-          type="email"
-          name="email"
-          placeholder="Email"
-          value={formData.email}
-          onChange={handleChange}
-        />
-        <input
-          className="signup-input"
+          className="signin-input"
           type="password"
           name="password"
           placeholder="Password"
           value={formData.password}
           onChange={handleChange}
         />
-        <input
-          className="signup-input"
-          type="password"
-          name="confirmPassword"
-          placeholder="Confirm Password"
-          value={formData.confirmPassword}
-          onChange={handleChange}
-        />
-        {error && <p className="signup-error">{error}</p>}
-        <PinkButton type="submit" text={"Sign Up"} />
+        {error && <p className="signin-error">{error}</p>}
+        <PinkButton type="submit" text={"Sign In"} size={18} />
       </form>
     </div>
   );
 };
 
-export default SignUpForm;
+export default SigninForm;

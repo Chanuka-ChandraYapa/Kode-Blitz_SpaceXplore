@@ -1,5 +1,5 @@
-.signup-form {
-    width: 90%;
+.signin-form {
+    width: 80%;
     margin: 0 auto;
     padding: 20px;
     border-radius: 40px;
@@ -13,13 +13,13 @@
     text-align: center;
   } */
   
-  .signup-form {
+  .signin-form {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
   
-  .signup-input {
+  .signin-input {
     width: 80%;
     margin: 10px 0;
     padding: 10px;
@@ -32,7 +32,7 @@
   }
   
   
-  .signup-error {
+  .signin-error {
     font-family: 'Urbanist';
     color: red;
     margin-top: 5px;
