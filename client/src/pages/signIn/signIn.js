@@ -24,12 +24,7 @@ const SigninForm = () => {
     e.preventDefault();
 
     // Basic form validation
-    if (
-      !formData.Username ||
-      !formData.email ||
-      !formData.password ||
-      !formData.confirmPassword
-    ) {
+    if (!formData.Username || !formData.password) {
       setError("*All fields are required.");
       return;
     }
