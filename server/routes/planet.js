@@ -1,0 +1,51 @@
+const express = require("express");
+const router = express.Router();
+const { sequelize, Planet } = require("../models");
+
+router.get("/planet/:planetName", async (req, res) => {
+  const planetName = req.params.planetName;
+
+  try {
+    // Query the database to find the planet by its name
+    const planet = await Planet.findOne({
+      where: { Name: planetName },
+    });
+
+    if (planet) {
+      // If the planet is found, send its details in the response
+      res.json({
+        Name: planet.Name,
+        Description: planet.Description,
+      });
+    } else {
+      // If the planet is not found, return a 404 error
+      res.status(404).json({ message: "Planet not found." });
+    }
+  } catch (error) {
+    console.error("Error:", error);
+    res.status(500).json({ message: "An error occurred." });
+  }
+});
+
+router.get("/planets", async (req, res) => {
+  try {
+    // Query the database to get all planet names
+    const planets = await Planet.findAll({
+      attributes: ["Name"], // Select only the Name attribute
+    });
+
+    if (planets) {
+      // Extract planet names and send them in the response
+      const planetNames = planets.map((planet) => planet.Name);
+      res.json(planetNames);
+    } else {
+      // If no planets are found, return an empty array
+      res.json([]);
+    }
+  } catch (error) {
+    console.error("Error:", error);
+    res.status(500).json({ message: "An error occurred." });
+  }
+});
+
+module.exports = router;
