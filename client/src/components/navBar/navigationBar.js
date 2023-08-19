@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./navigationBar.css"; // Import your CSS file
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -8,17 +8,16 @@ import {
   faArrowRightFromBracket,
 } from "@fortawesome/free-solid-svg-icons";
 import "./navigationBar.css"; // Import your CSS file
+import Sidebar from "../sideBar/sidebar";
 
 const NavigationBar = () => {
   return (
     <div className="navigation-bar">
-      <div className="logo">Spacexplore</div>
       <div className="menu-icon">
-        <FontAwesomeIcon icon={faBars} />
+        <Sidebar />
       </div>
-      <div className="notification-icon">
-        <FontAwesomeIcon icon={faBell} />
-      </div>
+
+      <div className="logo">Spacexplore</div>
       <div className="profile-icon">
         <FontAwesomeIcon icon={faUser} />
       </div>

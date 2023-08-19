@@ -1,37 +1,57 @@
 .sidebar {
-    position: fixed;
-    top: 0;
-    left: -300px;
-    width: 250px;
+    width:0%;
     height: 100%;
-    background-color: #333;
-    padding: 20px;
-    transition: left 0.3s ease-in-out;
+    position: fixed;
+    background: rgba(0, 0, 0, 0.7); 
+    overflow-x: hidden;
+    transition: 0.5s;
+    text-align: left;
+    padding-left: 5%;
+    border-top-right-radius: 20px;
+    transform: translateX(-100%);
   }
   
   .sidebar.open {
-    left: 0;
+    width: 40%;
+    transform: translateX(0);
   }
   
-  .close-btn {
-    background: none;
-    border: none;
-    color: white;
+  .burger-button {
+    display: flex;
+    flex-direction: column;
     cursor: pointer;
-    font-size: 18px;
-    margin-bottom: 20px;
+    padding: 20px;
+    z-index: 3;
   }
   
-  ul {
-    list-style: none;
+  
+  nav {
+    margin-top: 0px;
+  }
+  
+  nav ul {
+    list-style-type: none;
     padding: 0;
-    margin: 0;
   }
   
-  li {
-    margin-bottom: 10px;
-    color: white;
+  nav ul li {
+    padding: 10px;
+  }
+  
+  nav ul li a {
+    color: #CB559E;
+    text-decoration: none;
     font-size: 18px;
-    cursor: pointer;
+  }
+  
+  /* Media query for mobile responsiveness */
+  @media (max-width: 768px) {
+    .sidebar {
+      width: 0%;
+    }
+  
+    .sidebar.open {
+      width: 50%;
+    }
   }
   

@@ -2,7 +2,6 @@ import React from "react";
 import "./profile.css";
 
 const ProfilePageMobile = () => {
-
   return (
     <div className="profile-page-mobile">
       <div className="div">
@@ -13,8 +12,13 @@ const ProfilePageMobile = () => {
             <div className="overlap-group">
               <div className="rectangle" />
               <div className="text-wrapper-3">3 Weeks ago</div>
-              <p className="virendra-chronicles">&#34;Virendra: Chronicles of a Celestial Odyssey&#34;</p>
-              <p className="p">Where the stars paint tales of ancient dreams across the cosmic canvas.</p>
+              <p className="virendra-chronicles">
+                &#34;Virendra: Chronicles of a Celestial Odyssey&#34;
+              </p>
+              <p className="p">
+                Where the stars paint tales of ancient dreams across the cosmic
+                canvas.
+              </p>
               <img
                 className="mask-group"
                 alt="Mask group"
@@ -154,42 +158,6 @@ const ProfilePageMobile = () => {
               <div className="text-wrapper-51">What’s Next</div>
             </div>
           </div>
-          <footer className="footer">
-            <div className="overlap-7">
-              <div className="c-ircles">
-                <div className="ellipse-2" />
-                <div className="ellipse-3" />
-                <div className="ellipse-4" />
-                <div className="ellipse-5" />
-                <div className="ellipse-6" />
-                <div className="ellipse-7" />
-              </div>
-              <img
-                className="vector"
-                alt="Vector"
-                src="https://generation-sessions.s3.amazonaws.com/1d38d6504eeb72f83963adf976d8c7c8/img/vector-2.svg"
-              />
-              <div className="text-wrapper-52">SPACEXPLORE</div>
-              <div className="texts">
-                <div className="overlap-group-4">
-                  <div className="text-wrapper-53">Product</div>
-                  <div className="text-wrapper-54">Features</div>
-                  <div className="text-wrapper-55">Resources</div>
-                </div>
-                <div className="overlap-8">
-                  <div className="text-wrapper-56">About</div>
-                  <div className="text-wrapper-57">Blog</div>
-                  <div className="text-wrapper-58">Support</div>
-                </div>
-              </div>
-              <div className="element-privacy-terms">© 2023&nbsp;&nbsp;&nbsp;&nbsp;Privacy — Terms</div>
-            </div>
-          </footer>
-          <img
-            className="milky-way"
-            alt="Milky way"
-            src="https://generation-sessions.s3.amazonaws.com/1d38d6504eeb72f83963adf976d8c7c8/img/milkyway.png"
-          />
         </div>
         <div className="overlap-9">
           <div className="text-wrapper-59">:</div>
@@ -212,7 +180,9 @@ const ProfilePageMobile = () => {
             <div className="text-wrapper-73">Lysandra</div>
             <div className="text-wrapper-74">23 Years</div>
             <div className="text-wrapper-75">Quinox</div>
-            <div className="text-wrapper-76">elysandralysandra@nebulamail.com</div>
+            <div className="text-wrapper-76">
+              elysandralysandra@nebulamail.com
+            </div>
           </div>
         </div>
         <div className="overlap-11">
@@ -274,6 +244,5 @@ const ProfilePageMobile = () => {
     </div>
   );
 };
-
 
 export default ProfilePageMobile;
