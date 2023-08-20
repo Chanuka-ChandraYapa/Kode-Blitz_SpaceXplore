@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./enterDetails.css";
 import PassengerDetailsForm from "../passengerDetails/PassengerDetailsForm";
@@ -13,10 +13,27 @@ const EnterDetails = ({
   setAdultCount,
   childrenCount,
   setChildrenCount,
+  setIsEnterDetailsLocked,
+  setIsSeatViewLocked,
+  isSeatViewLocked,
+  isEnterDetailsLocked,
 }) => {
   const [tempPassengerDetailsArray, setTempPassengerDetailsArray] = useState(
     []
   );
+  const [isFormCompleteArray, setIsFormCompleteArray] = useState([]);
+
+  useEffect(() => {
+    setIsFormCompleteArray(Array.from({ length: passengerCount }, () => false));
+  }, [passengerCount]);
+
+  const updateFormCompletionStatus = (index, isComplete) => {
+    setIsFormCompleteArray((prevArray) => {
+      const newArray = [...prevArray];
+      newArray[index] = isComplete;
+      return newArray;
+    });
+  };
 
   const handleAdultChange = (event) => {
     setAdultCount(parseInt(event.target.value));
@@ -27,6 +44,8 @@ const EnterDetails = ({
   };
 
   const handlePassengerDetailsChange = (index, details) => {
+    updateFormCompletionStatus(index, details.isFormComplete);
+
     setTempPassengerDetailsArray((prevArray) => {
       const newArray = [...prevArray];
       newArray[index] = details;
@@ -35,8 +54,16 @@ const EnterDetails = ({
   };
 
   const handlePassengerSubmit = async () => {
+    const allFormsComplete = isFormCompleteArray.every((complete) => complete);
+
+    if (!allFormsComplete) {
+      alert("Please fill out all passenger details");
+      return;
+    }
     console.log(tempPassengerDetailsArray);
     setPassengerCount(childrenCount + adultCount);
+    setIsSeatViewLocked(!isSeatViewLocked);
+    setIsEnterDetailsLocked(!isEnterDetailsLocked);
 
     try {
       await axios.post(
@@ -94,7 +121,10 @@ const EnterDetails = ({
           </div>
         ))}
       </div>
-
+      <div className="warning-booking">
+        After You Click the below button you cannot go back and no longer will
+        be able to update your details in the form
+      </div>
       <PinkButton onClick={handlePassengerSubmit} text={"Select Your Seats"} />
     </div>
   );

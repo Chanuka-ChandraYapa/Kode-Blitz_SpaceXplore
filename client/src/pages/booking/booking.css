@@ -72,3 +72,10 @@
     text-transform: uppercase;
     color: #E3E3E3;
   }
+
+  .locked-details,
+.locked-seat-view {
+  background-color: #f0f0f0; /* Grey background color */
+  pointer-events: none; /* Disable interactions */
+  opacity: 0.5; /* Reduced opacity to indicate it's locked */
+}
