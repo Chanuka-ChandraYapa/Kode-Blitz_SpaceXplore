@@ -1,11 +1,10 @@
 import React from "react";
 import "./discover.css"; // Import the corresponding CSS file
-import Box from "@mui/material/Box";
-import { Link } from "react-router-dom";
 const DiscoverCard = ({
-  planetName,
+  text,
   subtext,
   subsubtext,
+  subsubsubtext,
   MyBackgroundImage,
 }) => {
   return (
@@ -18,9 +17,10 @@ const DiscoverCard = ({
           }}
         ></div>
         <div className="fading-image-dis">
-          <div className="text">{planetName}</div>
+          <div className="text">{text}</div>
           <div className="sub-text">{subtext}</div>
           <div className="sub-sub-text">{subsubtext}</div>
+          <div className="sub-sub-sub-text">{subsubsubtext}</div>
         </div>
       </div>
     </div>

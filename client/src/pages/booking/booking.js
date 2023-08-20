@@ -157,8 +157,8 @@ const Booking = () => {
           category={selectedtravelClass.class}
           adults={adultCount}
           children={childrenCount}
-          pricePerAdult={100}
-          pricePerChild={50}
+          pricePerAdult={spaceshipData.price}
+          //pricePerChild={50}
           discount={20}
         />
       </div>

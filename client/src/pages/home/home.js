@@ -18,10 +18,15 @@ const API_BASE_URL = "http://localhost:5000";
 
 const Home = () => {
   const [travelPlanets, settravelPlanets] = useState([]);
+  const [flightSchedules, setFlightSchedules] = useState([]);
   useEffect(() => {
     // Fetch planet data from backend
     axios.get(`${API_BASE_URL}/planets`).then(({ data }) => {
       settravelPlanets(data);
+    });
+    axios.get(`${API_BASE_URL}/latest-flights`).then(({ data }) => {
+      setFlightSchedules(data);
+      console.log(flightSchedules);
     });
   }, []);
 
@@ -39,7 +44,7 @@ const Home = () => {
               <Link to={`/planet/${planetName.Name}`}>
                 <div className="discard" key={planetName}>
                   <DiscoverCard
-                    planetName={planetName.Name}
+                    text={planetName.Name}
                     MyBackgroundImage={planetName.Image_Link}
                   />
                 </div>
@@ -52,15 +57,20 @@ const Home = () => {
       <div className="booking-page">
         <div className="disScrolling">
           <div className="discontainer">
-            <div class="discard">
-              <DiscoverCard />
-            </div>
-            <div class="discard">
-              <DiscoverCard />
-            </div>
-            <div class="discard">
-              <DiscoverCard />
-            </div>
+            {flightSchedules.map((flightSchedule) => (
+              <div className="discard" key={flightSchedule.Schedule_ID}>
+                {/* Render flight schedule details using DiscoverCard or a custom component */}
+                <DiscoverCard
+                  text={flightSchedule.SpaceShip.Model_Name}
+                  //MyBackgroundImage={flightSchedule.SpaceShip_ID}
+                  subsubtext={flightSchedule.Starting_Date}
+                  subsubsubtext={flightSchedule.Flight.Flight_Price}
+                  MyBackgroundImage={
+                    "https://img.freepik.com/free-photo/view-futuristic-looking-spaceship_23-2150675511.jpg?t=st=1692511863~exp=1692515463~hmac=2f12d687e267be6fb81ea147761e6673194ed7712a3871f4df6cc8c7af3c1f83&w=1380"
+                  }
+                />
+              </div>
+            ))}
           </div>
         </div>
       </div>
