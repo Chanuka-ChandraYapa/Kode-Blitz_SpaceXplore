@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { useParams } from "react-router-dom";
 import "./booking.css"; // Import the corresponding CSS file
 import BackImage from "../../components/backdrop/backimage";
 import Card from "../../components/class card/card";
@@ -11,9 +12,10 @@ import SeatView from "../../components/seatView/seat";
 import PriceSummary from "../../components/paymentSummary/test";
 import MyBackgroundImage from "../../pages/booking/spaceship-names2.jpg";
 import Sidebar from "../../components/sideBar/sidebar";
-const API_BASE_URL = "http://192.168.43.150:5000";
+const API_BASE_URL = "http://localhost:5000";
 
 const Booking = () => {
+  const { flightid } = useParams();
   const [spaceshipData, setSpaceshipData] = useState({
     name: "",
     spaceshipName: "",
@@ -65,7 +67,8 @@ const Booking = () => {
 
   useEffect(() => {
     // Fetch spaceship data from backend
-    axios.get(`${API_BASE_URL}/spaceship`).then(({ data }) => {
+    console.log(flightid);
+    axios.get(`${API_BASE_URL}/spaceship/${flightid}`).then(({ data }) => {
       setSpaceshipData({
         name: data.spaceshipName,
         spaceshipName: data.spaceshipID,

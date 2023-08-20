@@ -2,7 +2,7 @@ import logo from "./logo.svg";
 import "./App.css";
 
 // import ProfilePageMobile from "./pages/profile";
-import { useState, useContext, createContext} from "react";
+import { useState, useContext, createContext } from "react";
 
 import NavigationBar from "./components/navBar/navigationBar";
 import {
@@ -63,6 +63,11 @@ function App() {
                   exact
                   path="/planet/:planetName"
                   element={<PrivateRoute Component={Planet} />}
+                />
+                <Route
+                  exact
+                  path="/booking/:flightid"
+                  element={<PrivateRoute Component={Booking} />}
                 />
                 <Route
                   exact
