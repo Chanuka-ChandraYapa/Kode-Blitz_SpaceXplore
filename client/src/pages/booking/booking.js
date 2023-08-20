@@ -33,6 +33,8 @@ const Booking = () => {
   const [selectedtravelClass, setselectedtravelClass] = useState([]);
   const [isSeatViewLocked, setIsSeatViewLocked] = useState(true);
   const [isEnterDetailsLocked, setIsEnterDetailsLocked] = useState(false);
+  const [reservationSuccess, setReservationSuccess] = useState(false);
+
   const lockedStyle = {
     filter: "grayscale(100%)",
     pointerEvents: "none",
@@ -57,6 +59,7 @@ const Booking = () => {
       });
 
       console.log(response.data.message); // Success message from the server
+      setReservationSuccess(true);
     } catch (error) {
       console.error("Error reserving seats:", error);
       // You might want to display an error message to the user here.
@@ -165,8 +168,17 @@ const Booking = () => {
           discount={20}
         />
       </div>
-
-      <PinkButton text={"Book"} onClick={handleBookNow} />
+      <div className={reservationSuccess ? "disabled-button" : ""}></div>
+      <PinkButton
+        text={"Book"}
+        onClick={handleBookNow}
+        className={reservationSuccess ? "disabled-button" : ""}
+      />
+      {reservationSuccess && (
+        <div className="reservation-success-animation">
+          You have successfully reserved your seats. See you in space!
+        </div>
+      )}
     </div>
   );
 };
