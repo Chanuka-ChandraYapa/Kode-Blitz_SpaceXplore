@@ -1,6 +1,6 @@
 import React from "react";
 import "./conditionCard.css";
-import PinkButton from "../button/button";
+import PinkButton from "../../utils/button/button";
 
 const ConditionCard = () => {
   return (

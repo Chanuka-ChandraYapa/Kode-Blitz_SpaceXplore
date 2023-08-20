@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./signUp.css";
-import PinkButton from "../../components/button/button";
+import PinkButton from "../../utils/button/button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 

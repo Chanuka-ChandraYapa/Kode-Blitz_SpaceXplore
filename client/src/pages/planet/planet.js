@@ -3,8 +3,8 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import "./planet.css"; // Import the corresponding CSS file
-import BackImage from "../../components/backdrop/backimage";
-import PinkButton from "../../components/button/button";
+import BackImage from "../../utils/backdrop/backimage";
+import PinkButton from "../../utils/button/button";
 import MyBackgroundImage from "../../pages/planet/Mars1.gif";
 import ConditionCard from "../../components/conditionCard/conditionCard";
 import DiscoverCard from "../../components/discoverCard/discover";

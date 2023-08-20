@@ -1,7 +1,7 @@
 // Card.js
 import React from "react";
 import "./card.css"; // Import the corresponding CSS file
-import PinkButton from "../button/button";
+import PinkButton from "../../utils/button/button";
 
 const Card = ({
   date,

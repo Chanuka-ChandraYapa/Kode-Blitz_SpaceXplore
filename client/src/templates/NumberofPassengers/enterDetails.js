@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./enterDetails.css";
 import PassengerDetailsForm from "../passengerDetails/PassengerDetailsForm";
-import PinkButton from "../button/button";
+import PinkButton from "../../utils/button/button";
 import FormControl from "@mui/material/FormControl";
-import NumberSpinner from "../numberSpinner/numSpinner";
+import NumberSpinner from "../../utils/numberSpinner/numSpinner";
 
 const EnterDetails = ({
   passengerCount,
