@@ -10,15 +10,15 @@ const PassengerDetailsForm = ({
   const [dateOfBirth, setDateOfBirth] = useState("");
   const [gender, setGender] = useState("");
 
-  useEffect(() => {
-    onPassengerDetailsChange({
-      fullName,
-      dateOfBirth,
-      gender,
-      isAdult,
-      isFormComplete: fullName && dateOfBirth && gender,
-    });
-  }, [fullName, dateOfBirth, gender, isAdult, onPassengerDetailsChange]);
+  // useEffect(() => {
+  //   onPassengerDetailsChange({
+  //     fullName,
+  //     dateOfBirth,
+  //     gender,
+  //     isAdult,
+  //     isFormComplete: fullName && dateOfBirth && gender,
+  //   });
+  // }, [fullName, dateOfBirth, gender, isAdult, onPassengerDetailsChange]);
 
   const handleFullNameChange = (event) => {
     setFullName(event.target.value);

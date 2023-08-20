@@ -29,17 +29,6 @@ const Booking = () => {
   const [childrenCount, setChildrenCount] = useState(0);
   const [travelClasses, setTravelClasses] = useState([]);
   const [selectedtravelClass, setselectedtravelClass] = useState([]);
-  const [isSeatViewLocked, setIsSeatViewLocked] = useState(true);
-  const [isEnterDetailsLocked, setIsEnterDetailsLocked] = useState(false);
-  const lockedStyle = {
-    filter: "grayscale(100%)",
-    pointerEvents: "none",
-  };
-
-  const unlockedStyle = {
-    filter: "none",
-    pointerEvents: "auto",
-  };
 
   const handleBookNow = async () => {
     try {
@@ -117,10 +106,7 @@ const Booking = () => {
         </div>
       </div>
       <div className="booking-sub-title">Enter your Details</div>
-      <div
-        className="booking-page"
-        style={isEnterDetailsLocked ? lockedStyle : unlockedStyle}
-      >
+      <div className="booking-page">
         <EnterDetails
           passengerCount={passengerCount}
           setPassengerCount={setPassengerCount}
@@ -128,17 +114,10 @@ const Booking = () => {
           setAdultCount={setAdultCount}
           childrenCount={childrenCount}
           setChildrenCount={setChildrenCount}
-          setIsEnterDetailsLocked={setIsEnterDetailsLocked}
-          setIsSeatViewLocked={setIsSeatViewLocked}
-          isEnterDetailsLocked={isEnterDetailsLocked}
-          isSeatViewLocked={isSeatViewLocked}
         />
       </div>
       <div className="booking-sub-title"> Select Your Seat</div>
-      <div
-        className="booking-page"
-        style={isSeatViewLocked ? lockedStyle : unlockedStyle}
-      >
+      <div className="booking-page">
         <SeatView
           seat_capacity={48}
           selectedSeats={selectedSeats}
