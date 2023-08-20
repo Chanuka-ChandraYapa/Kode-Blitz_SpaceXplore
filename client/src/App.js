@@ -24,7 +24,7 @@ import Yet from "./pages/ToBeImplemented/yet";
 const AuthContext = createContext();
 
 function App() {
-  const [isAuthenticated, setIsAuthenticated] = useState(true); // Change as needed
+  const [isAuthenticated, setIsAuthenticated] = useState(false); // Change as needed
 
   return (
     <AuthContext.Provider value={{ isAuthenticated, setIsAuthenticated }}>
