@@ -123,7 +123,10 @@ const Booking = () => {
         </div>
       </div>
       <div className="booking-sub-title">Enter your Details</div>
-      <div className="booking-page">
+      <div
+        className="booking-page"
+        style={isEnterDetailsLocked ? lockedStyle : unlockedStyle}
+      >
         <EnterDetails
           passengerCount={passengerCount}
           setPassengerCount={setPassengerCount}
@@ -131,10 +134,17 @@ const Booking = () => {
           setAdultCount={setAdultCount}
           childrenCount={childrenCount}
           setChildrenCount={setChildrenCount}
+          setIsEnterDetailsLocked={setIsEnterDetailsLocked}
+          setIsSeatViewLocked={setIsSeatViewLocked}
+          isEnterDetailsLocked={isEnterDetailsLocked}
+          isSeatViewLocked={isSeatViewLocked}
         />
       </div>
       <div className="booking-sub-title"> Select Your Seat</div>
-      <div className="booking-page">
+      <div
+        className="booking-page"
+        style={isSeatViewLocked ? lockedStyle : unlockedStyle}
+      >
         <SeatView
           seat_capacity={48}
           selectedSeats={selectedSeats}
