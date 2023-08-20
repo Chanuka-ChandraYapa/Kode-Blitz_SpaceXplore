@@ -25,6 +25,8 @@ const Booking = () => {
   });
   const [selectedSeats, setSelectedSeats] = useState([]); // Maintain selected seats
   const [passengerCount, setPassengerCount] = useState(0);
+  const [adultCount, setAdultCount] = useState(1);
+  const [childrenCount, setChildrenCount] = useState(0);
   const [travelClasses, setTravelClasses] = useState([]);
   const [selectedtravelClass, setselectedtravelClass] = useState([]);
 
@@ -108,6 +110,10 @@ const Booking = () => {
         <EnterDetails
           passengerCount={passengerCount}
           setPassengerCount={setPassengerCount}
+          adultCount={adultCount}
+          setAdultCount={setAdultCount}
+          childrenCount={childrenCount}
+          setChildrenCount={setChildrenCount}
         />
       </div>
       <div className="booking-sub-title"> Select Your Seat</div>
@@ -128,8 +134,8 @@ const Booking = () => {
         <PriceSummary
           passengers={passengerCount}
           category={selectedtravelClass.class}
-          adults={2}
-          children={1}
+          adults={adultCount}
+          children={childrenCount}
           pricePerAdult={100}
           pricePerChild={50}
           discount={20}

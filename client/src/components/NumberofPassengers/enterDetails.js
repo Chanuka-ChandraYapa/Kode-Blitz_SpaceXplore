@@ -6,16 +6,20 @@ import PinkButton from "../button/button";
 import FormControl from "@mui/material/FormControl";
 import NumberSpinner from "../numberSpinner/numSpinner";
 
-const EnterDetails = ({ passengerCount, setPassengerCount }) => {
-  const [adultCount, setAdultCount] = useState(1);
-  const [childrenCount, setChildrenCount] = useState(0);
+const EnterDetails = ({
+  passengerCount,
+  setPassengerCount,
+  adultCount,
+  setAdultCount,
+  childrenCount,
+  setChildrenCount,
+}) => {
   const [tempPassengerDetailsArray, setTempPassengerDetailsArray] = useState(
     []
   );
 
   const handleAdultChange = (event) => {
     setAdultCount(parseInt(event.target.value));
-    
   };
 
   const handleChildrenChange = (event) => {
