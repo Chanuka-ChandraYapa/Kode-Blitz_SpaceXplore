@@ -39,6 +39,6 @@ cd server
 npm start
 ```
 Since this is a mobile-first application, we focused more on the Mobile view of the application
-Access the .env file in the src folder in the client directory and change the API_BASE_URL to the private network IP address. Then you can access the system on your mobile which is connected to the same network as the server.
-Then, as by this example URL <https://192.168.24.158:3000> you can access the system.
+Access the config file in the src/config folder in the client directory and change the API_BASE_URL to the private network IP address:3000. Then you can access the system on your mobile if it is connected to the same network as the server.
+Then, (as by this example URL <https://192.168.24.158:3000>) you can access the spaceXplore system.
 
