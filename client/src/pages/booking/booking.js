@@ -12,10 +12,10 @@ import SeatView from "../../templates/seatView/seat";
 import PriceSummary from "../../templates/paymentSummary/test";
 import MyBackgroundImage from "../../pages/booking/spaceship-names2.jpg";
 import Sidebar from "../../components/sideBar/sidebar";
-const API_BASE_URL = "http://192.168.43.150:5000";
+import { API_BASE_URL } from "../../config/config";
 
 const Booking = () => {
-/* The code snippet is using the `useParams` hook from the `react-router-dom` library to extract the
+  /* The code snippet is using the `useParams` hook from the `react-router-dom` library to extract the
 `flightid` parameter from the URL. */
   const { flightid } = useParams();
   const [spaceshipData, setSpaceshipData] = useState({
@@ -27,7 +27,7 @@ const Booking = () => {
     destinationPlanet: "",
     price: 0,
   });
-/* These lines of code are using the `useState` hook from React to create and initialize state
+  /* These lines of code are using the `useState` hook from React to create and initialize state
 variables in the `Booking` component. */
   const [selectedSeats, setSelectedSeats] = useState([]); // Maintain selected seats
   const [passengerCount, setPassengerCount] = useState(0);
@@ -49,10 +49,10 @@ variables in the `Booking` component. */
     pointerEvents: "auto",
   };
 
-/**
- * The `handleBookNow` function converts selected seats into an array of objects and sends a POST
- * request to reserve the seats.
- */
+  /**
+   * The `handleBookNow` function converts selected seats into an array of objects and sends a POST
+   * request to reserve the seats.
+   */
   const handleBookNow = async () => {
     try {
       // Convert selectedSeats into an array of objects with the required format
@@ -74,7 +74,7 @@ variables in the `Booking` component. */
     }
   };
 
-/* The `useEffect` hook is used to perform side effects in functional components. In this code snippet,
+  /* The `useEffect` hook is used to perform side effects in functional components. In this code snippet,
 the `useEffect` hook is used to fetch travel classes data from the backend API. */
   useEffect(() => {
     // Fetch travel classes data from backend
@@ -89,7 +89,7 @@ the `useEffect` hook is used to fetch travel classes data from the backend API. 
       });
   }, []);
 
-/* The `useEffect` hook in the code snippet is used to fetch spaceship data from the backend API. */
+  /* The `useEffect` hook in the code snippet is used to fetch spaceship data from the backend API. */
   useEffect(() => {
     // Fetch spaceship data from backend
     console.log(flightid);
@@ -106,7 +106,7 @@ the `useEffect` hook is used to fetch travel classes data from the backend API. 
     });
   }, []);
 
-/* The code snippet is rendering a section of the booking page where the user can select their desired
+  /* The code snippet is rendering a section of the booking page where the user can select their desired
 travel class. It uses the `travelClasses` array to map over each travel class and render a `Card`
 component for each one. The `Card` component displays information about the travel class, such as
 the date, class name, departure and destination planets, and price. The `setselectedtravelClass`
