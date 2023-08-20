@@ -39,6 +39,14 @@ const SigninForm = ({ onSignInSubmit }) => {
       return;
     }
 
+    try {
+      onSignInSubmit();
+      navigate("/");
+      // Your authentication logic here, e.g., using axios and an API call
+      // If authentication is successful, navigate to the home page // Replace "/home" with the actual route of your home page
+    } catch (error) {
+      setError("Authentication failed."); // Set an appropriate error message
+    }
     // Here you can implement your actual authentication logic
     // For simplicity, I'll just log the data to the console
     console.log("Form data:", formData);
