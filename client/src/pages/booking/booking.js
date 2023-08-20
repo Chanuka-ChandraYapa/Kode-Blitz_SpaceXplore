@@ -12,7 +12,7 @@ import SeatView from "../../templates/seatView/seat";
 import PriceSummary from "../../templates/paymentSummary/test";
 import MyBackgroundImage from "../../pages/booking/spaceship-names2.jpg";
 import Sidebar from "../../components/sideBar/sidebar";
-const API_BASE_URL = "http://localhost:5000";
+const API_BASE_URL = "http://192.168.43.150:5000";
 
 const Booking = () => {
 /* The code snippet is using the `useParams` hook from the `react-router-dom` library to extract the
@@ -113,7 +113,7 @@ the date, class name, departure and destination planets, and price. The `setsele
 function is passed as a prop to the `Card` component, allowing the user to select a travel class by
 clicking on a card. */
   return (
-    <div>
+    <div className="booking-main-container">
       <BackImage MyBackgroundImage={MyBackgroundImage} />
       {/* <Sidebar /> */}
       <div className="void"></div>
@@ -145,6 +145,7 @@ clicking on a card. */
         style={isEnterDetailsLocked ? lockedStyle : unlockedStyle}
       >
         <EnterDetails
+          category={selectedtravelClass.class}
           passengerCount={passengerCount}
           setPassengerCount={setPassengerCount}
           adultCount={adultCount}

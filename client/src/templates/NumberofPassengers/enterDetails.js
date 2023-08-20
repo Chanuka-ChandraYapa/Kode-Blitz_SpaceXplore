@@ -7,6 +7,7 @@ import FormControl from "@mui/material/FormControl";
 import NumberSpinner from "../../utils/numberSpinner/numSpinner";
 
 const EnterDetails = ({
+  category,
   passengerCount,
   setPassengerCount,
   adultCount,
@@ -72,6 +73,7 @@ const EnterDetails = ({
 
   return (
     <div className="enter-details">
+      <div className="booking-category">{category}</div>
       <span className="detail-label">No of Adults:</span>
       <div className="detail-item">
         <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>

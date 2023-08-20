@@ -1,18 +1,14 @@
 module.exports = (sequelize, DataTypes) => {
-  const SpaceShip = sequelize.define(
-    "SpaceShip",
+  const Location = sequelize.define(
+    "Location",
     {
-      SpaceShip_ID: {
-        type: DataTypes.STRING, // Assuming SpaceShip_ID is alphanumeric
+      Location_Name: {
+        type: DataTypes.STRING, // Assuming Location_ID is alphanumeric
         allowNull: false,
         primaryKey: true,
       },
-      Model_Name: {
+      Planet_Name: {
         type: DataTypes.STRING,
-        allowNull: false,
-      },
-      Seating_Capacity: {
-        type: DataTypes.INTEGER,
         allowNull: false,
       },
       image_link: {
@@ -26,12 +22,12 @@ module.exports = (sequelize, DataTypes) => {
   );
 
   // Define the association to Flight_Schedule
-  SpaceShip.associate = (models) => {
-    SpaceShip.hasMany(models.Flight_Schedule, {
-      foreignKey: "SpaceShip_ID",
+  Location.associate = (models) => {
+    Location.hasMany(models.Flight_Schedule, {
+      foreignKey: "Location_ID",
       as: "Schedules", // You can choose a different alias if needed
     });
   };
 
-  return SpaceShip;
+  return Location;
 };

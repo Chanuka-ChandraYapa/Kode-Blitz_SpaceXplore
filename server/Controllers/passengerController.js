@@ -1,13 +1,20 @@
-const express = require("express");
-const router = express.Router();
 const { Passenger } = require("../models");
 
-router.get("/passenger-details", async (req, res) => {
-  const listofPassenger = await Passenger.findAll();
-  res.json(listofPassenger);
-});
+// Get all passengers
+const getAllPassengers = async (req, res) => {
+  try {
+    const listofPassenger = await Passenger.findAll();
+    res.json(listofPassenger);
+  } catch (error) {
+    console.error("Error fetching passengers:", error);
+    res
+      .status(500)
+      .json({ error: "An error occurred while fetching passengers." });
+  }
+};
 
-router.post("/passenger-details", async (req, res) => {
+// Create passengers
+const createPassengers = async (req, res) => {
   const passengerArray = req.body;
 
   try {
@@ -35,6 +42,9 @@ router.post("/passenger-details", async (req, res) => {
       .status(500)
       .json({ error: "An error occurred while creating the passengers." });
   }
-});
+};
 
-module.exports = router;
+module.exports = {
+  getAllPassengers,
+  createPassengers,
+};

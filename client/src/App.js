@@ -20,6 +20,7 @@ import SignUp from "./pages/signUp/signUp";
 import SigninForm from "./pages/signIn/signIn";
 import Landing from "./pages/landing/landing";
 import Yet from "./pages/ToBeImplemented/yet";
+import Footer from "./components/footer/footer";
 
 const AuthContext = createContext();
 
@@ -106,6 +107,7 @@ function App() {
               {isAuthenticated && (
                 <NavigationBar handleSignOut={handleSignOut} />
               )}
+              <Footer />
             </div>
           </div>
         </div>

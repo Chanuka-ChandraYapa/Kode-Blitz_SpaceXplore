@@ -15,7 +15,7 @@ import PriceSummary from "../../templates/paymentSummary/test";
 import MyBackgroundImage from "../../pages/home/marcelo-quinan-R3pUGn5YiTg-unsplash.jpg";
 import Search from "../../components/search/search";
 import DiscoverCard from "../../components/discoverCard/discover";
-const API_BASE_URL = "http://localhost:5000";
+import { API_BASE_URL } from "../../config/config";
 
 /* The code you provided is a functional component in JavaScript using React. It defines a component
 called "Home" that renders a webpage with various elements such as a background image, search bar,
@@ -72,9 +72,7 @@ const Home = () => {
                     //MyBackgroundImage={flightSchedule.SpaceShip_ID}
                     subsubtext={flightSchedule.Starting_Date}
                     subsubsubtext={flightSchedule.Flight.Destination_Planet}
-                    MyBackgroundImage={
-                      "https://img.freepik.com/free-photo/view-futuristic-looking-spaceship_23-2150675511.jpg?t=st=1692511863~exp=1692515463~hmac=2f12d687e267be6fb81ea147761e6673194ed7712a3871f4df6cc8c7af3c1f83&w=1380"
-                    }
+                    MyBackgroundImage={flightSchedule.SpaceShip.image_link}
                   />
                 </div>
               </Link>

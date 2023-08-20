@@ -5,6 +5,7 @@ import "./signIn.css";
 import PinkButton from "../../utils/button/button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import { API_BASE_URL } from "../../config/config";
 
 /**
  * The SigninForm component is a form that takes user input for username, email, password, and
@@ -19,7 +20,7 @@ const SigninForm = ({ onSignInSubmit }) => {
     confirmPassword: "",
   });
 
-/* The code snippet is defining several state variables and functions using the `useState` hook in
+  /* The code snippet is defining several state variables and functions using the `useState` hook in
 React. */
   const [showPassword, setShowPassword] = useState(false);
   const togglePasswordVisibility = () => {
@@ -36,40 +37,43 @@ React. */
     }));
   };
 
-/**
- * The handleSubmit function is responsible for handling form submission, performing basic form
- * validation, and resetting form data and error message.
- * @param e - The parameter `e` is an event object that represents the event that triggered the form
- * submission. In this case, it is the form submission event.
- * @returns The function is not returning anything.
- */
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    // Basic form validation
+  const handleSubmit = async (e) => {
     if (!formData.Username || !formData.password) {
       setError("*All fields are required.");
       return;
     }
+    onSignInSubmit();
+    navigate("/");
+    //   try {
+    //     const response = await axios.post(`${API_BASE_URL}/signin`, formData);
 
-    try {
-      onSignInSubmit();
-      navigate("/");
+    //     if (response.status === 200) {
+    //       onSignInSubmit();
+    //       navigate("/");
+    //       // User logged in successfully
+    //       const responseData = response.data;
+    //       console.log(responseData);
 
-    } catch (error) {
-      setError("Authentication failed."); // Set an appropriate error message
-    }
+    //       // Reset the form data and clear the error message
+    //       setFormData({
+    //         Username: "",
+    //         password: "",
+    //       });
+    //       setError("");
 
-    console.log("Form data:", formData);
+    //       // Call the callback function to update authentication status in App.js
 
-    // Reset form data and error message
-    setFormData({
-      Username: "",
-      email: "",
-      password: "",
-      confirmPassword: "",
-    });
-    setError("");
+    //       // Optionally, you can redirect the user or perform other actions here.
+    //     } else {
+    //       const errorData = response.data;
+    //       setError(errorData.message); // Change this line to access the correct message key
+    //     }
+    //   } catch (error) {
+    //     console.error("Error sending form data:", error);
+    //     setError("An error occurred while submitting the form.");
+    //   }
+
+    //   e.preventDefault();
   };
 
   return (

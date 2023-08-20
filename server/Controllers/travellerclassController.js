@@ -1,8 +1,7 @@
-const express = require("express");
-const router = express.Router();
 const { Travel_Class } = require("../models");
 
-router.get("/travel-classes", async (req, res) => {
+// Function to get all travel classes
+const getAllTravelClasses = async (req, res) => {
   try {
     const travelClasses = await Travel_Class.findAll();
     res.json(travelClasses);
@@ -10,6 +9,8 @@ router.get("/travel-classes", async (req, res) => {
     console.error("Error fetching travel classes:", error);
     res.status(500).json({ error: "An error occurred" });
   }
-});
+};
 
-module.exports = router;
+module.exports = {
+  getAllTravelClasses,
+};

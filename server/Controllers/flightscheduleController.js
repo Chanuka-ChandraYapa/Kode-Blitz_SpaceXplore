@@ -1,9 +1,7 @@
-const express = require("express");
-const router = express.Router();
 const { sequelize, Flight_Schedule, Flight, SpaceShip } = require("../models");
 
-// Route to get the latest 4 Flight_Schedules with additional information
-router.get("/latest-flights", async (req, res) => {
+// Function to get the latest 4 Flight_Schedules with additional information
+const getLatestFlightSchedules = async (req, res) => {
   try {
     // Query the database using Sequelize's built-in methods
     const latestFlightSchedules = await Flight_Schedule.findAll({
@@ -23,7 +21,7 @@ router.get("/latest-flights", async (req, res) => {
         {
           model: SpaceShip,
           as: "SpaceShip", // Use the alias specified in the model
-          attributes: ["Model_Name"],
+          attributes: ["Model_Name", "image_link"],
         },
       ],
     });
@@ -39,14 +37,15 @@ router.get("/latest-flights", async (req, res) => {
     console.error("Error:", error);
     res.status(500).json({ message: "An error occurred." });
   }
-});
+};
 
-router.get("/flight/:planetname", async (req, res) => {
+// Function to get flight schedules by planet name
+const getFlightSchedulesByPlanet = async (req, res) => {
   try {
     const planetName = req.params.planetname; // Get the planet name from the URL parameter
 
     // Query the database using Sequelize's built-in methods
-    const latestFlightSchedules = await Flight_Schedule.findAll({
+    const flightSchedules = await Flight_Schedule.findAll({
       attributes: [
         "Schedule_ID",
         "Flight_ID",
@@ -64,26 +63,25 @@ router.get("/flight/:planetname", async (req, res) => {
         {
           model: SpaceShip,
           as: "SpaceShip",
-          attributes: ["Model_Name"],
+          attributes: ["Model_Name", "image_link"],
         },
       ],
     });
 
-    if (latestFlightSchedules.length > 0) {
-      res.json(latestFlightSchedules);
+    if (flightSchedules.length > 0) {
+      res.json(flightSchedules);
     } else {
-      res
-        .status(404)
-        .json({
-          message: "Flight Schedules not found for the specified planet.",
-        });
+      res.status(404).json({
+        message: `Flight Schedules not found for ${planetName}.`,
+      });
     }
   } catch (error) {
     console.error("Error:", error);
     res.status(500).json({ message: "An error occurred." });
   }
-});
+};
 
-// ... Your other routes for getting Flight_Schedules ...
-
-module.exports = router;
+module.exports = {
+  getLatestFlightSchedules,
+  getFlightSchedulesByPlanet,
+};

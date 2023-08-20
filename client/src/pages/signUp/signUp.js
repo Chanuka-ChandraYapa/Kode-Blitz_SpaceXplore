@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import "./signUp.css";
+import axios from "axios";
 import PinkButton from "../../utils/button/button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import { API_BASE_URL } from "../../config/config";
 
 const SignUpForm = () => {
   /* The code snippet is using the `useState` hook from React to define and manage state variables in a
@@ -40,27 +42,43 @@ functional component. */
       !formData.password ||
       !formData.confirmPassword
     ) {
-      setError("*All fields are required.");
+      setError("All fields are required.");
       return;
     }
 
     if (formData.password !== formData.confirmPassword) {
-      setError("*Passwords do not match.");
+      setError("Passwords do not match.");
       return;
     }
 
-    // Here you can implement your actual authentication logic
-    // For simplicity, I'll just log the data to the console
-    console.log("Form data:", formData);
+    axios
+      .post(`${API_BASE_URL}/signUp`, formData)
+      .then((response) => {
+        console.log(response.status);
 
-    // Reset form data and error message
-    setFormData({
-      fullName: "",
-      email: "",
-      password: "",
-      confirmPassword: "",
-    });
-    setError("");
+        if (response.status === 201) {
+          // User created successfully
+          const responseData = response.data;
+          console.log(responseData.message);
+
+          // Reset the form data and clear the error message
+          setFormData({
+            Username: "",
+            email: "",
+            confirmPassword: "",
+            password: "",
+          });
+          setError("");
+
+          // Optionally, you can redirect the user or perform other actions here.
+        } else {
+          const errorData = response.data;
+          setError(errorData.error);
+        }
+      })
+      .catch((error) => {
+        setError("An error occurred while submitting the form.");
+      });
   };
 
   return (
