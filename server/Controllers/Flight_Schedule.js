@@ -1,23 +1,39 @@
 const express = require("express");
 const router = express.Router();
-const { Flight_Schedule } = require("../models");
+const { sequelize, Flight_Schedule, Flight, SpaceShip } = require("../models");
 
-// Route to get Flight_Schedule by Flight_ID
-router.get("/:flightId", async (req, res) => {
-  const flightId = req.params.flightId;
-
+// Route to get the latest 4 Flight_Schedules with additional information
+router.get("/latest-flights", async (req, res) => {
   try {
-    // Query the database to find the Flight_Schedule by Flight_ID
-    const flightSchedule = await Flight_Schedule.findAll({
-      where: { Flight_ID: flightId },
+    // Query the database using Sequelize's built-in methods
+    const latestFlightSchedules = await Flight_Schedule.findAll({
+      attributes: [
+        "Schedule_ID",
+        "Flight_ID",
+        [sequelize.fn("date", sequelize.col("Starting_Time")), "Starting_Date"],
+      ],
+      order: [["Starting_Time", "DESC"]],
+      limit: 4,
+      include: [
+        {
+          model: Flight,
+          as: "Flight", // Use the alias specified in the model
+          attributes: ["Flight_Price", "Duration"],
+        },
+        {
+          model: SpaceShip,
+          as: "SpaceShip", // Use the alias specified in the model
+          attributes: ["Model_Name"],
+        },
+      ],
     });
 
-    if (flightSchedule) {
-      // If Flight_Schedule is found, send its details in the response
-      res.json(flightSchedule);
+    if (latestFlightSchedules.length > 0) {
+      // If Flight_Schedules are found, send their details in the response
+      res.json(latestFlightSchedules);
     } else {
-      // If Flight_Schedule is not found, return a 404 error
-      res.status(404).json({ message: "Flight Schedule not found." });
+      // If no Flight_Schedules are found, return a 404 error
+      res.status(404).json({ message: "Flight Schedules not found." });
     }
   } catch (error) {
     console.error("Error:", error);
@@ -25,23 +41,6 @@ router.get("/:flightId", async (req, res) => {
   }
 });
 
-// Route to get all Flight_Schedules
-router.get("/", async (req, res) => {
-  try {
-    // Query the database to get all Flight_Schedules
-    const flightSchedules = await Flight_Schedule.findAll();
-
-    if (flightSchedules) {
-      // Send all Flight_Schedules in the response
-      res.json(flightSchedules);
-    } else {
-      // If no Flight_Schedules are found, return an empty array
-      res.json([]);
-    }
-  } catch (error) {
-    console.error("Error:", error);
-    res.status(500).json({ message: "An error occurred." });
-  }
-});
+// ... Your other routes for getting Flight_Schedules ...
 
 module.exports = router;
