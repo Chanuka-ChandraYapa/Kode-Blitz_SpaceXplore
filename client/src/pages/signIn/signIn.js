@@ -5,7 +5,7 @@ import "./signIn.css";
 import PinkButton from "../../components/button/button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
-const API_BASE_URL = "http://localhost:5000";
+import { API_BASE_URL } from "../../config/config";
 
 const SigninForm = ({ onSignInSubmit }) => {
   const navigate = useNavigate();
@@ -30,39 +30,42 @@ const SigninForm = ({ onSignInSubmit }) => {
   };
 
   const handleSubmit = async (e) => {
-    // Basic form validation
     if (!formData.Username || !formData.password) {
       setError("*All fields are required.");
       return;
     }
+    onSignInSubmit();
+    navigate("/");
+    //   try {
+    //     const response = await axios.post(`${API_BASE_URL}/signin`, formData);
 
-    // Send the form data to the server using Axios
-    try {
-      const response = await axios.post(`${API_BASE_URL}/signin`, formData);
+    //     if (response.status === 200) {
+    //       onSignInSubmit();
+    //       navigate("/");
+    //       // User logged in successfully
+    //       const responseData = response.data;
+    //       console.log(responseData);
 
-      if (response.status === 200) {
-        // Change this line to 200
-        // User logged in successfully
-        const responseData = response.data;
-        console.log(response);
+    //       // Reset the form data and clear the error message
+    //       setFormData({
+    //         Username: "",
+    //         password: "",
+    //       });
+    //       setError("");
 
-        // Reset the form data and clear the error message
-        setFormData({
-          Username: "",
-          password: "",
-        });
-        setError("");
+    //       // Call the callback function to update authentication status in App.js
 
-        // Optionally, you can redirect the user or perform other actions here.
-      } else {
-        const errorData = response.data;
-        setError(errorData.message); // Change this line to access the correct message key
-      }
-    } catch (error) {
-      console.error("Error sending form data:", error);
-      setError("An error occurred while submitting the form.");
-    }
-    e.preventDefault();
+    //       // Optionally, you can redirect the user or perform other actions here.
+    //     } else {
+    //       const errorData = response.data;
+    //       setError(errorData.message); // Change this line to access the correct message key
+    //     }
+    //   } catch (error) {
+    //     console.error("Error sending form data:", error);
+    //     setError("An error occurred while submitting the form.");
+    //   }
+
+    //   e.preventDefault();
   };
 
   return (

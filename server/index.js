@@ -7,23 +7,23 @@ app.use(cors());
 
 const db = require("./models");
 
-const passengerRoute = require("./routes/Passenger");
-const spaceshipRoute = require("./routes/Spaceship");
-const travelclassRoute = require("./routes/TravelClass");
-const seatsRoute = require("./routes/Seats");
-const planetsRoute = require("./routes/planet");
-const flightsRoute = require("./Controllers/Flight_Schedule");
-const signInRoute = require("./Controllers/SignIn");
-const signUpRoute = require("./Controllers/SignUp");
+const travellerclassRoutes = require("./routes/travellerclassRoutes");
+const spaceshipsRoutes = require("./routes/spaceshipRoutes");
+const seatsRoute = require("./routes/seatsRoutes");
+const planetsRoute = require("./routes/planetRoutes");
+const passengerRoutes = require("./routes/passengerRoutes");
+const flightscheduleRoutes = require("./routes/flight_scheduleRoutes");
+const authRoutes = require("./routes/authRoutes");
+const userRoutes = require("./routes/userRoutes");
 
-app.use("/", passengerRoute);
-app.use("/", spaceshipRoute);
-app.use("/", travelclassRoute);
-app.use("/", seatsRoute);
+app.use("/", passengerRoutes);
+app.use("/", flightscheduleRoutes);
 app.use("/", planetsRoute);
-app.use("/", flightsRoute);
-app.use("/", signInRoute);
-app.use("/", signUpRoute);
+app.use("/", seatsRoute);
+app.use("/", spaceshipsRoutes);
+app.use("/", travellerclassRoutes);
+app.use("/", authRoutes);
+app.use("/", userRoutes);
 
 db.sequelize.sync().then(() => {
   app.listen(5000, () => {

@@ -10,13 +10,14 @@ import ConditionCard from "../../components/conditionCard/conditionCard";
 import DiscoverCard from "../../components/discoverCard/discover";
 import ReviewCard from "../../components/ReviewCard/review";
 // import profileImage from "../../pages/planet/dfe0f555e474618662061ef417bb441a.jpg";
-const API_BASE_URL = "http://localhost:5000";
+import { API_BASE_URL } from "../../config/config";
 
 const Planet = () => {
   const { planetName } = useParams(); // Get the planetName parameter from the URL
 
   const [planetData, setplanetData] = useState({}); // Initialize as an object
   const [flightSchedules, setFlightSchedules] = useState([]);
+  const [locationLinks, setLocationLinks] = useState([]);
 
   useEffect(() => {
     // Fetch planet data based on the planetName
@@ -29,6 +30,15 @@ const Planet = () => {
       });
       console.log(data);
     });
+  }, [planetName]);
+
+  useEffect(() => {
+    // Fetch location links based on the planetName
+    axios
+      .get(`${API_BASE_URL}/planet-location/${planetName}`)
+      .then(({ data }) => {
+        setLocationLinks(data.planetLocationLinks);
+      });
   }, [planetName]);
 
   useEffect(() => {
@@ -48,15 +58,16 @@ const Planet = () => {
       <div className="planet-page">
         <div className="planet-dis-Scrolling">
           <div className="planet-dis-container">
-            <div class="planet-dis-card">
-              <DiscoverCard />
-            </div>
-            <div class="planet-dis-card">
-              <DiscoverCard />
-            </div>
-            <div class="planet-dis-card">
-              <DiscoverCard />
-            </div>
+            {locationLinks.map((locationLink) => (
+              <div className="discard">
+                {/* Render flight schedule details using DiscoverCard or a custom component */}
+                <DiscoverCard
+                  text={locationLink.location}
+                  //MyBackgroundImage={flightSchedule.SpaceShip_ID}
+                  MyBackgroundImage={locationLink.link}
+                />
+              </div>
+            ))}
           </div>
         </div>
       </div>
@@ -77,9 +88,7 @@ const Planet = () => {
                     //MyBackgroundImage={flightSchedule.SpaceShip_ID}
                     subsubtext={flightSchedule.Starting_Date}
                     subsubsubtext={flightSchedule.Flight.Destination_Planet}
-                    MyBackgroundImage={
-                      "https://img.freepik.com/free-photo/view-futuristic-looking-spaceship_23-2150675511.jpg?t=st=1692511863~exp=1692515463~hmac=2f12d687e267be6fb81ea147761e6673194ed7712a3871f4df6cc8c7af3c1f83&w=1380"
-                    }
+                    MyBackgroundImage={flightSchedule.SpaceShip.image_link}
                   />
                 </div>
               </Link>

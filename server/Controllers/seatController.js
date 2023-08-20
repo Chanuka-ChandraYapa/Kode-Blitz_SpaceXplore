@@ -1,8 +1,7 @@
-const express = require("express");
-const router = express.Router();
 const { Seat } = require("../models");
 
-router.get("/seats", async (req, res) => {
+// Function to get a list of all seats
+const getAllSeats = async (req, res) => {
   try {
     const listOfSeats = await Seat.findAll();
     res.json(listOfSeats);
@@ -10,9 +9,10 @@ router.get("/seats", async (req, res) => {
     console.error("Error retrieving seats:", error);
     res.status(500).json({ error: "Internal server error" });
   }
-});
+};
 
-router.post("/reserve-seats", async (req, res) => {
+// Function to reserve seats
+const reserveSeats = async (req, res) => {
   const seatInfoArray = req.body.seatInfoArray; // Extract seatInfoArray from req.body
 
   try {
@@ -37,6 +37,9 @@ router.post("/reserve-seats", async (req, res) => {
       .status(500)
       .json({ error: "An error occurred while creating the seats." });
   }
-});
+};
 
-module.exports = router;
+module.exports = {
+  getAllSeats,
+  reserveSeats,
+};

@@ -4,7 +4,7 @@ import "./signUp.css";
 import PinkButton from "../../components/button/button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
-const API_BASE_URL = "http://localhost:5000";
+import { API_BASE_URL } from "../../config/config";
 
 const SignUpForm = () => {
   const [formData, setFormData] = useState({
@@ -38,40 +38,43 @@ const SignUpForm = () => {
       !formData.password ||
       !formData.confirmPassword
     ) {
-      setError("*All fields are required.");
+      setError("All fields are required.");
       return;
     }
 
     if (formData.password !== formData.confirmPassword) {
-      setError("*Passwords do not match.");
+      setError("Passwords do not match.");
       return;
     }
 
-    try {
-      const response = axios.post(`${API_BASE_URL}/signUp`, formData);
+    axios
+      .post(`${API_BASE_URL}/signUp`, formData)
+      .then((response) => {
+        console.log(response.status);
 
-      if (response.status === 201) {
-        // User created successfully
-        const responseData = response.data;
-        console.log(responseData.message);
+        if (response.status === 201) {
+          // User created successfully
+          const responseData = response.data;
+          console.log(responseData.message);
 
-        // Reset the form data and clear the error message
-        setFormData({
-          Username: "",
-          password: "",
-        });
-        setError("");
+          // Reset the form data and clear the error message
+          setFormData({
+            Username: "",
+            email: "",
+            confirmPassword: "",
+            password: "",
+          });
+          setError("");
 
-        // Optionally, you can redirect the user or perform other actions here.
-      } else {
-        const errorData = response.data;
-        setError(errorData.error);
-      }
-    } catch (error) {
-      console.error("Error sending form data:", error);
-      setError("An error occurred while submitting the form.");
-    }
-    e.preventDefault();
+          // Optionally, you can redirect the user or perform other actions here.
+        } else {
+          const errorData = response.data;
+          setError(errorData.error);
+        }
+      })
+      .catch((error) => {
+        setError("An error occurred while submitting the form.");
+      });
   };
 
   return (

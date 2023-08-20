@@ -1,21 +1,19 @@
 const bcrypt = require("bcrypt");
-const express = require("express");
-const router = express.Router();
 const { User } = require("../models");
 
-// Route for user login
-router.post("/signin", async (req, res) => {
+// Function to handle user login
+const userSignIn = async (req, res) => {
   const { Username, password } = req.body;
-  console.log(req.body);
+
   try {
-    // Find the user by email
+    // Find the user by username
     const user = await User.findOne({
       where: { FullName: Username },
     });
 
     // If the user is not found, return an error
     if (!user) {
-      return res.status(401).json({ message: "Invalid email or password" });
+      return res.status(401).json({ message: "Invalid username or password" });
     }
 
     // Compare the provided password with the hashed password in the database
@@ -23,7 +21,7 @@ router.post("/signin", async (req, res) => {
 
     // If passwords don't match, return an error
     if (!passwordMatch) {
-      return res.status(401).json({ message: "Invalid email or password" });
+      return res.status(401).json({ message: "Invalid username or password" });
     }
 
     // If authentication is successful, you can generate a token here for further authentication
@@ -33,6 +31,8 @@ router.post("/signin", async (req, res) => {
     console.error("Login error:", error);
     return res.status(500).json({ message: "Internal server error" });
   }
-});
+};
 
-module.exports = router;
+module.exports = {
+  userSignIn,
+};
