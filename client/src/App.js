@@ -84,6 +84,11 @@ function App() {
                 />
                 <Route
                   exact
+                  path="/booking/:flightid"
+                  element={<PrivateRoute Component={Booking} />}
+                />
+                <Route
+                  exact
                   path="/flights"
                   element={<PrivateRoute Component={Yet} />}
                 />

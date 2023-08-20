@@ -58,18 +58,20 @@ const Home = () => {
         <div className="disScrolling">
           <div className="discontainer">
             {flightSchedules.map((flightSchedule) => (
-              <div className="discard" key={flightSchedule.Schedule_ID}>
-                {/* Render flight schedule details using DiscoverCard or a custom component */}
-                <DiscoverCard
-                  text={flightSchedule.SpaceShip.Model_Name}
-                  //MyBackgroundImage={flightSchedule.SpaceShip_ID}
-                  subsubtext={flightSchedule.Starting_Date}
-                  subsubsubtext={flightSchedule.Flight.Flight_Price}
-                  MyBackgroundImage={
-                    "https://img.freepik.com/free-photo/view-futuristic-looking-spaceship_23-2150675511.jpg?t=st=1692511863~exp=1692515463~hmac=2f12d687e267be6fb81ea147761e6673194ed7712a3871f4df6cc8c7af3c1f83&w=1380"
-                  }
-                />
-              </div>
+              <Link to={`/booking/${flightSchedule.Flight_ID}`}>
+                <div className="discard" key={flightSchedule.Schedule_ID}>
+                  {/* Render flight schedule details using DiscoverCard or a custom component */}
+                  <DiscoverCard
+                    text={flightSchedule.SpaceShip.Model_Name}
+                    //MyBackgroundImage={flightSchedule.SpaceShip_ID}
+                    subsubtext={flightSchedule.Starting_Date}
+                    subsubsubtext={flightSchedule.Flight.Destination_Planet}
+                    MyBackgroundImage={
+                      "https://img.freepik.com/free-photo/view-futuristic-looking-spaceship_23-2150675511.jpg?t=st=1692511863~exp=1692515463~hmac=2f12d687e267be6fb81ea147761e6673194ed7712a3871f4df6cc8c7af3c1f83&w=1380"
+                    }
+                  />
+                </div>
+              </Link>
             ))}
           </div>
         </div>

@@ -1,24 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./PassengerDetailsForm.css";
 
 const PassengerDetailsForm = ({
   onPassengerDetailsChange,
   isAdult,
-  isFormComplete,
+  isFilled,
 }) => {
   const [fullName, setFullName] = useState("");
   const [dateOfBirth, setDateOfBirth] = useState("");
   const [gender, setGender] = useState("");
-
-  // useEffect(() => {
-  //   onPassengerDetailsChange({
-  //     fullName,
-  //     dateOfBirth,
-  //     gender,
-  //     isAdult,
-  //     isFormComplete: fullName && dateOfBirth && gender,
-  //   });
-  // }, [fullName, dateOfBirth, gender, isAdult, onPassengerDetailsChange]);
 
   const handleFullNameChange = (event) => {
     setFullName(event.target.value);
@@ -27,6 +17,7 @@ const PassengerDetailsForm = ({
       dateOfBirth,
       gender,
       isAdult,
+      isFilled: Boolean(event.target.value && dateOfBirth && gender),
     });
   };
 
@@ -37,6 +28,7 @@ const PassengerDetailsForm = ({
       dateOfBirth: event.target.value,
       gender,
       isAdult,
+      isFilled: Boolean(fullName && event.target.value && gender),
     });
   };
 
@@ -47,6 +39,7 @@ const PassengerDetailsForm = ({
       dateOfBirth,
       gender: event.target.value,
       isAdult,
+      isFilled: Boolean(fullName && dateOfBirth && event.target.value),
     });
   };
 

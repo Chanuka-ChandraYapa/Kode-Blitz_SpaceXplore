@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import "./planet.css"; // Import the corresponding CSS file
 import BackImage from "../../components/backdrop/backimage";
@@ -15,6 +16,7 @@ const Planet = () => {
   const { planetName } = useParams(); // Get the planetName parameter from the URL
 
   const [planetData, setplanetData] = useState({}); // Initialize as an object
+  const [flightSchedules, setFlightSchedules] = useState([]);
 
   useEffect(() => {
     // Fetch planet data based on the planetName
@@ -28,6 +30,13 @@ const Planet = () => {
       console.log(data);
     });
   }, [planetName]);
+
+  useEffect(() => {
+    axios.get(`${API_BASE_URL}/flight/${planetName}`).then(({ data }) => {
+      setFlightSchedules(data);
+      console.log(flightSchedules);
+    });
+  }, []);
   return (
     <div className="planet-container">
       <BackImage MyBackgroundImage={MyBackgroundImage} />
@@ -59,15 +68,22 @@ const Planet = () => {
       <div className="planet-page">
         <div className="planet-dis-Scrolling">
           <div className="planet-dis-container">
-            <div class="planet-dis-card">
-              <DiscoverCard />
-            </div>
-            <div class="planet-dis-card">
-              <DiscoverCard />
-            </div>
-            <div class="planet-dis-card">
-              <DiscoverCard />
-            </div>
+            {flightSchedules.map((flightSchedule) => (
+              <Link to={`/booking/${flightSchedule.Flight_ID}`}>
+                <div className="discard" key={flightSchedule.Schedule_ID}>
+                  {/* Render flight schedule details using DiscoverCard or a custom component */}
+                  <DiscoverCard
+                    text={flightSchedule.SpaceShip.Model_Name}
+                    //MyBackgroundImage={flightSchedule.SpaceShip_ID}
+                    subsubtext={flightSchedule.Starting_Date}
+                    subsubsubtext={flightSchedule.Flight.Destination_Planet}
+                    MyBackgroundImage={
+                      "https://img.freepik.com/free-photo/view-futuristic-looking-spaceship_23-2150675511.jpg?t=st=1692511863~exp=1692515463~hmac=2f12d687e267be6fb81ea147761e6673194ed7712a3871f4df6cc8c7af3c1f83&w=1380"
+                    }
+                  />
+                </div>
+              </Link>
+            ))}
           </div>
         </div>
       </div>

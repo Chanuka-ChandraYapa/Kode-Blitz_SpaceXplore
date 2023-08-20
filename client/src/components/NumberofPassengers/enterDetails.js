@@ -21,20 +21,16 @@ const EnterDetails = ({
   const [tempPassengerDetailsArray, setTempPassengerDetailsArray] = useState(
     []
   );
-  const [isFormCompleteArray, setIsFormCompleteArray] = useState([]);
-
+  const [isFilled, setIsFilled] = useState(false);
+  const [isFormsFilled, setIsFormsFilled] = useState(false);
   useEffect(() => {
-    setIsFormCompleteArray(Array.from({ length: passengerCount }, () => false));
-  }, [passengerCount]);
-
-  const updateFormCompletionStatus = (index, isComplete) => {
-    setIsFormCompleteArray((prevArray) => {
-      const newArray = [...prevArray];
-      newArray[index] = isComplete;
-      return newArray;
-    });
-  };
-
+    setIsFormsFilled(
+      tempPassengerDetailsArray.every((details) => details.isFilled)
+    );
+    // console.log(isFilled)
+    // setIsFormsFilled(isFilled);
+  }, [tempPassengerDetailsArray]);
+  console.log(tempPassengerDetailsArray);
   const handleAdultChange = (event) => {
     setAdultCount(parseInt(event.target.value));
   };
@@ -44,8 +40,6 @@ const EnterDetails = ({
   };
 
   const handlePassengerDetailsChange = (index, details) => {
-    updateFormCompletionStatus(index, details.isFormComplete);
-
     setTempPassengerDetailsArray((prevArray) => {
       const newArray = [...prevArray];
       newArray[index] = details;
@@ -54,12 +48,11 @@ const EnterDetails = ({
   };
 
   const handlePassengerSubmit = async () => {
-    const allFormsComplete = isFormCompleteArray.every((complete) => complete);
-
-    if (!allFormsComplete) {
-      alert("Please fill out all passenger details");
+    if (!isFormsFilled) {
+      alert("Please fill out all passenger details before proceeding.");
       return;
     }
+
     console.log(tempPassengerDetailsArray);
     setPassengerCount(childrenCount + adultCount);
     setIsSeatViewLocked(!isSeatViewLocked);
