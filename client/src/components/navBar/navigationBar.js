@@ -1,3 +1,8 @@
+/**
+ * The above code is a React component for a navigation bar that includes a menu icon, a logo, a
+ * profile icon, and a sign out icon.
+ * @returns The NavigationBar component is returning a JSX element.
+ */
 import React, { useState } from "react";
 import "./navigationBar.css"; // Import your CSS file
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

@@ -1,6 +1,11 @@
+/**
+ * The Search component is a React component that allows users to search for items based on a selected
+ * filter option.
+ * @returns The `Search` component is being returned.
+ */
 import React, { useState, useEffect } from "react";
 import TextField from "@mui/material/TextField";
-import List from "../list/list";
+import List from "../../utils/list/list";
 import "./search.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass, faFilter } from "@fortawesome/free-solid-svg-icons";

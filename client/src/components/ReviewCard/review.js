@@ -1,3 +1,7 @@
+/**
+ * The ReviewCard component is a React component that displays a review with a profile image and name.
+ * @returns The ReviewCard component is being returned.
+ */
 import React from "react";
 import "./review.css";
 

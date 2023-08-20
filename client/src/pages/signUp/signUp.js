@@ -1,12 +1,14 @@
 import React, { useState } from "react";
-import axios from "axios";
 import "./signUp.css";
-import PinkButton from "../../components/button/button";
+import axios from "axios";
+import PinkButton from "../../utils/button/button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import { API_BASE_URL } from "../../config/config";
 
 const SignUpForm = () => {
+  /* The code snippet is using the `useState` hook from React to define and manage state variables in a
+functional component. */
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -31,6 +33,8 @@ const SignUpForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    /* The code snippet is performing basic form validation and handling form submission in the
+`handleSubmit` function. */
     // Basic form validation
     if (
       !formData.fullName ||
@@ -81,6 +85,7 @@ const SignUpForm = () => {
     <div>
       <form className="signup-form" onSubmit={handleSubmit}>
         <h2>Sign Up</h2>
+        {/* The code snippet is rendering an input field for the user's full name in a sign-up form. */}
         <input
           className="signup-input"
           type="text"
@@ -91,6 +96,7 @@ const SignUpForm = () => {
         />
 
         <input
+          /* This code snippet is rendering an input field for the user's email in a sign-up form. */
           className="signup-input"
           type="email"
           name="email"
@@ -98,6 +104,7 @@ const SignUpForm = () => {
           value={formData.email}
           onChange={handleChange}
         />
+        {/* The code snippet is rendering an input field for the user's password in a sign-up form. */}
         <div className="password-input-container">
           <input
             className="signup-input password-input"
@@ -111,6 +118,8 @@ const SignUpForm = () => {
             <FontAwesomeIcon icon={showPassword ? faEye : faEyeSlash} />
           </span>
         </div>
+        {/* The code snippet is rendering an input field for the user to confirm their password in a sign-up
+        form. The input field has the following attributes:  */}
         <input
           className="signup-input"
           type="password"

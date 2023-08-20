@@ -2,18 +2,26 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./signIn.css";
-import PinkButton from "../../components/button/button";
+import PinkButton from "../../utils/button/button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import { API_BASE_URL } from "../../config/config";
 
+/**
+ * The SigninForm component is a form that takes user input for username, email, password, and
+ * confirmPassword and triggers a callback function onSignInSubmit when submitted.
+ */
 const SigninForm = ({ onSignInSubmit }) => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     Username: "",
+    email: "",
     password: "",
+    confirmPassword: "",
   });
 
+  /* The code snippet is defining several state variables and functions using the `useState` hook in
+React. */
   const [showPassword, setShowPassword] = useState(false);
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -73,6 +81,7 @@ const SigninForm = ({ onSignInSubmit }) => {
       <form className="signin-form" onSubmit={handleSubmit}>
         <h2>Sign In</h2>
         <input
+          /* The code snippet is defining an input field for the username in a sign-in form. */
           className="signin-input"
           type="text"
           name="Username"
@@ -82,6 +91,7 @@ const SigninForm = ({ onSignInSubmit }) => {
         />
         <div className="password-input-container">
           <input
+            /* The code snippet is defining an input field for the password in a sign-in form. */
             className="signup-input password-input"
             type={showPassword ? "text" : "password"}
             name="password"
