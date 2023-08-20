@@ -13,6 +13,8 @@ const travelclassRoute = require("./routes/TravelClass");
 const seatsRoute = require("./routes/Seats");
 const planetsRoute = require("./routes/planet");
 const flightsRoute = require("./Controllers/Flight_Schedule");
+const signInRoute = require("./Controllers/SignIn");
+const signUpRoute = require("./Controllers/SignUp");
 
 app.use("/", passengerRoute);
 app.use("/", spaceshipRoute);
@@ -20,6 +22,8 @@ app.use("/", travelclassRoute);
 app.use("/", seatsRoute);
 app.use("/", planetsRoute);
 app.use("/", flightsRoute);
+app.use("/", signInRoute);
+app.use("/", signUpRoute);
 
 db.sequelize.sync().then(() => {
   app.listen(5000, () => {

@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import axios from "axios";
 import "./signUp.css";
 import PinkButton from "../../components/button/button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+const API_BASE_URL = "http://localhost:5000";
 
 const SignUpForm = () => {
   const [formData, setFormData] = useState({
@@ -45,18 +47,31 @@ const SignUpForm = () => {
       return;
     }
 
-    // Here you can implement your actual authentication logic
-    // For simplicity, I'll just log the data to the console
-    console.log("Form data:", formData);
+    try {
+      const response = axios.post(`${API_BASE_URL}/signUp`, formData);
 
-    // Reset form data and error message
-    setFormData({
-      fullName: "",
-      email: "",
-      password: "",
-      confirmPassword: "",
-    });
-    setError("");
+      if (response.status === 201) {
+        // User created successfully
+        const responseData = response.data;
+        console.log(responseData.message);
+
+        // Reset the form data and clear the error message
+        setFormData({
+          Username: "",
+          password: "",
+        });
+        setError("");
+
+        // Optionally, you can redirect the user or perform other actions here.
+      } else {
+        const errorData = response.data;
+        setError(errorData.error);
+      }
+    } catch (error) {
+      console.error("Error sending form data:", error);
+      setError("An error occurred while submitting the form.");
+    }
+    e.preventDefault();
   };
 
   return (
