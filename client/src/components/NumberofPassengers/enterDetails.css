@@ -75,3 +75,9 @@
     font-size: 14px;
   }
 }
+
+.warning-booking {
+  font-size: 12px;
+  margin: 5%;
+  color:#dcc257
+}
