@@ -1,19 +1,12 @@
 import React from "react";
 import "./landing.css"; // Import the corresponding CSS file
 import BackImage from "../../utils/backdrop/backimage";
-import Card from "../../components/class card/card";
-import EnterDetails from "../../templates/NumberofPassengers/enterDetails";
-import Footer from "../../components/footer/footer";
-import PaymentInfo from "../../templates/paymentInfo/payInfo";
 import PinkButton from "../../utils/button/button";
-import SeatView from "../../templates/seatView/seat";
-import PriceSummary from "../../templates/paymentSummary/test";
 import MyBackgroundImage from "../../pages/landing/daniel-olah-HNkgPFBShSw-unsplash1.jpg";
 import PlanetImage from "./planet-astronomy.jpg";
 import flightImage from "../../pages/landing/flight.jpeg";
 import TeamImage from "../../pages/landing/team.jpeg";
 import ServiceImage from "../../pages/landing/services.jpeg";
-import Search from "../../components/search/search";
 import DiscoverCard from "../../components/discoverCard/discover";
 /**
  * The Landing component is a functional component in JavaScript that renders a landing page for a

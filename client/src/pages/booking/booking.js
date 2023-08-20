@@ -5,13 +5,11 @@ import "./booking.css"; // Import the corresponding CSS file
 import BackImage from "../../utils/backdrop/backimage";
 import Card from "../../components/class card/card";
 import EnterDetails from "../../templates/NumberofPassengers/enterDetails";
-import Footer from "../../components/footer/footer";
 import PaymentInfo from "../../templates/paymentInfo/payInfo";
 import PinkButton from "../../utils/button/button";
 import SeatView from "../../templates/seatView/seat";
 import PriceSummary from "../../templates/paymentSummary/test";
 import MyBackgroundImage from "../../pages/booking/spaceship-names2.jpg";
-import Sidebar from "../../components/sideBar/sidebar";
 import { API_BASE_URL } from "../../config/config";
 
 const Booking = () => {

@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import "./App.css";
 
 // import ProfilePageMobile from "./pages/profile";
@@ -9,7 +8,6 @@ import {
   BrowserRouter as Router,
   Routes,
   Route,
-  Switch,
   Navigate,
 } from "react-router-dom";
 import Home from "./pages/home/home";

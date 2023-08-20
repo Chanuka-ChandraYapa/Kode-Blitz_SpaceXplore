@@ -2,16 +2,8 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-
 import "./home.css"; // Import the corresponding CSS file
 import BackImage from "../../utils/backdrop/backimage";
-import Card from "../../components/class card/card";
-import EnterDetails from "../../templates/NumberofPassengers/enterDetails";
-import Footer from "../../components/footer/footer";
-import PaymentInfo from "../../templates/paymentInfo/payInfo";
-import PinkButton from "../../utils/button/button";
-import SeatView from "../../templates/seatView/seat";
-import PriceSummary from "../../templates/paymentSummary/test";
 import MyBackgroundImage from "../../pages/home/marcelo-quinan-R3pUGn5YiTg-unsplash.jpg";
 import Search from "../../components/search/search";
 import DiscoverCard from "../../components/discoverCard/discover";
@@ -41,9 +33,8 @@ const Home = () => {
       <div className="home-heading">Search Your Dream</div>
       <Search />
       <div className="booking-sub-title">Discover Planets</div>
-      <div className=/* The code you provided is rendering two sections on the webpage: "Discover
-      Planets" and "Flights Schedule". */
-      "booking-page">
+      <div className /* The code you provided is rendering two sections on the webpage: "Discover
+      Planets" and "Flights Schedule". */="booking-page">
         <div className="disScrolling">
           <div className="discontainer">
             {travelPlanets.map((planetName) => (

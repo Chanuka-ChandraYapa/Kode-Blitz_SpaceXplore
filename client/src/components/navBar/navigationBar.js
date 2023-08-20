@@ -3,12 +3,10 @@
  * profile icon, and a sign out icon.
  * @returns The NavigationBar component is returning a JSX element.
  */
-import React, { useState } from "react";
+import React from "react";
 import "./navigationBar.css"; // Import your CSS file
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faBars,
-  faBell,
   faUser,
   faArrowRightFromBracket,
 } from "@fortawesome/free-solid-svg-icons";
@@ -16,8 +14,6 @@ import "./navigationBar.css"; // Import your CSS file
 import Sidebar from "../sideBar/sidebar";
 
 const NavigationBar = ({ handleSignOut }) => {
-
-
   return (
     <div className="navigation-bar">
       <div className="menu-icon">
