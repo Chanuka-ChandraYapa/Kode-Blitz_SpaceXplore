@@ -1,0 +1,62 @@
+.signup-form {
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 40px;
+    background: rgba(0, 0, 0, 0.3);
+    margin-top: 30%;
+    margin-bottom: 10%;
+
+  }
+  
+  /* h2 {
+    text-align: center;
+  } */
+  
+  .signup-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .signup-input {
+    width: 80%;
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border: none;
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    font-size: 18px;
+    color: white;
+  }
+  
+  
+  .signup-error {
+    font-family: 'Urbanist';
+    color: red;
+    margin-top: 5px;
+    font-size: 12px;
+  }
+  
+
+.password-input-container {
+  position: relative;
+}
+
+
+.password-toggle {
+  position: absolute;
+  top: 50%;
+  right: 10%; /* Adjust the distance as needed */
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+.sign-in {
+    font-family: 'Urbanist';
+}
+.sign-in a {
+    color: #CB559E;
+    text-decoration: none;
+    font-size: 18px;
+}

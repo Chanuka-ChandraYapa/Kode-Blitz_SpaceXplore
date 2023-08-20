@@ -13,18 +13,29 @@ router.get("/seats", async (req, res) => {
 });
 
 router.post("/reserve-seats", async (req, res) => {
-  try {
-    const { seats, passengerId } = req.body;
+  const seatInfoArray = req.body.seatInfoArray; // Extract seatInfoArray from req.body
 
-    // Assuming each seat object in the seats array has a property `seat_id`
-    for (const seat of seats) {
-      await Seat.update({ passengerId }, { where: { seat_id: seat.seat_id } });
-    }
+  try {
+    // Create seat records using a loop
+    const createdSeats = await Promise.all(
+      seatInfoArray.map(async (seatInfo) => {
+        // Create the seat record
+        return await Seat.create({
+          Seat_Id: seatInfo.seatid,
+          Spaceship_ID: seatInfo.Spaceship_ID,
+          Class_ID: seatInfo.Class_id,
+          // Add other relevant properties based on your Seat model
+        });
+      })
+    );
+    console.log(createdSeats);
 
     res.json({ message: "Seats reserved successfully" });
   } catch (error) {
-    console.error("Error reserving seats:", error);
-    res.status(500).json({ error: "Internal server error" });
+    console.error("Error creating seats:", error);
+    res
+      .status(500)
+      .json({ error: "An error occurred while creating the seats." });
   }
 });
 

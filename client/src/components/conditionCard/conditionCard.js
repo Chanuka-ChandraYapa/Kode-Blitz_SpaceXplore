@@ -1,5 +1,11 @@
+/**
+ * The `ConditionCard` component is a React component that renders a card with various images and text.
+ * @returns The `ConditionCard` component is returning a JSX structure that represents a card with
+ * various elements such as text, images, and a button.
+ */
 import React from "react";
-import "./conditionCard.css"
+import "./conditionCard.css";
+import PinkButton from "../../utils/button/button";
 
 const ConditionCard = () => {
   return (
@@ -26,7 +32,7 @@ const ConditionCard = () => {
           <div className="text-wrapper-2">Clean Oxygen</div>
           <div className="overlap">
             <div className="register-b" />
-            <div className="text-wrapper-3">See Our Complete Guide</div>
+            <PinkButton text={"See Our Complete Guide"} size={18} />
           </div>
         </div>
       </div>

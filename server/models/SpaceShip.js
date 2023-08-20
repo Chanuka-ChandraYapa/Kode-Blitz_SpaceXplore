@@ -21,5 +21,13 @@ module.exports = (sequelize, DataTypes) => {
     }
   );
 
-  return SpaceShip; // Return the correct model name
+  // Define the association to Flight_Schedule
+  SpaceShip.associate = (models) => {
+    SpaceShip.hasMany(models.Flight_Schedule, {
+      foreignKey: "SpaceShip_ID",
+      as: "Schedules", // You can choose a different alias if needed
+    });
+  };
+
+  return SpaceShip;
 };

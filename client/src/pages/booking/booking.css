@@ -72,3 +72,31 @@
     text-transform: uppercase;
     color: #E3E3E3;
   }
+
+  .locked-details,
+.locked-seat-view {
+  background-color: #f0f0f0; /* Grey background color */
+  pointer-events: none; /* Disable interactions */
+  opacity: 0.5; /* Reduced opacity to indicate it's locked */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.reservation-success-animation {
+  animation: fadeIn 1s ease-out;
+  margin-top: 20px;
+  font-size: 24px;
+  color: #CB559E;
+}
+
+.disabled-button {
+  background-color: grey;
+  cursor: not-allowed;
+}

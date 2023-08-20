@@ -1,78 +1,124 @@
 import logo from "./logo.svg";
 import "./App.css";
-import Card from "./components/class card/card";
+
 // import ProfilePageMobile from "./pages/profile";
-import NewCard from "./components/Aluthcardeka/new_card";
+import { useState, useContext, createContext } from "react";
 
-import Footer from "./components/footer/footer";
-
-import BackgroundComponent from "./components/backgroundImage/background";
-import Calendar from "./components/calendar/calendar";
-
-import CardSlider from "./cardSlider";
-
-import ImageSlider from "./components/slidingCard/Slideshow";
-import BGComponent from "./components/backgroundImage/bg";
-
-
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
+import NavigationBar from "./components/navBar/navigationBar";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Switch,
+  Navigate,
+} from "react-router-dom";
+import Home from "./pages/home/home";
 import ProfilePageMobile from "./pages/profile/profile";
 import Planet from "./pages/planet/planet";
 import Booking from "./pages/booking/booking";
+import SignUp from "./pages/signUp/signUp";
+import SigninForm from "./pages/signIn/signIn";
+import Landing from "./pages/landing/landing";
+import Yet from "./pages/ToBeImplemented/yet";
+
+const AuthContext = createContext();
 
 function App() {
+  console.log("App restart");
+
+  const storedIsAuthenticated = localStorage.getItem("isAuthenticated");
+  const [isAuthenticated, setIsAuthenticated] = useState(
+    storedIsAuthenticated === "true"
+  );
+
+  const handleSignInSubmit = () => {
+    setIsAuthenticated(true);
+    localStorage.setItem("isAuthenticated", "true");
+  };
+
+  const handleSignOut = () => {
+    setIsAuthenticated(false);
+    localStorage.setItem("isAuthenticated", "false");
+  };
+
+  console.log(isAuthenticated);
   return (
-    <Router>
-      <div>
-        <Routes>
-          {/* <Route path="/" element={<Home />} /> */}
-          <Route path="/profile" element={<ProfilePageMobile />} />
-          <Route path="/planet" element={<Planet />} />
-          <Route path="/booking" element={<Booking />} />
-        </Routes>
-      </div>
-    </Router>
+    <AuthContext.Provider value={{ isAuthenticated, setIsAuthenticated }}>
+      <Router>
+        <div>
+          <div className="App">
+            <div className="App-header">
+              <Routes>
+                <Route path="/landing" element={<Landing />} />
+                {/* <Route path="/" element={<Home />} /> */}
+                <Route path="/signup" element={<SignUp />} />
+                <Route
+                  path="/Signin"
+                  element={<SigninForm onSignInSubmit={handleSignInSubmit} />}
+                />
+
+                <Route
+                  exact
+                  path="/"
+                  element={<PrivateRoute Component={Home} />}
+                />
+                <Route
+                  exact
+                  path="/profile"
+                  element={<PrivateRoute Component={ProfilePageMobile} />}
+                />
+                <Route
+                  exact
+                  path="/planet"
+                  element={<PrivateRoute Component={Planet} />}
+                />
+                <Route
+                  exact
+                  path="/booking"
+                  element={<PrivateRoute Component={Booking} />}
+                />
+                <Route
+                  exact
+                  path="/planet/:planetName"
+                  element={<PrivateRoute Component={Planet} />}
+                />
+                <Route
+                  exact
+                  path="/booking/:flightid"
+                  element={<PrivateRoute Component={Booking} />}
+                />
+                <Route
+                  exact
+                  path="/flights"
+                  element={<PrivateRoute Component={Yet} />}
+                />
+                <Route
+                  exact
+                  path="/team"
+                  element={<PrivateRoute Component={Yet} />}
+                />
+                <Route
+                  exact
+                  path="/about"
+                  element={<PrivateRoute Component={Yet} />}
+                />
+              </Routes>
+              {isAuthenticated && (
+                <NavigationBar handleSignOut={handleSignOut} />
+              )}
+            </div>
+          </div>
+        </div>
+      </Router>
+    </AuthContext.Provider>
   );
 }
 
+// Custom PrivateRoute component
+function PrivateRoute({ Component }) {
+  const { isAuthenticated } = useContext(AuthContext);
+
+  return isAuthenticated ? <Component /> : <Navigate to="/Signin" />;
+}
+
 export default App;
-
-{/* <div>
-  <NewCard
-    imageUrl="https://wallpaperaccess.com/full/3136563.jpg"
-    title="Hey There"
-  />
-</div> */}
-
-// import logo from "./logo.svg";
-// import "./App.css";
-// import Card from "./components/class card/card";
-// import ProfilePageMobile from "./pages/profile";
-// import New_card from "./components/Aluthcardeka/new_card";
-// import Footer from "./components/footer/footer";
-// import Checkincard from "./components/cheksin_card/checkincard";
-// import BackgroundComponent from "./components/backgroundImage/background";
-// import PriceSummery from "./components/priceSummery/priceSummery";
-// import Calendar from "./components/calendar/calendar";
-
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <New_card
-//           imageUrl="https://wallpaperaccess.com/full/3136563.jpg"
-//           title="Hey There"
-//         />
-//       </header>
-//       {/* <BackgroundComponent>
-//         <p>Hello</p>
-//         <Calendar date={"2023-08-16"} />
-
-//         <Footer />
-//       </BackgroundComponent> */}
-//     </div>
-//   );
-// }
-
-// export default App;

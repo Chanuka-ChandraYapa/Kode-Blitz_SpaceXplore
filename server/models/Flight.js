@@ -29,5 +29,13 @@ module.exports = (sequelize, DataTypes) => {
     }
   );
 
-  return Flight; // Return the correct model name
+  // Define the association to Flight_Schedule
+  Flight.associate = (models) => {
+    Flight.hasMany(models.Flight_Schedule, {
+      foreignKey: "Flight_ID",
+      as: "Schedules", // You can choose a different alias if needed
+    });
+  };
+
+  return Flight;
 };

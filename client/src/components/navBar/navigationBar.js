@@ -1,4 +1,9 @@
-import React from "react";
+/**
+ * The above code is a React component for a navigation bar that includes a menu icon, a logo, a
+ * profile icon, and a sign out icon.
+ * @returns The NavigationBar component is returning a JSX element.
+ */
+import React, { useState } from "react";
 import "./navigationBar.css"; // Import your CSS file
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -8,21 +13,22 @@ import {
   faArrowRightFromBracket,
 } from "@fortawesome/free-solid-svg-icons";
 import "./navigationBar.css"; // Import your CSS file
+import Sidebar from "../sideBar/sidebar";
 
-const NavigationBar = () => {
+const NavigationBar = ({ handleSignOut }) => {
+
+
   return (
     <div className="navigation-bar">
-      <div className="logo">Spacexplore</div>
       <div className="menu-icon">
-        <FontAwesomeIcon icon={faBars} />
+        <Sidebar />
       </div>
-      <div className="notification-icon">
-        <FontAwesomeIcon icon={faBell} />
-      </div>
-      <div className="profile-icon">
+
+      <div className="logo">Spacexplore</div>
+      <a className="profile-icon" href="/profile">
         <FontAwesomeIcon icon={faUser} />
-      </div>
-      <div className="sign-out-icon">
+      </a>
+      <div className="sign-out-icon" onClick={handleSignOut}>
         <FontAwesomeIcon icon={faArrowRightFromBracket} />
       </div>
     </div>

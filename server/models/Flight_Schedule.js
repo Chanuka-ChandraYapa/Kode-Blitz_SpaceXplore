@@ -30,5 +30,18 @@ module.exports = (sequelize, DataTypes) => {
     }
   );
 
-  return Flight_Schedule; // Return the correct model name
+  // Define the association to Flight and SpaceShip
+  Flight_Schedule.associate = (models) => {
+    Flight_Schedule.belongsTo(models.Flight, {
+      foreignKey: "Flight_ID",
+      as: "Flight", // You can choose a different alias if needed
+    });
+
+    Flight_Schedule.belongsTo(models.SpaceShip, {
+      foreignKey: "SpaceShip_ID",
+      as: "SpaceShip", // You can choose a different alias if needed
+    });
+  };
+
+  return Flight_Schedule;
 };

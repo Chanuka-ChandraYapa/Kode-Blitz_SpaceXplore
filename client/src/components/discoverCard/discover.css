@@ -1,11 +1,19 @@
+
+.discover-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Adjust the gap as needed */
+}
+
+
 .dis {
-    top:40%;
-    left: 50%;
+  position: relative;
+  width: 500px;
   }
 
 .img-container-dis {
     position: absolute;
-    width: 40%;
+    width: 80%;
     height: 40vh; /* 40% of viewport height */
     background-image: url('team.jpeg'); /* Replace with your image path */
     background-size: cover;
@@ -16,7 +24,7 @@
   /* FadingImage.css */
 .fading-image-dis {
     position: absolute;
-    width: 40%;
+    width: 80%;
     height: 40vh; /* 40% of viewport height */ /* Replace with your image path */
     background-size: cover;
     border-radius: 10%;
@@ -29,11 +37,30 @@
     z-index: 1; /* Transition effect for opacity */
   }
 .text {
+  color: #E3E3E3;
     font-family: 'Orbitron';
 font-style: normal;
 font-weight: 900;
 font-size: 20px;
-line-height: 550px;
+margin-top: 60vw;
+text-align: center;
+}
+.sub-text {
+  font-family: 'Urbanist';
+font-style: normal;
+font-weight: 900;
+font-size: 15px;
+text-align: center;
+
+/* Text Primary */
+color: #E3E3E3;
+}
+
+.sub-sub-text {
+  font-family: 'Urbanist';
+font-style: normal;
+font-weight: 900;
+font-size: 12px;
 text-align: center;
 
 /* Text Primary */

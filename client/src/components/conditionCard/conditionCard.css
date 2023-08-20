@@ -1,7 +1,6 @@
 .box {
   border: 0px none;
-  height: 446px;
-  width: 600;
+  width: 100%;
   /* width: 384px; */
   /* position: sticky;
   overflow-x: hidden;
@@ -12,8 +11,7 @@
 }
 
 .box .condtion-card {
-  height: 446px;
-  width: 600;
+  width: 100%;
   /* left: 0;
   position: fixed;
   top: 0; */
@@ -22,9 +20,9 @@
 .box .overlap-group {
   background-color: #0000004c;
   border-radius: 40px;
-  height: 446px;
+  height: 110vw;
   position: relative;
-  width: 1000;
+  width: 100%;
 }
 
 .box .text-wrapper {
