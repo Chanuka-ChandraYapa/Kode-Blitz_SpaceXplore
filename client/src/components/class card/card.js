@@ -1,3 +1,8 @@
+/**
+ * The Card component is a React component that displays information about a travel class and allows
+ * the user to select it.
+ * @returns The Card component is being returned.
+ */
 // Card.js
 import React from "react";
 import "./card.css"; // Import the corresponding CSS file

@@ -15,6 +15,12 @@ import TeamImage from "../../pages/landing/team.jpeg";
 import ServiceImage from "../../pages/landing/services.jpeg";
 import Search from "../../components/search/search";
 import DiscoverCard from "../../components/discoverCard/discover";
+/**
+ * The Landing component is a functional component in JavaScript that renders a landing page for a
+ * website called SpaceXplore.
+ * @returns The Landing component is returning a JSX element, which is a div containing various
+ * elements such as images, text, and buttons.
+ */
 const Landing = () => {
   return (
     <div>

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
+
 import "./home.css"; // Import the corresponding CSS file
 import BackImage from "../../utils/backdrop/backimage";
 import Card from "../../components/class card/card";
@@ -16,6 +17,9 @@ import Search from "../../components/search/search";
 import DiscoverCard from "../../components/discoverCard/discover";
 const API_BASE_URL = "http://localhost:5000";
 
+/* The code you provided is a functional component in JavaScript using React. It defines a component
+called "Home" that renders a webpage with various elements such as a background image, search bar,
+and cards for displaying planet information and flight schedules. */
 const Home = () => {
   const [travelPlanets, settravelPlanets] = useState([]);
   const [flightSchedules, setFlightSchedules] = useState([]);
@@ -37,7 +41,9 @@ const Home = () => {
       <div className="home-heading">Search Your Dream</div>
       <Search />
       <div className="booking-sub-title">Discover Planets</div>
-      <div className="booking-page">
+      <div className=/* The code you provided is rendering two sections on the webpage: "Discover
+      Planets" and "Flights Schedule". */
+      "booking-page">
         <div className="disScrolling">
           <div className="discontainer">
             {travelPlanets.map((planetName) => (

@@ -1,3 +1,11 @@
+/**
+ * The Sidebar component is a React component that displays a sidebar menu with a burger button to
+ * toggle its visibility.
+ * @returns The Sidebar component is returning a JSX element. It consists of a FontAwesomeIcon
+ * component for the burger button, and a div element with the class "sidebar" that contains a nav
+ * element with a list of links. The sidebar element has a dynamic class name that is determined by the
+ * value of the sidebarOpen state variable.
+ */
 import React, { useState, useEffect, useRef } from "react";
 import "./sidebar.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

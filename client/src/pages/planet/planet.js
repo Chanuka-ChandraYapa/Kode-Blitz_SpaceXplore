@@ -37,6 +37,8 @@ const Planet = () => {
       console.log(flightSchedules);
     });
   }, []);
+/* The `return` statement in the code is returning JSX (JavaScript XML) code, which represents the
+structure and content of the component's rendered output. */
   return (
     <div className="planet-container">
       <BackImage MyBackgroundImage={MyBackgroundImage} />

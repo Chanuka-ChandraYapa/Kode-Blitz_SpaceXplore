@@ -6,6 +6,10 @@ import PinkButton from "../../utils/button/button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 
+/**
+ * The SigninForm component is a form that takes user input for username, email, password, and
+ * confirmPassword and triggers a callback function onSignInSubmit when submitted.
+ */
 const SigninForm = ({ onSignInSubmit }) => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
@@ -15,6 +19,8 @@ const SigninForm = ({ onSignInSubmit }) => {
     confirmPassword: "",
   });
 
+/* The code snippet is defining several state variables and functions using the `useState` hook in
+React. */
   const [showPassword, setShowPassword] = useState(false);
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -30,6 +36,13 @@ const SigninForm = ({ onSignInSubmit }) => {
     }));
   };
 
+/**
+ * The handleSubmit function is responsible for handling form submission, performing basic form
+ * validation, and resetting form data and error message.
+ * @param e - The parameter `e` is an event object that represents the event that triggered the form
+ * submission. In this case, it is the form submission event.
+ * @returns The function is not returning anything.
+ */
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -42,13 +55,11 @@ const SigninForm = ({ onSignInSubmit }) => {
     try {
       onSignInSubmit();
       navigate("/");
-      // Your authentication logic here, e.g., using axios and an API call
-      // If authentication is successful, navigate to the home page // Replace "/home" with the actual route of your home page
+
     } catch (error) {
       setError("Authentication failed."); // Set an appropriate error message
     }
-    // Here you can implement your actual authentication logic
-    // For simplicity, I'll just log the data to the console
+
     console.log("Form data:", formData);
 
     // Reset form data and error message
@@ -66,6 +77,7 @@ const SigninForm = ({ onSignInSubmit }) => {
       <form className="signin-form" onSubmit={handleSubmit}>
         <h2>Sign In</h2>
         <input
+          /* The code snippet is defining an input field for the username in a sign-in form. */
           className="signin-input"
           type="text"
           name="Username"
@@ -75,6 +87,7 @@ const SigninForm = ({ onSignInSubmit }) => {
         />
         <div className="password-input-container">
           <input
+            /* The code snippet is defining an input field for the password in a sign-in form. */
             className="signup-input password-input"
             type={showPassword ? "text" : "password"}
             name="password"

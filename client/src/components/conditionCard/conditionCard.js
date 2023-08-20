@@ -1,3 +1,8 @@
+/**
+ * The `ConditionCard` component is a React component that renders a card with various images and text.
+ * @returns The `ConditionCard` component is returning a JSX structure that represents a card with
+ * various elements such as text, images, and a button.
+ */
 import React from "react";
 import "./conditionCard.css";
 import PinkButton from "../../utils/button/button";

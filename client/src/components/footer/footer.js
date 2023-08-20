@@ -1,3 +1,8 @@
+/**
+ * The above code is a React component that renders a footer with links and social media icons.
+ * @returns The Footer component is returning a JSX structure that represents the footer section of a
+ * website. It includes a heading, a list of links, social media icons, and a copyright notice.
+ */
 import React from "react";
 import "./footer.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

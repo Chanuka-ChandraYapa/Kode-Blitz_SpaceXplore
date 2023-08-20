@@ -1,3 +1,8 @@
+/**
+ * The above code is a React component that renders a DiscoverCard with text, subtext, subsubtext,
+ * subsubsubtext, and a background image.
+ * @returns The DiscoverCard component is being returned.
+ */
 import React from "react";
 import "./discover.css"; // Import the corresponding CSS file
 const DiscoverCard = ({

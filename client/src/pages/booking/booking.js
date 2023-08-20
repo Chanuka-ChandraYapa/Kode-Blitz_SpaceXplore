@@ -15,6 +15,8 @@ import Sidebar from "../../components/sideBar/sidebar";
 const API_BASE_URL = "http://localhost:5000";
 
 const Booking = () => {
+/* The code snippet is using the `useParams` hook from the `react-router-dom` library to extract the
+`flightid` parameter from the URL. */
   const { flightid } = useParams();
   const [spaceshipData, setSpaceshipData] = useState({
     name: "",
@@ -25,6 +27,8 @@ const Booking = () => {
     destinationPlanet: "",
     price: 0,
   });
+/* These lines of code are using the `useState` hook from React to create and initialize state
+variables in the `Booking` component. */
   const [selectedSeats, setSelectedSeats] = useState([]); // Maintain selected seats
   const [passengerCount, setPassengerCount] = useState(0);
   const [adultCount, setAdultCount] = useState(1);
@@ -45,6 +49,10 @@ const Booking = () => {
     pointerEvents: "auto",
   };
 
+/**
+ * The `handleBookNow` function converts selected seats into an array of objects and sends a POST
+ * request to reserve the seats.
+ */
   const handleBookNow = async () => {
     try {
       // Convert selectedSeats into an array of objects with the required format
@@ -66,6 +74,8 @@ const Booking = () => {
     }
   };
 
+/* The `useEffect` hook is used to perform side effects in functional components. In this code snippet,
+the `useEffect` hook is used to fetch travel classes data from the backend API. */
   useEffect(() => {
     // Fetch travel classes data from backend
     axios
@@ -79,6 +89,7 @@ const Booking = () => {
       });
   }, []);
 
+/* The `useEffect` hook in the code snippet is used to fetch spaceship data from the backend API. */
   useEffect(() => {
     // Fetch spaceship data from backend
     console.log(flightid);
@@ -95,6 +106,12 @@ const Booking = () => {
     });
   }, []);
 
+/* The code snippet is rendering a section of the booking page where the user can select their desired
+travel class. It uses the `travelClasses` array to map over each travel class and render a `Card`
+component for each one. The `Card` component displays information about the travel class, such as
+the date, class name, departure and destination planets, and price. The `setselectedtravelClass`
+function is passed as a prop to the `Card` component, allowing the user to select a travel class by
+clicking on a card. */
   return (
     <div>
       <BackImage MyBackgroundImage={MyBackgroundImage} />
