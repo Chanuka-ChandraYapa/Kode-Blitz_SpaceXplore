@@ -201,33 +201,7 @@ const ProfilePageMobile = () => {
             </div>
           </div>
           <div className="center-box" />
-          <div className="gavigation-bar">
-            <div className="overlap-13">
-              <div className="overlap-group-5">
-                <div className="text-wrapper-77">Spacexplore</div>
-                <img
-                  className="healthicons-ui-user"
-                  alt="Healthicons ui user"
-                  src="https://generation-sessions.s3.amazonaws.com/1d38d6504eeb72f83963adf976d8c7c8/img/healthicons-ui-user-profile.svg"
-                />
-              </div>
-              <img
-                className="iconamoon-menu"
-                alt="Iconamoon menu"
-                src="https://generation-sessions.s3.amazonaws.com/1d38d6504eeb72f83963adf976d8c7c8/img/iconamoon-menu-burger-horizontal-bold.svg"
-              />
-              <img
-                className="alarm-bell"
-                alt="Alarm bell"
-                src="https://generation-sessions.s3.amazonaws.com/1d38d6504eeb72f83963adf976d8c7c8/img/alarm-bell@2x.png"
-              />
-              <img
-                className="octicon-sign-out"
-                alt="Octicon sign out"
-                src="https://generation-sessions.s3.amazonaws.com/1d38d6504eeb72f83963adf976d8c7c8/img/octicon-sign-out-16.svg"
-              />
-            </div>
-          </div>
+
           <img
             className="pro-pic-large"
             alt="Pro pic large"

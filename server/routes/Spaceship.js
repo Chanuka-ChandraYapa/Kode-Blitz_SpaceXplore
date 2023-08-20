@@ -2,8 +2,9 @@ const express = require("express");
 const router = express.Router();
 const { sequelize, SpaceShip, Flight_Schedule, Flight } = require("../models");
 
-router.get("/spaceship", async (req, res) => {
-  const flightId = "001";
+router.get("/spaceship/:flightid", async (req, res) => {
+  const flightId = req.params.flightid;
+  console.log(flightId);
 
   try {
     const query = `

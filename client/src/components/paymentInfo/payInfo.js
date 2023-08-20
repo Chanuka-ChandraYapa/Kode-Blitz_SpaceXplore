@@ -7,7 +7,10 @@ const PaymentInfo = () => {
   const [CVV, setCVV] = useState("");
 
   const handleFullNameChange = (event) => {
-    setFullName(event.target.value);
+    const input = event.target.value;
+    const onlyNumbers = input.replace(/\D/g, ""); // Remove non-digit characters
+    const truncatedValue = onlyNumbers.slice(0, 16); // Limit to maximum length
+    setFullName(truncatedValue);
   };
 
   const handleexpDate = (event) => {
@@ -15,7 +18,10 @@ const PaymentInfo = () => {
   };
 
   const handleCVV = (event) => {
-    setCVV(event.target.value);
+    const input = event.target.value;
+    const onlyNumbers = input.replace(/\D/g, ""); // Remove non-digit characters
+    const truncatedValue = onlyNumbers.slice(0, 3); // Limit to maximum length
+    setCVV(truncatedValue);
   };
 
   const handleSubmit = (event) => {

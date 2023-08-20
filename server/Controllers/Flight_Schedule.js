@@ -18,7 +18,7 @@ router.get("/latest-flights", async (req, res) => {
         {
           model: Flight,
           as: "Flight", // Use the alias specified in the model
-          attributes: ["Flight_Price", "Duration"],
+          attributes: ["Flight_Price", "Duration", "Destination_Planet"],
         },
         {
           model: SpaceShip,
@@ -34,6 +34,49 @@ router.get("/latest-flights", async (req, res) => {
     } else {
       // If no Flight_Schedules are found, return a 404 error
       res.status(404).json({ message: "Flight Schedules not found." });
+    }
+  } catch (error) {
+    console.error("Error:", error);
+    res.status(500).json({ message: "An error occurred." });
+  }
+});
+
+router.get("/flight/:planetname", async (req, res) => {
+  try {
+    const planetName = req.params.planetname; // Get the planet name from the URL parameter
+
+    // Query the database using Sequelize's built-in methods
+    const latestFlightSchedules = await Flight_Schedule.findAll({
+      attributes: [
+        "Schedule_ID",
+        "Flight_ID",
+        [sequelize.fn("date", sequelize.col("Starting_Time")), "Starting_Date"],
+      ],
+      order: [["Starting_Time", "DESC"]],
+      limit: 4,
+      include: [
+        {
+          model: Flight,
+          as: "Flight",
+          attributes: ["Flight_Price", "Duration", "Destination_Planet"],
+          where: { Destination_Planet: planetName }, // Filter by the destination planet
+        },
+        {
+          model: SpaceShip,
+          as: "SpaceShip",
+          attributes: ["Model_Name"],
+        },
+      ],
+    });
+
+    if (latestFlightSchedules.length > 0) {
+      res.json(latestFlightSchedules);
+    } else {
+      res
+        .status(404)
+        .json({
+          message: "Flight Schedules not found for the specified planet.",
+        });
     }
   } catch (error) {
     console.error("Error:", error);
