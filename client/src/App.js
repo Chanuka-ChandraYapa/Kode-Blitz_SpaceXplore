@@ -1,29 +1,34 @@
-import React, { useState, createContext, useContext } from "react";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Navigate,
-} from "react-router-dom";
-import NavigationBar from "./components/navBar/navigationBar";
-import Home from "./pages/home/home";
-import SignUpForm from "./pages/signUp/signUp";
-import SigninForm from "./pages/signIn/signIn";
+import logo from "./logo.svg";
+import "./App.css";
+import Card from "./components/class card/card";
+// import ProfilePageMobile from "./pages/profile";
+import NewCard from "./components/Aluthcardeka/new_card";
+
+import Footer from "./components/footer/footer";
+
+import BackgroundComponent from "./components/backgroundImage/background";
+import Calendar from "./components/calendar/calendar";
+
+import CardSlider from "./cardSlider";
+
+import ImageSlider from "./components/slidingCard/Slideshow";
+import BGComponent from "./components/backgroundImage/bg";
+
+
+import { BrowserRouter as Router, Routes, Route,Switch } from "react-router-dom";
+
 import ProfilePageMobile from "./pages/profile/profile";
 import Planet from "./pages/planet/planet";
 import Booking from "./pages/booking/booking";
-
-// Create an AuthContext to manage authentication state
-const AuthContext = createContext();
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(true); // Change as needed
 
   return (
-    <AuthContext.Provider value={{ isAuthenticated, setIsAuthenticated }}>
-      <Router>
-        {/* <NavigationBar /> */}
+    <Router>
+      <div>
         <Routes>
+          {/* <Route path="/" element={<Home />} /> */}
           <Route path="/signup" element={<SignUpForm />} />
           <Route path="/Signin" element={<SigninForm />} />
 
@@ -44,8 +49,8 @@ function App() {
             element={<PrivateRoute Component={Booking} />}
           />
         </Routes>
-      </Router>
-    </AuthContext.Provider>
+      </div>
+    </Router>
   );
 }
 
@@ -57,3 +62,5 @@ function PrivateRoute({ Component }) {
 }
 
 export default App;
+
+

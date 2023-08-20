@@ -16,18 +16,20 @@
   .void {
     margin-top: 90%;
   }
-  .home-heading {
-    top:50%;
+  .landing-heading {
     font-family: 'Orbitron', sans-serif;
     font-weight: 700;
-    font-size: 28px;
+    font-size: 36px;
     line-height: 24px;
     text-align: center;
     text-transform: uppercase;
     color: #E3E3E3;
+    z-index: 2;
   }
-
-  .discontainer {
+  .landing-button{
+    margin-top: 5%;
+  }
+  .landcontainer {
     display: flex;
     justify-content: center;
     flex-direction: row;
@@ -35,14 +37,14 @@
     /* Add any other styles you want for the container */
   }
   
-  .disScrolling {
+  .landScrolling {
     max-width: 90vw;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     /* Add any other styles you want for the scrolling container */
   }
   
-  .discard {
+  .landcard {
     width: 230px;
     height: 90vw;
     min-width: 50px; /* Set a minimum width for each card */ /* Set the desired height for the cards */ /* Example background color */
@@ -50,26 +52,26 @@
     flex-shrink: 0; /* Prevent cards from shrinking */
     /* Add any other styles you want for the cards */
   }
-  .booking-sub-heading {
-    top:50%;
-    font-family: 'Urbanist', sans-serif;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 18px;
-    text-align:left;
-    text-transform: uppercase;
-    color: #E3E3E3;
+  .landing-sub-heading {
+    padding: 2%;
     margin-top: 5%;
-    margin-bottom: 5%;
-  }
-
-  .booking-sub-title {
     top:50%;
     font-family: 'Orbitron', sans-serif;
     font-weight: 700;
-    font-size: 24px;
+    font-size: 30px;
     line-height: 24px;
     text-align: center;
-    text-transform: uppercase;
+    color: #E3E3E3;
+  }
+
+  .landing-sub-title {
+    padding: 2%;
+    margin-top: 5%;
+    top:50%;
+    font-family: 'Urbanist', sans-serif;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 24px;
+    text-align: center;
     color: #E3E3E3;
   }

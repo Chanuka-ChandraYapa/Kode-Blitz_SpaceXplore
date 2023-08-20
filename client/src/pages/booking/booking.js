@@ -11,7 +11,7 @@ import SeatView from "../../components/seatView/seat";
 import PriceSummary from "../../components/paymentSummary/test";
 import MyBackgroundImage from "../../pages/booking/spaceship-names2.jpg";
 import Sidebar from "../../components/sideBar/sidebar";
-const API_BASE_URL = "http://localhost:5000";
+const API_BASE_URL = "http://192.168.43.150:5000";
 
 const Booking = () => {
   const [spaceshipData, setSpaceshipData] = useState({
@@ -25,6 +25,8 @@ const Booking = () => {
   });
   const [selectedSeats, setSelectedSeats] = useState([]); // Maintain selected seats
   const [passengerCount, setPassengerCount] = useState(0);
+  const [adultCount, setAdultCount] = useState(1);
+  const [childrenCount, setChildrenCount] = useState(0);
   const [travelClasses, setTravelClasses] = useState([]);
   const [selectedtravelClass, setselectedtravelClass] = useState([]);
 
@@ -108,6 +110,10 @@ const Booking = () => {
         <EnterDetails
           passengerCount={passengerCount}
           setPassengerCount={setPassengerCount}
+          adultCount={adultCount}
+          setAdultCount={setAdultCount}
+          childrenCount={childrenCount}
+          setChildrenCount={setChildrenCount}
         />
       </div>
       <div className="booking-sub-title"> Select Your Seat</div>
@@ -126,12 +132,12 @@ const Booking = () => {
       <div className="booking-sub-title">Payment summary</div>
       <div className="booking-page">
         <PriceSummary
-          passengers={3}
-          category={"Business"}
-          adults={2}
-          children={1}
-          pricePerAdult={100}
-          pricePerChild={50}
+          passengers={passengerCount}
+          category={selectedtravelClass.class}
+          adults={adultCount}
+          children={childrenCount}
+          pricePerAdult={spaceshipData.price}
+          //pricePerChild={50}
           discount={20}
         />
       </div>

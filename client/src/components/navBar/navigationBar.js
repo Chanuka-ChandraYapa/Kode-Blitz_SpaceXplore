@@ -18,9 +18,9 @@ const NavigationBar = () => {
       </div>
 
       <div className="logo">Spacexplore</div>
-      <div className="profile-icon">
+      <a className="profile-icon" href="/profile">
         <FontAwesomeIcon icon={faUser} />
-      </div>
+      </a>
       <div className="sign-out-icon">
         <FontAwesomeIcon icon={faArrowRightFromBracket} />
       </div>

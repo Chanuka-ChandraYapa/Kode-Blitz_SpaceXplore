@@ -6,10 +6,11 @@ const PriceSummary = ({
   adults,
   children,
   pricePerAdult,
-  category,
+  category = "",
   pricePerChild,
   discount,
 }) => {
+  pricePerChild = pricePerAdult * (3 / 4);
   const totalAdultPrice = adults * pricePerAdult;
   const totalChildPrice = children * pricePerChild;
   const subtotal = totalAdultPrice + totalChildPrice;

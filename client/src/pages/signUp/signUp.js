@@ -90,7 +90,7 @@ const SignUpForm = () => {
             onChange={handleChange}
           />
           <span className="password-toggle" onClick={togglePasswordVisibility}>
-            <FontAwesomeIcon icon={showPassword ? faEye: faEyeSlash } />
+            <FontAwesomeIcon icon={showPassword ? faEye : faEyeSlash} />
           </span>
         </div>
         <input
@@ -102,8 +102,11 @@ const SignUpForm = () => {
           onChange={handleChange}
         />
         {error && <p className="signup-error">{error}</p>}
-        <PinkButton type="submit" text={"Sign Up"} />
+        <PinkButton type="submit" text={"Sign Up"} size={20} />
       </form>
+      <div className="sign-in">
+        Already registered ?<a href="/signIn"> Sign In</a>
+      </div>
     </div>
   );
 };
