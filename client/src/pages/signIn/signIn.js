@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./signIn.css";
 import PinkButton from "../../components/button/button";
@@ -6,7 +7,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 const API_BASE_URL = "http://localhost:5000";
 
-const SigninForm = () => {
+const SigninForm = ({ onSignInSubmit }) => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     Username: "",
     password: "",

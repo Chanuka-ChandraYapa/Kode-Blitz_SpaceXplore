@@ -24,21 +24,39 @@ import Yet from "./pages/ToBeImplemented/yet";
 const AuthContext = createContext();
 
 function App() {
-  const [isAuthenticated, setIsAuthenticated] = useState(true); // Change as needed
+  console.log("App restart");
 
+  const storedIsAuthenticated = localStorage.getItem("isAuthenticated");
+  const [isAuthenticated, setIsAuthenticated] = useState(
+    storedIsAuthenticated === "true"
+  );
+
+  const handleSignInSubmit = () => {
+    setIsAuthenticated(true);
+    localStorage.setItem("isAuthenticated", "true");
+  };
+
+  const handleSignOut = () => {
+    setIsAuthenticated(false);
+    localStorage.setItem("isAuthenticated", "false");
+  };
+
+  console.log(isAuthenticated);
   return (
     <AuthContext.Provider value={{ isAuthenticated, setIsAuthenticated }}>
       <Router>
         <div>
           <div className="App">
             <div className="App-header">
-              <NavigationBar />
-
               <Routes>
+                <Route path="/landing" element={<Landing />} />
                 {/* <Route path="/" element={<Home />} /> */}
                 <Route path="/signup" element={<SignUp />} />
-                <Route path="/Signin" element={<SigninForm />} />
-                <Route path="/landing" element={<Landing />} />
+                <Route
+                  path="/Signin"
+                  element={<SigninForm onSignInSubmit={handleSignInSubmit} />}
+                />
+
                 <Route
                   exact
                   path="/"
@@ -85,6 +103,9 @@ function App() {
                   element={<PrivateRoute Component={Yet} />}
                 />
               </Routes>
+              {isAuthenticated && (
+                <NavigationBar handleSignOut={handleSignOut} />
+              )}
             </div>
           </div>
         </div>

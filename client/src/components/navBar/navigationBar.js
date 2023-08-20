@@ -10,7 +10,9 @@ import {
 import "./navigationBar.css"; // Import your CSS file
 import Sidebar from "../sideBar/sidebar";
 
-const NavigationBar = () => {
+const NavigationBar = ({ handleSignOut }) => {
+
+
   return (
     <div className="navigation-bar">
       <div className="menu-icon">
@@ -21,7 +23,7 @@ const NavigationBar = () => {
       <a className="profile-icon" href="/profile">
         <FontAwesomeIcon icon={faUser} />
       </a>
-      <div className="sign-out-icon">
+      <div className="sign-out-icon" onClick={handleSignOut}>
         <FontAwesomeIcon icon={faArrowRightFromBracket} />
       </div>
     </div>
