@@ -1,5 +1,5 @@
 # Kode-Blitz_SpaceXplore
-A ticket Booking System for interplanetary space travel
+A ticket Booking System for interplanetary space travel. Find the figma design [here](https://www.figma.com/file/bUm7hrFmVn08GivuCY8AOd/SpaceXplore?type=design&node-id=9-318&mode=design)
 
 ## Setup Guide
 
